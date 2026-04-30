@@ -1,4 +1,5 @@
 -- Seed inicial — Omar-404, apenas para populat o banco
+SET client_encoding TO 'UTF8';
 
 INSERT INTO usuarios (nome, email, senha, perfil) VALUES
   ('Admin', 'admin@omar404.com', '123456', 'admin');
