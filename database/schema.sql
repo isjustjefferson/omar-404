@@ -24,7 +24,7 @@ CREATE TABLE falecidos (
   data_nascimento DATE,
   data_falecimento DATE NOT NULL,
   causa_morte VARCHAR(255),
-  cliente_id INT REFERENCES clientes(id),
+  cliente_id INT NOT NULL REFERENCES clientes(id) ON DELETE RESTRICT,
   criado_em TIMESTAMP DEFAULT NOW()
 );
 
@@ -32,8 +32,9 @@ CREATE TABLE servicos (
   id SERIAL PRIMARY KEY,
   tipo VARCHAR(100) NOT NULL,
   descricao TEXT,
-  valor NUMERIC(10,2) NOT NULL,
-  falecido_id INT REFERENCES falecidos(id),
+  valor NUMERIC(10,2) NOT NULL CHECK (valor >= 0),
+  falecido_id INT NOT NULL REFERENCES falecidos(id) ON DELETE RESTRICT,
   status VARCHAR(50) DEFAULT 'pendente',
+    CHECK (status IN ('pendente', 'em_andamento', 'concluido', 'cancelado')),
   criado_em TIMESTAMP DEFAULT NOW()
 );

@@ -78,11 +78,12 @@ npm run dev
 
 Acessa no navegador: [http://localhost:3000](http://localhost:3000)
 
-Deve retornar:
-```json
-{ "message": "Omar-404 API funcionando ✓" }
-```
-> Se retornar algo diferente, tu me diz o que foi.
+> Endpoints criados até agora:
+> '/' (health): Verifica se a API está funcionando
+> '/falecido': Retorna todas as linhas da tabela Falecido em json.
+> '/servico': Retorna todas as linhas da tabela Servico em json.
+> '/cliente': Retorna todas as linhas da tabela Cliente em json.
+> '/usuario': Retorna todas as linhas da tabela Usuario em json.
 
 ---
 

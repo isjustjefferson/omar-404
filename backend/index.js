@@ -12,9 +12,30 @@ app.get('/', (req, res) => {
 
 const Falecido = require('./models/Falecido');
 
-app.get('/test', async(req, res) => {
+app.get('/falecido', async(req, res) => {
   const falecidos = await Falecido.listarTodos();
   res.json(falecidos);
+});
+
+const Servico = require('./models/Servico');
+
+app.get('/servico', async(req, res) => {
+  const servicos = await Servico.listarTodos();
+  res.json(servicos);
+});
+
+const Cliente = require('./models/Cliente');
+
+app.get('/cliente', async(req, res) => {
+  const clientes = await Cliente.listarTodos();
+  res.json(clientes);
+});
+
+const Usuario = require('./models/Usuario');
+
+app.get('/usuario', async(req, res) => {
+  const usuarios = await Usuario.listarTodos();
+  res.json(usuarios);
 });
 
 const PORT = process.env.PORT || 3000;
