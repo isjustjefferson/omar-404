@@ -1,5 +1,14 @@
 -- Omar-404: Sistema de Administração de Funerária
 
+CREATE TABLE usuarios (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  email VARCHAR(100) UNIQUE NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  perfil VARCHAR(50) DEFAULT 'operador', -- 'admin' ou 'operador'
+  criado_em TIMESTAMP DEFAULT NOW()
+);
+
 CREATE TABLE clientes (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(150) NOT NULL,

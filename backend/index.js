@@ -10,6 +10,13 @@ app.get('/', (req, res) => {
   res.json({ message: 'Omar-404 API funcionando' });
 });
 
+const Falecido = require('./models/Falecido');
+
+app.get('/test', async(req, res) => {
+  const falecidos = await Falecido.listarTodos();
+  res.json(falecidos);
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);

@@ -64,7 +64,12 @@ Na raiz do projeto:
 psql -U postgres -d omar404 -f database/schema.sql
 ```
 
-### 5. Rodar o servidor
+### 5. Popular o banco de dados (seed)
+```bash
+psql -U postgres -d omar404 -f database/seed.sql
+```
+
+### 6. Rodar o servidor
 
 ```bash
 cd backend
