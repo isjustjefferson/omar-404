@@ -1,5 +1,7 @@
 -- Omar-404: Sistema de Administração de Funerária
 
+SET client_encoding TO 'UTF8';
+
 CREATE TABLE usuarios (
   id SERIAL PRIMARY KEY,
   nome VARCHAR(150) NOT NULL,
