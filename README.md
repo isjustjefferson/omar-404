@@ -1,89 +1,18 @@
-# omar-404
+# Omar-404 — Sistema de Administração de Funerária
+
+## Tecnologias
+
+- **Backend:** Node.js + Express
+- **Banco de dados:** PostgreSQL
+- **Autenticação:** JWT + bcryptjs
+
+---
 
 ## Pré-requisitos
-
-Antes de rodar o projeto, instale:
 
 - [Node.js v18+](https://nodejs.org)
 - [PostgreSQL v14+](https://www.postgresql.org/download/)
 - [Git](https://git-scm.com)
-
----
-
-## Como rodar
-
-### 1. Instalar as dependências do backend
-
-```bash
-cd backend
-npm install
-```
-
-### 2. Configurar as variáveis de ambiente
-
-Dentro da pasta `backend/`, copia o arquivo de exemplo e preenche com teus dados:
-
-```bash
-cp .env.example .env
-```
-
-Abre o `.env` e preenche:
-
-```env
-PORT=3000
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=omar404
-DB_USER=postgres
-DB_PASSWORD=sua_senha_aqui (usa aquela senha que te passei no Discord)
-```
-
-### 3. Criar o banco de dados
-
-Abre o terminal do PostgreSQL e cria o banco:
-
-```bash
-psql -U postgres
-```
-
-```sql
-CREATE DATABASE omar404;
-\q
-```
-
-> **Windows:** se `psql` não for reconhecido, use o caminho completo:
-> `"C:\Program Files\PostgreSQL\18\bin\psql.exe" -U postgres`
-> Ou use o **pgAdmin** ou **DBeaver**.
-> Ou também dá para configurar nas variáveis do ambiente.
-
-### 4. Executar o schema (criar as tabelas)
-
-Na raiz do projeto:
-
-```bash
-psql -U postgres -d omar404 -f database/schema.sql
-```
-
-### 5. Popular o banco de dados (seed)
-```bash
-psql -U postgres -d omar404 -f database/seed.sql
-```
-
-### 6. Rodar o servidor
-
-```bash
-cd backend
-npm run dev
-```
-
-Acessa no navegador: [http://localhost:3000](http://localhost:3000)
-
-> Endpoints criados até agora:
-> '/' (health): Verifica se a API está funcionando
-> '/falecido': Retorna todas as linhas da tabela Falecido em json.
-> '/servico': Retorna todas as linhas da tabela Servico em json.
-> '/cliente': Retorna todas as linhas da tabela Cliente em json.
-> '/usuario': Retorna todas as linhas da tabela Usuario em json.
 
 ---
 
@@ -95,18 +24,136 @@ omar-404/
 ├── backend/
 │   ├── config/
 │   │   └── db.js
-│   ├── models/
-│   ├── views/
 │   ├── controllers/
-│   ├── events/
-│   └── index.js
+│   │   ├── authController.js
+│   │   └── usuarioController.js
+│   ├── middlewares/
+│   │   └── auth.js
+│   ├── models/
+│   │   ├── Usuario.js
+│   │   ├── Falecido.js
+│   │   ├── Cliente.js
+│   │   └── Servico.js
+│   ├── views/
+│   │   ├── authRoutes.js
+│   │   └── usuarioRoutes.js
+│   ├── server.js
+│   ├── package.json
+│   └── .env.example
 ├── database/
-│   └── schema.sql
+│   ├── schema.sql
+│   └── seed.sql
 └── README.md
 ```
 
 ---
 
-## Dúvidas
+## Como rodar localmente
 
-Manda um zap ( ͡° ͜ʖ ͡°)
+### 1. Instalar dependências
+
+```bash
+cd backend
+npm install
+```
+
+### 2. Configurar variáveis de ambiente
+
+```bash
+cp .env.example .env
+```
+
+Preencha o `.env` com seus dados:
+
+```env
+PORT=3000
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=omar404
+DB_USER=postgres
+DB_PASSWORD=sua_senha_aqui
+JWT_SECRET=um_segredo_longo_e_aleatorio
+```
+
+### 3. Criar o banco de dados
+
+```bash
+psql -U postgres
+```
+
+```sql
+CREATE DATABASE omar404 ENCODING 'UTF8' LC_COLLATE 'Portuguese_Brazil.1252' LC_CTYPE 'Portuguese_Brazil.1252' TEMPLATE template0;
+\q
+```
+
+> **Linux/macOS:** use `pt_BR.UTF-8` no lugar de `Portuguese_Brazil.1252`
+
+### 4. Executar o schema e o seed
+
+```bash
+psql -U postgres -d omar404 -f database/schema.sql
+psql -U postgres -d omar404 -f database/seed.sql
+```
+
+### 5. Rodar o servidor
+
+```bash
+cd backend
+npm run dev
+```
+
+Acesse: [http://localhost:3000](http://localhost:3000)
+
+---
+
+## Endpoints disponíveis
+
+### Autenticação
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| POST | `/auth/register` | Criar novo usuário |
+| POST | `/auth/login` | Login e geração do token JWT |
+
+### Perfil (requer token)
+
+| Método | Rota | Descrição |
+|--------|------|-----------|
+| GET | `/users/me` | Ver perfil do usuário logado |
+| GET | `/users` | Listar todos os usuários |
+| PUT | `/users/me` | Atualizar perfil |
+| DELETE | `/users/me` | Remover conta |
+
+### Como usar o token
+
+Após o login, inclua o token em todas as requisições protegidas:
+
+```
+Authorization: Bearer SEU_TOKEN_AQUI
+```
+
+---
+
+## Criar o primeiro usuário
+
+O seed não cria usuários com senha criptografada. Crie o primeiro admin via API:
+
+```
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "nome": "Admin",
+  "email": "admin@omar404.com",
+  "senha": "sua_senha",
+  "perfil": "admin"
+}
+```
+Após isso, você pode rodar o seed para popular o banco, caso queira.
+---
+
+## Observacoes
+
+- Nunca suba o arquivo `.env` para o GitHub — ele está no `.gitignore`
+- O `JWT_SECRET` em producao deve ser uma string longa e aleatoria
+- Senhas sao armazenadas com hash bcrypt — nunca em texto puro
