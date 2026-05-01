@@ -1,7 +1,7 @@
 const db = require('../config/db.js');
 const axios = require('axios');
 
-function validarCPF(cpf) {
+async function validarCPF(cpf) {
     const cpfLimpo = cpf.replace(/[.\-]/g, '');
 
     try {
@@ -48,14 +48,17 @@ const Cliente = {
 
     async buscarPorId(id) {
         const result = await db.query(
-            `SELECT * FROM clientes WHERE id $1`,
+            `SELECT * FROM clientes WHERE id = $1`,
             [id]
         );
         return result.rows[0];
     },
 
     async buscarComFalecidos(id) {
-        const cliente = buscarPorId(id);
+        const cliente = await db.query(
+            `SELECT * FROM clientes WHERE id = $1`,
+            [id]
+        );
 
         if (cliente.rows.length === 0) return null;
 
