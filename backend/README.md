@@ -1,55 +1,19 @@
-# Omar-404 — Sistema de Administração de Funerária
+# BACKEND Omar-404 
 
 ## Tecnologias
 
 - **Backend:** Node.js + Express
 - **Banco de dados:** PostgreSQL
-- **Autenticacao:** JWT + bcryptjs
-- **Validacao de CPF:** Brasil API
+- **Autenticaçaão:** JWT + bcryptjs
+- **Validação de CPF:** Brasil API
 
 ---
 
-## Pre-requisitos
+## Pré-requisitos
 
 - [Node.js v18+](https://nodejs.org)
 - [PostgreSQL v14+](https://www.postgresql.org/download/)
 - [Git](https://git-scm.com)
-
----
-
-## Estrutura do projeto
-
-```
-omar-404/
-├── frontend/
-├── backend/
-│   ├── config/
-│   │   └── db.js
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── usuarioController.js
-│   │   ├── falecidoController.js
-│   │   └── clienteController.js
-│   ├── middlewares/
-│   │   └── auth.js
-│   ├── models/
-│   │   ├── Usuario.js
-│   │   ├── Falecido.js
-│   │   ├── Cliente.js
-│   │   └── Servico.js
-│   ├── views/
-│   │   ├── authRoutes.js
-│   │   ├── usuarioRoutes.js
-│   │   ├── falecidoRoutes.js
-│   │   └── clienteRoutes.js
-│   ├── index.js
-│   ├── package.json
-│   └── .env.example
-├── database/
-│   ├── schema.sql
-│   └── seed.sql
-└── README.md
-```
 
 ---
 
