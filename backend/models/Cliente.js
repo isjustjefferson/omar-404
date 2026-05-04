@@ -24,7 +24,7 @@ const Cliente = {
         }
 
         const existe = await db.query(
-            `SELECT id FROM clientes WHER cpf = $1`,
+            `SELECT id FROM clientes WHERE cpf = $1`,
             [cpf]
         );
         if (existe.rows.length > 0) {
@@ -36,7 +36,7 @@ const Cliente = {
             VALUES ($1, $2, $3, $4) RETURNING *`,
             [nome, cpf, telefone, email]
         );
-        return result.rown[0];
+        return result.rows[0];
     },
 
     async listarTodos() {
@@ -75,7 +75,7 @@ const Cliente = {
 
     async atualizar(id, { nome, telefone, email }) {
         const result = await db.query(
-            `UPDATE cliente SET nome = $1, telefone = $2, email = $3
+            `UPDATE clientes SET nome = $1, telefone = $2, email = $3
             WHERE id = $4 RETURINING *`,
             [nome, telefone, email, id]
         );

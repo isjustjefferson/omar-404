@@ -34,7 +34,7 @@ const Usuario = {
         return result.rows[0];
     },
 
-    async deletar() {
+    async deletar(id) {
         const result = await db.query(`DELETE FROM usuarios WHERE id = $1`);
     },
 

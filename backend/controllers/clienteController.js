@@ -48,6 +48,9 @@ const clienteController = {
                 });
             }
             const atualizado = await Cliente.atualizar(req.params.id, req.body);
+            return res.json({
+                mensagem: 'Cliente atualizado com sucesso.'
+            });
         } catch (err) {
             return res.status(500).json({
                 erro: err.message
@@ -65,7 +68,7 @@ const clienteController = {
             }
             await Cliente.deletar(req.params.id);
             return res.json({
-                mensagem: 'Cliente removido com sucesso'
+                mensagem: 'Cliente removido com sucesso.'
             });
         } catch (err) {
             if (err.code === '23503') {
