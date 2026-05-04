@@ -6,6 +6,7 @@ const authRoutes = require('./views/authRoutes');
 const usuarioRoutes = require('./views/usuarioRoutes');
 const falecidoRoutes = require('./views/falecidoRoutes');
 const clienteRoutes = require('./views/clienteRoutes');
+const servicoRoutes = require('./views/servicoRoutes');
 
 const app = express();
 app.use(cors());
@@ -15,6 +16,7 @@ app.use('/auth', authRoutes);
 app.use('/users', usuarioRoutes);
 app.use('/falecidos', falecidoRoutes);
 app.use('/clientes', clienteRoutes);
+app.use('/servicos', servicoRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'Omar-404 API funcionando' });

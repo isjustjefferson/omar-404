@@ -13,6 +13,6 @@ INSERT INTO falecidos (nome, data_nascimento, data_falecimento, causa_morte, cli
   ('José Silva', '1940-03-10', '2024-01-15', 'Causas naturais', 1),
   ('Ana Santos', '1955-07-22', '2024-02-03', 'Causas naturais', 2);
 
-INSERT INTO servicos (tipo, descricao, valor, falecido_id, status) VALUES
-  ('Velório', 'Sala standard 12h', 1500.00, 1, 'concluido'),
-  ('Cremação', 'Cremação com urna simples', 3200.00, 2, 'pendente');
+INSERT INTO servicos (tipo, descricao, valor, data_velorio, data_sepultamento, falecido_id, cliente_id, status) VALUES
+  ('Velorio', 'Sala standard 12h', 1500.00, '2024-01-16 08:00:00', '2024-01-16 16:00:00', 1, 1, 'concluido'),
+  ('Cremacao', 'Cremacao com urna simples', 3200.00, '2024-02-04 09:00:00', NULL, 2, 2, 'pendente');

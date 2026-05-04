@@ -35,7 +35,10 @@ CREATE TABLE servicos (
   tipo VARCHAR(100) NOT NULL,
   descricao TEXT,
   valor NUMERIC(10,2) NOT NULL CHECK (valor >= 0),
+  data_velorio TIMESTAMP,
+  data_sepultamento TIMESTAMP,
   falecido_id INT NOT NULL REFERENCES falecidos(id) ON DELETE RESTRICT,
+  cliente_id INT NOT NULL REFERENCES clientes(id) ON DELETE RESTRICT,
   status VARCHAR(50) DEFAULT 'pendente',
     CHECK (status IN ('pendente', 'em_andamento', 'concluido', 'cancelado')),
   criado_em TIMESTAMP DEFAULT NOW()
