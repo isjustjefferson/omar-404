@@ -73,5 +73,5 @@ omar-404/
 ---
 
 ## Readme.md:
-- **(Backend README.md)[./backend/README.md]**: Guia para rodar o Backend localmente.
-- **(Frontend README.md)**: Guia para rodar o Frontend localmente. (à ser publicado)
+- **[Backend README.md](./backend/README.md)**: Guia para rodar o Backend localmente.
+- **[Frontend README.md]**: Guia para rodar o Frontend localmente. (à ser publicado)
