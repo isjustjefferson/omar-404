@@ -132,6 +132,17 @@ Content-Type: application/json
 | PUT | `/clientes/:id` | Atualizar cliente |
 | DELETE | `/clientes/:id` | Remover cliente |
 
+### Servicos (requer token)
+
+| Metodo | Rota | Descricao |
+|--------|------|-----------|
+| GET | `/servicos` | Listar todos os serviços |
+| GET | `/servicos/:id` | Buscar serviço por ID |
+| POST | `/servicos` | Cadastrar novo serviço |
+| PUT | `/servicos/:id` | Atualizar serviço |
+| PATCH | `/servicos/:id/status` | Atualizar status do serviço |
+| DELETE | `/clientes/:id` | Remover serviço |
+
 ### Como usar o token
 
 Apos o login, inclua o token em todas as requisicoes protegidas:
@@ -236,9 +247,35 @@ POST http://localhost:3000/falecidos
 > **Atencao:** o `cliente_id` precisa existir na tabela `clientes`.
 > Use `SELECT id, nome FROM clientes;` no psql para ver os IDs disponiveis.
 
+### Cadastrar servico
+```
+POST http://localhost:3000/servicos
+
+{
+  "tipo": "Velorio",
+  "descricao": "Sala standard 12h",
+  "valor": 1500.00,
+  "data_velorio": "2024-03-21 08:00:00",
+  "data_sepultamento": "2024-03-21 16:00:00",
+  "falecido_id": 1,
+  "cliente_id": 1
+}
+```
+
+### Atualizar apenas o status do servico
+
+```
+PATCH http://localhost:3000/servicos/1/status
+
+{
+  "status": "concluido"
+}
+```
+> Status válidos: `pendente`, `em_andamento`, `concluido`, `cancelado`.
+
 ---
 
-## Resetar dados do banco (opcional)
+## Resetar dados do banco (obrigatório)
 
 Se quiser limpar os dados e reiniciar os IDs do zero:
 
@@ -262,9 +299,9 @@ psql -U postgres -d omar404 -f database/seed.sql
 ## Observacoes
 
 - Nunca suba o arquivo `.env` para o GitHub — ele esta no `.gitignore`
-- O `JWT_SECRET` em producao deve ser uma string longa e aleatoria
+- O `JWT_SECRET` em producao deve ser uma string longa e aleatória
 - Senhas sao armazenadas com hash bcrypt — nunca em texto puro
 - O token JWT expira em 8h — apos isso e necessario fazer login novamente
 - O CPF deve estar no formato `000.000.000-00` e ser validado pela Brasil API
 - Clientes com falecidos vinculados nao podem ser removidos
-- IDs no PostgreSQL nao reiniciam automaticamente ao recriar registros — isso e comportamento normal
+- IDs no PostgreSQL não reiniciam automaticamente ao recriar registros — isso é comportamento normal

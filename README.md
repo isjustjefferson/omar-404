@@ -28,7 +28,8 @@ omar-404/
 │   │   ├── authController.js
 │   │   ├── usuarioController.js
 │   │   ├── falecidoController.js
-│   │   └── clienteController.js
+│   │   ├── clienteController.js
+│   │   └── servicoController.js
 │   ├── middlewares/
 │   │   └── auth.js
 │   ├── models/
@@ -40,7 +41,8 @@ omar-404/
 │   │   ├── authRoutes.js
 │   │   ├── usuarioRoutes.js
 │   │   ├── falecidoRoutes.js
-│   │   └── clienteRoutes.js
+│   │   ├── clienteRoutes.js
+│   │   └── servicoRoutes.js
 │   ├── .env.example
 │   ├── README.md
 │   ├── index.js
