@@ -1,3 +1,4 @@
+import api from '../services/api'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,16 +12,20 @@ export default function Login() {
   }
 
   async function handleSubmit(e) {
-    e.preventDefault()
-    setErro('')
-    try {
-      // const res = await axios.post('/api/auth/login', form)
-      // localStorage.setItem('token', res.data.token)
-      navigate('/')
-    } catch {
-      setErro('E-mail ou senha inválidos.')
-    }
+  e.preventDefault()
+  setErro('')
+  try {
+    const res = await api.post('/auth/login', {
+      email: form.email,
+      senha: form.senha
+    })
+    localStorage.setItem('token', res.data.token)
+    localStorage.setItem('usuario', JSON.stringify(res.data.usuario))
+    navigate('/')
+  } catch (err) {
+    setErro(err.response?.data?.erro || 'E-mail ou senha inválidos.')
   }
+}
 
   return (
     <div
