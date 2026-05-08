@@ -1,0 +1,87 @@
+const Cliente = require('../models/Cliente');
+
+const clienteController = {
+    async getAll(req, res) {
+        try {
+            const clientes = await Cliente.listarTodos();
+            return res.json(clientes);
+        } catch (err) {
+            return res.status(500).json({
+                erro: err.message
+            });
+        }
+    },
+
+    async getById(req, res) {
+        try {
+            const cliente = await Cliente.buscarComFalecidos(req.params.id);
+            if (!cliente) {
+                return res.status(404).json({
+                    erro: 'Cliente não encontrado.'
+                });
+            }
+            return res.json(cliente);
+        } catch (err) {
+            return res.status(500).json({
+                erro: err.message
+            });
+        }
+    },
+
+    async create(req, res) {
+        try {
+            const cliente = await Cliente.criar(req.body);
+            return res.status(201).json(cliente);
+        } catch (err) {
+            return res.status(400).json({
+                erro: err.message
+            });
+        }
+    },
+
+    async update(req, res) {
+        try {
+            const cliente = await Cliente.buscarPorId(req.params.id);
+            if(!cliente) {
+                return res.status(404).json({
+                    erro: 'Cliente não encontrado.'
+                });
+            }
+            const atualizado = await Cliente.atualizar(req.params.id, req.body);
+            return res.json({
+                mensagem: 'Cliente atualizado com sucesso.'
+            });
+        } catch (err) {
+            return res.status(500).json({
+                erro: err.message
+            });
+        }
+    },
+
+    async delete(req, res) {
+        try {
+            const cliente = await Cliente.buscarPorId(req.params.id);
+            if (!cliente) {
+                return res.status(404).json({
+                    erro: 'Cliente não encontrado.'
+                });
+            }
+            await Cliente.deletar(req.params.id);
+            return res.json({
+                mensagem: 'Cliente removido com sucesso.'
+            });
+        } catch (err) {
+            if (err.code === '23503') {
+                return res.status(400).json({
+                    erro: 'Não é possível removeu um cliente que possui falecidos vinculados.'
+                });
+            }
+
+            return res.status(500).json({
+                erro: err.message
+            });
+        }
+    }
+}
+
+module.exports = clienteController;
