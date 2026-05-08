@@ -1,11 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import api from '../services/api'
 import ContratoModal from '../components/ContratoModal'
-
-const mockData = [
-  { id: 1, tipo: 'Velório + Sepultamento', descricao: '', valor: 'R$ 4.500,00', falecido_id: 1, status: 'pendente'     },
-  { id: 2, tipo: 'Cremação',               descricao: '', valor: 'R$ 3.200,00', falecido_id: 2, status: 'em_andamento' },
-  { id: 3, tipo: 'Velório simples',         descricao: '', valor: 'R$ 1.800,00', falecido_id: 1, status: 'concluido'   },
-]
 
 const statusLabel = {
   pendente:     'Pendente',
@@ -22,11 +17,19 @@ const statusClasse = {
 }
 
 export default function Contratos() {
-  const [dados, setDados] = useState(mockData)
+  const [dados, setDados] = useState([])
   const [filtroStatus, setFiltroStatus] = useState('todos')
   const [modalAberto, setModalAberto] = useState(false)
   const [contratoEditando, setContratoEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
+  const [carregando, setCarregando] = useState(true)
+
+  useEffect(() => {
+    api.get('/servicos')
+      .then(res => setDados(res.data))
+      .catch(() => alert('Erro ao carregar contratos.'))
+      .finally(() => setCarregando(false))
+  }, [])
 
   const filtrados = dados.filter(c =>
     filtroStatus === 'todos' || c.status === filtroStatus
@@ -44,19 +47,16 @@ export default function Contratos() {
 
   async function handleSalvar(form) {
     if (contratoEditando) {
-      // TODO: chamar PUT /servicos/:id
-      setDados(dados.map(c =>
-        c.id === contratoEditando.id ? { ...c, ...form } : c
-      ))
+      const res = await api.put(`/servicos/${contratoEditando.id}`, form)
+      setDados(dados.map(c => c.id === contratoEditando.id ? res.data : c))
     } else {
-      // TODO: chamar POST /servicos
-      const novo = { id: Date.now(), ...form }
-      setDados([novo, ...dados])
+      const res = await api.post('/servicos', form)
+      setDados([res.data, ...dados])
     }
   }
 
   async function handleDeletar(id) {
-    // TODO: chamar DELETE /servicos/:id
+    await api.delete(`/servicos/${id}`)
     setDados(dados.filter(c => c.id !== id))
     setConfirmandoId(null)
   }
@@ -89,14 +89,20 @@ export default function Contratos() {
           <thead>
             <tr>
               <th>Tipo de serviço</th>
-              <th>Falecido ID</th>
+              <th>Falecido</th>
               <th>Valor</th>
               <th>Status</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
-            {filtrados.length === 0 ? (
+            {carregando ? (
+              <tr>
+                <td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
+                  Carregando...
+                </td>
+              </tr>
+            ) : filtrados.length === 0 ? (
               <tr>
                 <td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
                   Nenhum contrato encontrado.
@@ -107,13 +113,11 @@ export default function Contratos() {
                 <>
                   <tr key={c.id}>
                     <td style={{ fontWeight: 500 }}>{c.tipo}</td>
-                    <td style={{ color: 'var(--text-secondary)', fontFamily: 'DM Mono, monospace', fontSize: 13 }}>
-                      #{c.falecido_id}
-                    </td>
+                    <td style={{ color: 'var(--text-secondary)' }}>{c.nome_falecido || `#${c.falecido_id}`}</td>
                     <td style={{ fontFamily: 'DM Mono, monospace', fontSize: 13 }}>{c.valor}</td>
                     <td>
-                      <span className={`badge-status ${statusClasse[c.status]}`}>
-                        {statusLabel[c.status]}
+                      <span className={`badge-status ${statusClasse[c.status] || 'badge-pendente'}`}>
+                        {statusLabel[c.status] || c.status}
                       </span>
                     </td>
                     <td style={{ textAlign: 'right' }}>
