@@ -1,4 +1,5 @@
 const Servico = require('../models/Servico');
+const { publicar } = require('../events/publisher');
 
 const servicoController = {
     async getAll(req, res) {
@@ -31,6 +32,16 @@ const servicoController = {
     async create(req, res) {
         try {
             const servico = await Servico.criar(req.body);
+            
+            await publicar('contrato:criado', {
+                id: servico.id,
+                tipo: servico.tipo,
+                valor: servico.valor,
+                falecido_id: servico.falecido_id,
+                cliente_id: servico.cliente_id,
+                criado_em: servico.criado_em
+            });
+
             return res.status(201).json(servico);
         } catch (err) {
             return res.status(400).json({
@@ -60,11 +71,23 @@ const servicoController = {
         try {
             const { status } = req.body;
             const servico = await Servico.atualizarStatus(req.params.id, status);
+            
             if (!servico) {
                 return res.status(404).json({
                     erro: 'Serviço não encontrado'
                 });
             }
+
+            if (status === 'concluido') {
+                await publicar('sepultamento:confirmado', {
+                    id: servico.id,
+                    tipo: servico.tipo,
+                    status: servico.status,
+                    data_sepultamento: servico.data_sepultamento,
+                    falecido_id: servico.falecido_id
+                });
+            }
+
             return res.json(servico);
         } catch (err) {
             return res.status(400).json({
