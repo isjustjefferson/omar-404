@@ -99,3 +99,13 @@ omar-404/
 ## Readme.md:
 - **[Backend README.md](./backend/README.md)**: Guia para rodar o Backend localmente.
 - **[Frontend README.md](./frontend/README.md)**: Guia para rodar o Frontend localmente.
+
+---
+
+# Colaboradores:
+
+**Jefferson Silva** · [LinkedIn](https://www.linkedin.com/in/jefferson-silva-1a035836b/)
+· [GitHub](https://github.com/isjustjefferson)
+
+**Elton Santos** · [LinkedIn](https://www.linkedin.com/in/elton-santos-76a287270/)
+· [GitHub](https://github.com/El-tinho)
