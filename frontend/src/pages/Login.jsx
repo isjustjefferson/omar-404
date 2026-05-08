@@ -1,6 +1,6 @@
-import api from '../services/api'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import api from '../services/api'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -12,20 +12,20 @@ export default function Login() {
   }
 
   async function handleSubmit(e) {
-  e.preventDefault()
-  setErro('')
-  try {
-    const res = await api.post('/auth/login', {
-      email: form.email,
-      senha: form.senha
-    })
-    localStorage.setItem('token', res.data.token)
-    localStorage.setItem('usuario', JSON.stringify(res.data.usuario))
-    navigate('/')
-  } catch (err) {
-    setErro(err.response?.data?.erro || 'E-mail ou senha inválidos.')
+    e.preventDefault()
+    setErro('')
+    try {
+      const res = await api.post('/auth/login', {
+        email: form.email,
+        senha: form.senha
+      })
+      localStorage.setItem('token', res.data.token)
+      localStorage.setItem('usuario', JSON.stringify(res.data.usuario))
+      navigate('/')
+    } catch (err) {
+      setErro(err.response?.data?.erro || 'E-mail ou senha inválidos.')
+    }
   }
-}
 
   return (
     <div
@@ -35,9 +35,42 @@ export default function Login() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        position: 'relative',
+        overflow: 'hidden',
       }}
     >
-      <div style={{ width: '100%', maxWidth: 380 }}>
+      <img
+  src="/sr_omarr.png"
+  alt="Sr. Omar"
+  style={{
+    position: 'absolute',
+    bottom: 0,
+    left: '20%',
+    transform: 'translateX(-50%)',
+    height: '90vh',
+    opacity: 0.40,
+    pointerEvents: 'none',
+    userSelect: 'none',
+  }}
+/>
+
+{/* Caixão no lado direito */}
+<img
+  src="/caixao.png"
+  alt="Caixão"
+  style={{
+    position: 'absolute',
+    bottom: '20%',
+    right: '10%',
+    height: '45vh',
+    opacity: 0.45,
+    pointerEvents: 'none',
+    userSelect: 'none',
+  }}
+/>
+
+      {/* Formulário de login */}
+      <div style={{ width: '100%', maxWidth: 380, position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', marginBottom: 36 }}>
           <span
             style={{
