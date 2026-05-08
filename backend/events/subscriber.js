@@ -18,7 +18,19 @@ async function conectarSubscriber(io) {
         const dados = JSON.parse(mensagem);
         console.log('Evento recebido - sepultamento:confirmado:', dados);
         io.emit('sepultamento:confirmado', dados);
-    }, 50);
+    });
+
+    await subscriber.subscribe('falecido:cadastrado', (mensagem) => {
+        const dados = JSON.parse(mensagem);
+        console.log('Evento recebido - falecido:cadastrado: ', dados);
+        io.emit('falecido:cadastrado', dados);
+    });
+
+    await subscriber.subscribe('contrato:cancelado', (mensagem) => {
+        const dados = JSON.parse(mensagem);
+        console.log('Evento recebido - contrato:cancelado:', dados);
+        io.emit('contrato:cancelado', dados);
+    })
 }
 
 module.exports = { conectarSubscriber };

@@ -51,6 +51,14 @@ const falecidoController = {
                 cliente_id
             });
 
+            await publicar('falecido:cadastrado', {
+                id: falecido.id,
+                nome: falecido.nome,
+                data_falecimento: falecido.data_falecimento,
+                cliente_id: falecido.cliente_id,
+                criado_em: falecido.criado_em
+            });
+
             return res.status(201).json(falecido);
         } catch (err) {
             return res.status(400).json({

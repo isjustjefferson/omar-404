@@ -266,6 +266,12 @@ POST http://localhost:3000/falecidos
 > **Atencao:** o `cliente_id` precisa existir na tabela `clientes`.
 > Use `SELECT id, nome FROM clientes;` no psql para ver os IDs disponiveis.
 
+> No terminal, deve aparecer algo como:
+> ```bash
+> Evento publicado: falecido:cadastrado ...
+> Evento recebido - falecido:cadastrado: ...
+> ```
+
 ### Cadastrar servico
 ```
 POST http://localhost:3000/servicos

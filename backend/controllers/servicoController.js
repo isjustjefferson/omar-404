@@ -88,6 +88,16 @@ const servicoController = {
                 });
             }
 
+            if (status === 'cancelado') {
+                await publicar('contrato:cancelado', {
+                    id: servico.id,
+                    tipo: servico.tipo,
+                    status: servico.status,
+                    data_sepultamento: servico.data_sepultamento,
+                    falecido_id: servico.falecido_id
+                });
+            }
+
             return res.json(servico);
         } catch (err) {
             return res.status(400).json({
