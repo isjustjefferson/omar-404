@@ -1,5 +1,11 @@
 # BACKEND Omar-404 
 
+![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=ffffff)
+![Bcrypt](https://img.shields.io/badge/Bcrypt-563D7C?style=for-the-badge&logo=lock&logoColor=white)
+
 ## Tecnologias
 
 - **Backend:** Node.js + Express
