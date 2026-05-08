@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
+import api from '../services/api'
 
 const formVazio = {
   tipo: '',
   descricao: '',
   valor: '',
   falecido_id: '',
+  cliente_id: '',
   status: 'pendente',
 }
 
@@ -28,8 +30,17 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
   const [form, setForm] = useState(formVazio)
   const [erro, setErro] = useState('')
   const [salvando, setSalvando] = useState(false)
+  const [clientes, setClientes] = useState([])
+  const [falecidos, setFalecidos] = useState([])
 
   const editando = !!contrato
+
+  useEffect(() => {
+    if (aberto) {
+      api.get('/clientes').then(res => setClientes(res.data)).catch(() => {})
+      api.get('/falecidos').then(res => setFalecidos(res.data)).catch(() => {})
+    }
+  }, [aberto])
 
   useEffect(() => {
     if (contrato) {
@@ -38,6 +49,7 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
         descricao:   contrato.descricao   || '',
         valor:       contrato.valor       || '',
         falecido_id: contrato.falecido_id || '',
+        cliente_id:  contrato.cliente_id  || '',
         status:      contrato.status      || 'pendente',
       })
     } else {
@@ -50,7 +62,6 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
     setForm({ ...form, [e.target.name]: e.target.value })
   }
 
-  // Máscara de valor: R$ 0.000,00
   function handleValor(e) {
     let v = e.target.value.replace(/\D/g, '')
     if (!v) { setForm({ ...form, valor: '' }); return }
@@ -63,14 +74,27 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
     e.preventDefault()
     setErro('')
 
-    if (!form.tipo || !form.valor || !form.falecido_id) {
-      setErro('Tipo, valor e falecido são obrigatórios.')
+    if (!form.tipo || !form.valor || !form.falecido_id || !form.cliente_id) {
+      setErro('Tipo, valor, falecido e cliente são obrigatórios.')
+      return
+    }
+
+    const valorNumerico = parseFloat(
+      form.valor
+        .replace('R$', '')
+        .replace(/\./g, '')
+        .replace(',', '.')
+        .trim()
+    )
+
+    if (isNaN(valorNumerico)) {
+      setErro('Valor inválido.')
       return
     }
 
     setSalvando(true)
     try {
-      await onSalvar(form)
+      await onSalvar({ ...form, valor: valorNumerico })
       onFechar()
     } catch (err) {
       setErro(err.message || 'Erro ao salvar contrato.')
@@ -189,18 +213,35 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
             </div>
 
             <div className="col-12">
-              <label className="form-label">ID do falecido *</label>
-              <input
+              <label className="form-label">Cliente *</label>
+              <select
+                className="input-omar"
+                name="cliente_id"
+                value={form.cliente_id}
+                onChange={handleChange}
+                required
+              >
+                <option value="">Selecione o cliente...</option>
+                {clientes.map(c => (
+                  <option key={c.id} value={c.id}>{c.nome}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="col-12">
+              <label className="form-label">Falecido *</label>
+              <select
                 className="input-omar"
                 name="falecido_id"
-                placeholder="ID do falecido vinculado"
                 value={form.falecido_id}
                 onChange={handleChange}
                 required
-              />
-              <span style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, display: 'block' }}>
-                Futuramente será um seletor com os falecidos cadastrados.
-              </span>
+              >
+                <option value="">Selecione o falecido...</option>
+                {falecidos.map(f => (
+                  <option key={f.id} value={f.id}>{f.nome}</option>
+                ))}
+              </select>
             </div>
 
           </div>
