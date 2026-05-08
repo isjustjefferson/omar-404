@@ -74,7 +74,6 @@ npm run dev
 - Cadastro vinculado a cliente e falecido via seletor.
 - Status: pendente, em andamento, concluído, cancelado.
 - Edição e remoção com confirmação.
-- 
 ---
 
 ## Observações
