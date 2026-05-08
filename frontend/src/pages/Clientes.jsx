@@ -1,51 +1,52 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import api from '../services/api'
 import ClienteModal from '../components/ClienteModal'
-
-const mockData = [
-  { id: 1, nome: 'Ana Beatriz',    cpf: '123.456.789-00', telefone: '(81) 99999-0001', email: 'ana@email.com',    parentesco: 'Filha'   },
-  { id: 2, nome: 'Carlos Eduardo', cpf: '987.654.321-00', telefone: '(81) 99999-0002', email: 'carlos@email.com', parentesco: 'Cônjuge' },
-]
-
+ 
 export default function Clientes() {
-  const [dados, setDados] = useState(mockData)
+  const [dados, setDados] = useState([])
   const [busca, setBusca] = useState('')
   const [modalAberto, setModalAberto] = useState(false)
   const [clienteEditando, setClienteEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
-
+  const [carregando, setCarregando] = useState(true)
+ 
+  useEffect(() => {
+    api.get('/clientes')
+      .then(res => setDados(res.data))
+      .catch(() => alert('Erro ao carregar clientes.'))
+      .finally(() => setCarregando(false))
+  }, [])
+ 
   const filtrados = dados.filter(c =>
     c.nome.toLowerCase().includes(busca.toLowerCase())
   )
-
+ 
   function abrirNovo() {
     setClienteEditando(null)
     setModalAberto(true)
   }
-
+ 
   function abrirEditar(cliente) {
     setClienteEditando(cliente)
     setModalAberto(true)
   }
-
+ 
   async function handleSalvar(form) {
     if (clienteEditando) {
-      // TODO: chamar PUT /clientes/:id
-      setDados(dados.map(c =>
-        c.id === clienteEditando.id ? { ...c, ...form } : c
-      ))
+      const res = await api.put(`/clientes/${clienteEditando.id}`, form)
+      setDados(dados.map(c => c.id === clienteEditando.id ? res.data : c))
     } else {
-      // TODO: chamar POST /clientes
-      const novo = { id: Date.now(), ...form }
-      setDados([novo, ...dados])
+      const res = await api.post('/clientes', form)
+      setDados([res.data, ...dados])
     }
   }
-
+ 
   async function handleDeletar(id) {
-    // TODO: chamar DELETE /clientes/:id
+    await api.delete(`/clientes/${id}`)
     setDados(dados.filter(c => c.id !== id))
     setConfirmandoId(null)
   }
-
+ 
   return (
     <>
       <div className="page-header d-flex justify-content-between align-items-start">
@@ -55,7 +56,7 @@ export default function Clientes() {
         </div>
         <button className="btn-omar" onClick={abrirNovo}>+ Novo cliente</button>
       </div>
-
+ 
       <div className="card-omar">
         <div className="mb-3">
           <input
@@ -66,7 +67,7 @@ export default function Clientes() {
             onChange={e => setBusca(e.target.value)}
           />
         </div>
-
+ 
         <table className="table table-omar mb-0">
           <thead>
             <tr>
@@ -78,7 +79,13 @@ export default function Clientes() {
             </tr>
           </thead>
           <tbody>
-            {filtrados.length === 0 ? (
+            {carregando ? (
+              <tr>
+                <td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
+                  Carregando...
+                </td>
+              </tr>
+            ) : filtrados.length === 0 ? (
               <tr>
                 <td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
                   Nenhum cliente encontrado.
@@ -109,7 +116,7 @@ export default function Clientes() {
                       </button>
                     </td>
                   </tr>
-
+ 
                   {confirmandoId === c.id && (
                     <tr key={`confirm-${c.id}`}>
                       <td colSpan={5} style={{
@@ -148,7 +155,7 @@ export default function Clientes() {
           </tbody>
         </table>
       </div>
-
+ 
       <ClienteModal
         aberto={modalAberto}
         onFechar={() => setModalAberto(false)}
