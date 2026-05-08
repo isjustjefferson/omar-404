@@ -1,17 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import api from '../services/api'
 import FalecidoModal from '../components/FalecidoModal'
 
-const mockData = [
-  { id: 1, nome: 'José da Silva',   data_nascimento: '1940-03-12', data_falecimento: '2025-04-20', causa_morte: 'Causas naturais', cliente_id: 1 },
-  { id: 2, nome: 'Maria Aparecida', data_nascimento: '1955-07-08', data_falecimento: '2025-04-27', causa_morte: 'Causas naturais', cliente_id: 2 },
-]
-
 export default function Falecidos() {
-  const [dados, setDados] = useState(mockData)
+  const [dados, setDados] = useState([])
   const [busca, setBusca] = useState('')
   const [modalAberto, setModalAberto] = useState(false)
   const [falecidoEditando, setFalecidoEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
+  const [carregando, setCarregando] = useState(true)
+
+  useEffect(() => {
+    api.get('/falecidos')
+      .then(res => setDados(res.data))
+      .catch(() => alert('Erro ao carregar falecidos.'))
+      .finally(() => setCarregando(false))
+  }, [])
 
   const filtrados = dados.filter(f =>
     f.nome.toLowerCase().includes(busca.toLowerCase())
@@ -29,19 +33,16 @@ export default function Falecidos() {
 
   async function handleSalvar(form) {
     if (falecidoEditando) {
-      // TODO: chamar PUT /falecidos/:id
-      setDados(dados.map(f =>
-        f.id === falecidoEditando.id ? { ...f, ...form } : f
-      ))
+      const res = await api.put(`/falecidos/${falecidoEditando.id}`, form)
+      setDados(dados.map(f => f.id === falecidoEditando.id ? res.data : f))
     } else {
-      // TODO: chamar POST /falecidos
-      const novo = { id: Date.now(), ...form }
-      setDados([novo, ...dados])
+      const res = await api.post('/falecidos', form)
+      setDados([res.data, ...dados])
     }
   }
 
   async function handleDeletar(id) {
-    // TODO: chamar DELETE /falecidos/:id
+    await api.delete(`/falecidos/${id}`)
     setDados(dados.filter(f => f.id !== id))
     setConfirmandoId(null)
   }
@@ -78,7 +79,13 @@ export default function Falecidos() {
             </tr>
           </thead>
           <tbody>
-            {filtrados.length === 0 ? (
+            {carregando ? (
+              <tr>
+                <td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
+                  Carregando...
+                </td>
+              </tr>
+            ) : filtrados.length === 0 ? (
               <tr>
                 <td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
                   Nenhum registro encontrado.
@@ -110,7 +117,6 @@ export default function Falecidos() {
                     </td>
                   </tr>
 
-                  {/* Linha de confirmação de exclusão */}
                   {confirmandoId === f.id && (
                     <tr key={`confirm-${f.id}`}>
                       <td colSpan={5} style={{
