@@ -3,13 +3,14 @@
 ![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![React 19](https://img.shields.io/badge/React_19-20232a?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 
 ## Tecnologias
 
 - **Backend:** Node.js + Express
 - **Banco de dados:** PostgreSQL
 - **Autenticação:** JWT + bcryptjs
-- **Validação de CPF:** Brasil API
+- **Pub/Sub:** Redis + Socket.io
 - **Frontend:** React 19 + Vite
 - **Roteamento**: React Router DOM v7
 - **Estilização**: Bootstrap 5 + CSS customizado
@@ -38,6 +39,9 @@ omar-404/
 │   │   ├── falecidoController.js
 │   │   ├── clienteController.js
 │   │   └── servicoController.js
+│   ├── events/
+│   │   ├── publisher.js
+│   │   └── subscriber.js
 │   ├── middlewares/
 │   │   └── auth.js
 │   ├── models/

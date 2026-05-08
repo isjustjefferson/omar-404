@@ -5,13 +5,14 @@
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=ffffff)
 ![Bcrypt](https://img.shields.io/badge/Bcrypt-563D7C?style=for-the-badge&logo=lock&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 
 ## Tecnologias
 
 - **Backend:** Node.js + Express
 - **Banco de dados:** PostgreSQL
 - **Autenticaçaão:** JWT + bcryptjs
-- **Validação de CPF:** Brasil API
+- **Pub/Sub:** Redis + Socket.io
 
 ---
 
@@ -19,20 +20,28 @@
 
 - [Node.js v18+](https://nodejs.org)
 - [PostgreSQL v14+](https://www.postgresql.org/download/)
+- [Redis](https://redis.io/downloads/)
 - [Git](https://git-scm.com)
 
 ---
 
 ## Como rodar localmente
 
-### 1. Instalar dependencias
+### 1. Rodar o Redis:
+
+```bash
+sudo service redis-server start  
+```
+> Para instalar o Redis no WSL, rode: `sudo apt install redis-server`.
+
+### 2. Em outro terminal, instalar dependencias:
 
 ```bash
 cd backend
 npm install
 ```
 
-### 2. Configurar variaveis de ambiente
+### 3. Configurar variaveis de ambiente
 
 ```bash
 cp .env.example .env
@@ -47,10 +56,13 @@ DB_PORT=5432
 DB_NAME=omar404
 DB_USER=postgres
 DB_PASSWORD=sua_senha_aqui
+
 JWT_SECRET=um_segredo_longo_e_aleatorio
+
+REDIS_URL=redis://seu_host_redis:6379
 ```
 
-### 3. Criar o banco de dados
+### 4. Criar o banco de dados
 
 ```bash
 psql -U postgres
@@ -63,7 +75,7 @@ CREATE DATABASE omar404 ENCODING 'UTF8' LC_COLLATE 'Portuguese_Brazil.1252' LC_C
 
 > **Linux/macOS:** use `pt_BR.UTF-8` no lugar de `Portuguese_Brazil.1252`
 
-### 4. Executar o schema e o seed
+### 5. Executar o schema e o seed
 
 ```bash
 psql -U postgres -d omar404 -f database/schema.sql
@@ -73,7 +85,7 @@ psql -U postgres -d omar404 -f database/seed.sql
 > **Atencao:** o seed nao insere usuarios, pois as senhas precisam ser criptografadas.
 > Crie o primeiro usuario via `/auth/register` conforme explicado abaixo.
 
-### 5. Rodar o servidor
+### 6. Rodar o servidor
 
 ```bash
 cd backend
@@ -81,6 +93,7 @@ npm run dev
 ```
 
 Acesse: [http://localhost:3000](http://localhost:3000)
+
 
 ---
 
@@ -268,6 +281,12 @@ POST http://localhost:3000/servicos
 }
 ```
 
+> No terminal, deve aparecer algo como:
+> ```bash
+> Evento publicado: contrato:criado ...
+> Evento recebido - contrato:criado: ...
+> ```
+
 ### Atualizar apenas o status do servico
 
 ```
@@ -278,6 +297,12 @@ PATCH http://localhost:3000/servicos/1/status
 }
 ```
 > Status válidos: `pendente`, `em_andamento`, `concluido`, `cancelado`.
+
+> No terminal, deve aparecer algo como:
+> ```bash
+> Evento publicado: sepultamento:confirmado ...
+> Evento recebido - sepultamento:confirmado: ...
+> ```
 
 ---
 
@@ -311,3 +336,5 @@ psql -U postgres -d omar404 -f database/seed.sql
 - O CPF deve estar no formato `000.000.000-00` e ser validado pela Brasil API
 - Clientes com falecidos vinculados nao podem ser removidos
 - IDs no PostgreSQL não reiniciam automaticamente ao recriar registros — isso é comportamento normal
+- Todo serviço precisa de um `falecido_id` e `cliente_id` existentes no banco.
+- A ordem dos logs do Pub/Sub pode variar - isso é um comportamento normal do Node.js.
