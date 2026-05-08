@@ -22,6 +22,7 @@
 - [Node.js v18+](https://nodejs.org)
 - [React v19](https://react.dev/)
 - [PostgreSQL v14+](https://www.postgresql.org/download/)
+- [Redis](https://redis.io/downloads/)
 - [Git](https://git-scm.com)
 
 ---
@@ -108,8 +109,8 @@ omar-404/
 
 # Colaboradores:
 
-**Jefferson Silva** · [LinkedIn](https://www.linkedin.com/in/jefferson-silva-1a035836b/)
+- **Jefferson Silva** · [LinkedIn](https://www.linkedin.com/in/jefferson-silva-1a035836b/)
 · [GitHub](https://github.com/isjustjefferson)
 
-**Elton Santos** · [LinkedIn](https://www.linkedin.com/in/elton-santos-76a287270/)
+- **Elton Santos** · [LinkedIn](https://www.linkedin.com/in/elton-santos-76a287270/)
 · [GitHub](https://github.com/El-tinho)
