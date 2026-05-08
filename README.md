@@ -1,17 +1,25 @@
 # Omar-404 — Sistema de Administração de Funerária
 
+![Node.js](https://img.shields.io/badge/Node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![React 19](https://img.shields.io/badge/React_19-20232a?style=for-the-badge&logo=react&logoColor=61DAFB)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+
 ## Tecnologias
 
 - **Backend:** Node.js + Express
 - **Banco de dados:** PostgreSQL
 - **Autenticação:** JWT + bcryptjs
 - **Validação de CPF:** Brasil API
+- **Frontend:** React 19 + Vite
+- **Roteamento**: React Router DOM v7
+- **Estilização**: Bootstrap 5 + CSS customizado
 
 ---
 
 ## Pré-requisitos
 
 - [Node.js v18+](https://nodejs.org)
+- [React v19](https://react.dev/)
 - [PostgreSQL v14+](https://www.postgresql.org/download/)
 - [Git](https://git-scm.com)
 
@@ -52,12 +60,26 @@ omar-404/
 │   ├── schema.sql
 │   └── seed.sql
 ├── frontend/
-│   ├── index/
+│   ├── public/
 │   ├── src/
 │   │   ├── assets/
 │   │   ├── components/
+│   │   │   ├── Layout.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── PrivateRoute.jsx
+│   │   │   ├── FalecidoModal.jsx
+│   │   │   ├── ClienteModal.jsx
+│   │   │   └── ContratoModal.jsx
 │   │   ├── pages/
+│   │   │   ├── Home.jsx
+│   │   │   ├── Login.jsx
+│   │   │   ├── Perfil.jsx
+│   │   │   ├── Falecidos.jsx
+│   │   │   ├── Clientes.jsx
+│   │   │   ├── Contratos.jsx
+│   │   │   └── NotFound.jsx
 │   │   └── services/
+│   │   │   └── api.js
 │   │   ├── App.css
 │   │   ├── App.jsx
 │   │   ├── index.css
@@ -76,4 +98,4 @@ omar-404/
 
 ## Readme.md:
 - **[Backend README.md](./backend/README.md)**: Guia para rodar o Backend localmente.
-- **[Frontend README.md]**: Guia para rodar o Frontend localmente. (à ser publicado)
+- **[Frontend README.md](./frontend/README.md)**: Guia para rodar o Frontend localmente.
