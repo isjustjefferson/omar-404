@@ -7,6 +7,7 @@ require('dotenv').config();
 const { conectarPublisher } = require('./events/publisher');
 const { conectarSubscriber } = require('./events/subscriber');
 
+const adminRegisterRoutes = require('./views/adminRegisterRoutes');
 const authRoutes = require('./views/authRoutes');
 const usuarioRoutes = require('./views/usuarioRoutes');
 const falecidoRoutes = require('./views/falecidoRoutes');
@@ -27,6 +28,7 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use('/auth/admin', adminRegisterRoutes);
 app.use('/auth', authRoutes);
 app.use('/users', usuarioRoutes);
 app.use('/falecidos', falecidoRoutes);
