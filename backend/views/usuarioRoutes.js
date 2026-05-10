@@ -3,7 +3,10 @@ const router = express.Router();
 const autenticar = require('../middlewares/auth');
 const { apenasAdmin } = require('../middlewares/perfil');
 const usuarioController = require('../controllers/usuarioController');
+const authController = require('../controllers/authController');
 
+router.post('/operadores', autenticar, authController.registrarOperador);
+router.get('/operadores', autenticar, apenasAdmin, usuarioController.listarOperadores);
 router.get('/', autenticar, apenasAdmin, usuarioController.getAll);
 router.get('/me', autenticar, apenasAdmin, usuarioController.getMe);
 router.put('/me', autenticar, apenasAdmin, usuarioController.updateMe);

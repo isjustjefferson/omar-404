@@ -51,6 +51,22 @@ const usuarioController = {
         } catch (err) {
             return res.status(500).json({ erro: err.message });
         }
+    },
+
+    async listarOperadores(req, res) {
+        try {
+            const result = await db.query(`SELECT id, nome, email, perfil, amin_id, criado_em
+            FROM usuarios
+            WHERE perfil = 'operador' AND amin_id = $1
+            ORDER BY criado_em DESC`,
+            [req.usuario.id]
+            );
+            return res.json(result.rows);
+        } catch (err) {
+            return res.status(500).json({
+                erro: err.message
+            })
+        }
     }
 }
 
