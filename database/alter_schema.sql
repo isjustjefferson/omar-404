@@ -1,0 +1,13 @@
+ALTER TABLE usuarios 
+  ADD COLUMN admin_id INT REFERENCES usuarios(id) ON DELETE SET NULL;
+
+CREATE TABLE verificacoes_email (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(100) NOT NULL,
+  nome VARCHAR(150) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  codigo VARCHAR(6) NOT NULL,
+  expira_em TIMESTAMP NOT NULL,
+  usado BOOLEAN DEFAULT FALSE,
+  criado_em TIMESTAMP DEFAULT NOW()
+);
