@@ -4,6 +4,7 @@ function apenasAdmin(req, res, next) {
             erro: 'Trágico! Apenas administradores podem realizar esta ação.'
         });
     }
+    next();
 }
 
 module.exports = { apenasAdmin };

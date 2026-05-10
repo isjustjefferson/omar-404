@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log(`Cliente conectado: ${socket.id}`);
-  socket.io('disconnect', () => {
+  socket.on('disconnect', () => {
     console.log(`Cliente desconectado: ${socket.id}`);
   })
 });
