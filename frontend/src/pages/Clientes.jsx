@@ -87,8 +87,19 @@ export default function Clientes() {
               </tr>
             ) : filtrados.length === 0 ? (
               <tr>
-                <td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
-                  Nenhum cliente encontrado.
+                <td colSpan={5}>
+                  <div style={{
+                    background: 'rgba(100,200,80,0.05)',
+                    border: '1px solid rgba(100,200,80,0.15)',
+                    borderRadius: 8,
+                    padding: '12px 16px',
+                    color: 'var(--text-muted)',
+                    fontSize: 13,
+                    margin: '8px 0',
+                    textAlign: 'center',
+                  }}>
+                    Nenhum cliente encontrado.
+                  </div>  
                 </td>
               </tr>
             ) : (
