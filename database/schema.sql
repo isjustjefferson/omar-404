@@ -7,7 +7,20 @@ CREATE TABLE usuarios (
   nome VARCHAR(150) NOT NULL,
   email VARCHAR(100) UNIQUE NOT NULL,
   senha VARCHAR(255) NOT NULL,
-  perfil VARCHAR(50) DEFAULT 'operador', -- 'admin' ou 'operador'
+  perfil VARCHAR(50) DEFAULT 'operador'
+    CHECK (perfil IN ('admin', 'operador')),
+  admin_id INT REFERENCES usuarios(id) ON DELETE SET NULL,
+  criado_em TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE verificacoes_email (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(100) NOT NULL,
+  nome VARCHAR(150) NOT NULL,
+  senha VARCHAR(255) NOT NULL,
+  codigo VARCHAR(6) NOT NULL,
+  expira_em TIMESTAMP NOT NULL,
+  usado BOOLEAN DEFAULT FALSE,
   criado_em TIMESTAMP DEFAULT NOW()
 );
 
@@ -17,6 +30,7 @@ CREATE TABLE clientes (
   cpf VARCHAR(14) UNIQUE NOT NULL,
   telefone VARCHAR(20),
   email VARCHAR(100),
+  admin_id INT REFERENCES usuarios(id) ON DELETE SET NULL,
   criado_em TIMESTAMP DEFAULT NOW()
 );
 
@@ -27,6 +41,7 @@ CREATE TABLE falecidos (
   data_falecimento DATE NOT NULL,
   causa_morte VARCHAR(255),
   cliente_id INT NOT NULL REFERENCES clientes(id) ON DELETE RESTRICT,
+  admin_id INT REFERENCES usuarios(id) ON DELETE SET NULL,
   criado_em TIMESTAMP DEFAULT NOW()
 );
 
@@ -39,7 +54,8 @@ CREATE TABLE servicos (
   data_sepultamento TIMESTAMP,
   falecido_id INT NOT NULL REFERENCES falecidos(id) ON DELETE RESTRICT,
   cliente_id INT NOT NULL REFERENCES clientes(id) ON DELETE RESTRICT,
-  status VARCHAR(50) DEFAULT 'pendente',
+  admin_id INT REFERENCES usuarios(id) ON DELETE SET NULL,
+  status VARCHAR(50) DEFAULT 'pendente'
     CHECK (status IN ('pendente', 'em_andamento', 'concluido', 'cancelado')),
   criado_em TIMESTAMP DEFAULT NOW()
 );
