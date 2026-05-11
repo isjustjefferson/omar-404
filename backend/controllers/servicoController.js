@@ -1,10 +1,12 @@
 const Servico = require('../models/Servico');
 const { publicar } = require('../events/publisher');
+const getAdminId = require('../utils/getAdminId');
 
 const servicoController = {
     async getAll(req, res) {
         try {
-            const servicos = await Servico.listarTodos();
+            const admin_id = await getAdminId(req.usuario);
+            const servicos = await Servico.listarTodos(admin_id);
             return res.json(servicos);
         } catch (err) {
             return res.status(500).json({
@@ -15,7 +17,8 @@ const servicoController = {
 
     async getById(req, res) {
         try {
-            const servico = await Servico.buscarPorId(req.params.id);
+            const admin_id = await getAdminId(req.usuario);
+            const servico = await Servico.buscarPorId(req.params.id, admin_id);
             if (!servico) {
                 return res.status(404).json({
                     erro: 'Serviço não encontrado.'
@@ -31,15 +34,19 @@ const servicoController = {
 
     async create(req, res) {
         try {
-            const servico = await Servico.criar(req.body);
+            const admin_id = await getAdminId(req.usuario);
+            const servico = await Servico.criar(req.body, admin_id);
             
             await publicar('contrato:criado', {
                 id: servico.id,
                 tipo: servico.tipo,
+                descricao: servico.descricao,
+                data_velorio: servico.data_velorio,
                 valor: servico.valor,
                 falecido_id: servico.falecido_id,
                 cliente_id: servico.cliente_id,
-                criado_em: servico.criado_em
+                criado_em: servico.criado_em,
+                admin_id: servico.admin_id
             });
 
             return res.status(201).json(servico);
@@ -52,13 +59,14 @@ const servicoController = {
 
     async update(req, res) {
         try {
-            const servico = await Servico.buscarPorId(req.params.id);
+            const admin_id = await getAdminId(req.usuario);
+            const servico = await Servico.buscarPorId(req.params.id, admin_id);
             if (!servico) {
                 return res.status(404).json({
                     erro: 'Serviço não encontrado.'
                 });
             }
-            const atualizado = await Servico.atualizar(req.params.id, req.body);
+            const atualizado = await Servico.atualizar(req.params.id, req.body, admin_id);
             return res.json(atualizado);
         } catch (err) {
             return res.status(500).json({
@@ -69,8 +77,9 @@ const servicoController = {
 
     async updateStatus(req, res) {
         try {
+            const admin_id = await getAdminId(req.usuario);
             const { status } = req.body;
-            const servico = await Servico.atualizarStatus(req.params.id, status);
+            const servico = await Servico.atualizarStatus(req.params.id, status, admin_id);
             
             if (!servico) {
                 return res.status(404).json({
@@ -83,8 +92,11 @@ const servicoController = {
                     id: servico.id,
                     tipo: servico.tipo,
                     status: servico.status,
+                    data_velorio: servico.data_velorio,
                     data_sepultamento: servico.data_sepultamento,
-                    falecido_id: servico.falecido_id
+                    falecido_id: servico.falecido_id,
+                    cliente_id: servico.cliente_id,
+                    admin_id: servico.admin_id
                 });
             }
 
@@ -93,8 +105,11 @@ const servicoController = {
                     id: servico.id,
                     tipo: servico.tipo,
                     status: servico.status,
+                    data_velorio: servico.data_velorio,
                     data_sepultamento: servico.data_sepultamento,
-                    falecido_id: servico.falecido_id
+                    falecido_id: servico.falecido_id,
+                    cliente_id: servico.cliente_id,
+                    admin_id: servico.admin_id
                 });
             }
 
@@ -108,15 +123,16 @@ const servicoController = {
 
     async delete(req, res) {
         try {
-            const servico = await Servico.buscarPorId(req.params.id);
+            const admin_id = await getAdminId(req.usuario);
+            const servico = await Servico.buscarPorId(req.params.id, admin_id);
             if (!servico) {
                 return res.status(404).json({
                     erro: 'Serviço não encontrado.'
                 });
             }     
-            await Servico.deletar(req.params.id);
+            await Servico.deletar(req.params.id, admin_id);
             return res.json({
-                erro: 'Serviço removido com sucesso.'
+                mensagem: 'Serviço removido com sucesso.'
             });
         } catch (err) {
             return res.status(500).json({

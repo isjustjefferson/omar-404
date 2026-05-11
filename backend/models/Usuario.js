@@ -35,7 +35,10 @@ const Usuario = {
     },
 
     async deletar(id) {
-        const result = await db.query(`DELETE FROM usuarios WHERE id = $1`);
+        const result = await db.query(
+            `DELETE FROM usuarios WHERE id = $1`,
+            [id]
+        );
     },
 
     async listarTodos() {

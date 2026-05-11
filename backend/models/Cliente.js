@@ -22,7 +22,7 @@ function validarCPF(cpf) {
 }
  
 const Cliente = {
-    async criar({ nome, cpf, telefone, email }) {
+    async criar({ nome, cpf, telefone, email, admin_id }) {
         if (!nome || !cpf) {
             throw new Error('Nome e CPF são obrigatórios.');
         }
@@ -41,39 +41,40 @@ const Cliente = {
         }
  
         const result = await db.query(
-            `INSERT INTO clientes (nome, cpf, telefone, email)
-            VALUES ($1, $2, $3, $4) RETURNING *`,
-            [nome, cpf, telefone, email]
+            `INSERT INTO clientes (nome, cpf, telefone, email, admin_id)
+            VALUES ($1, $2, $3, $4, $5) RETURNING *`,
+            [nome, cpf, telefone, email, admin_id]
         );
         return result.rows[0];
     },
  
-    async listarTodos() {
+    async listarTodos(admin_id) {
         const result = await db.query(
-            `SELECT * FROM clientes ORDER BY criado_em DESC`
+            `SELECT * FROM clientes WHERE admin_id = $1 ORDER BY criado_em DESC`,
+            [admin_id]
         );
         return result.rows;
     },
  
-    async buscarPorId(id) {
+    async buscarPorId(id, admin_id) {
         const result = await db.query(
-            `SELECT * FROM clientes WHERE id = $1`,
-            [id]
+            `SELECT * FROM clientes WHERE id = $1 AND admin_id = $2`,
+            [id, admin_id]
         );
         return result.rows[0];
     },
  
-    async buscarComFalecidos(id) {
+    async buscarComFalecidos(id, admin_id) {
         const cliente = await db.query(
-            `SELECT * FROM clientes WHERE id = $1`,
-            [id]
+            `SELECT * FROM clientes WHERE id = $1 AND admin_id = $2`,
+            [id, admin_id]
         );
  
         if (cliente.rows.length === 0) return null;
  
         const falecidos = await db.query(
-            `SELECT * FROM falecidos WHERE cliente_id = $1 ORDER BY criado_em DESC`,
-            [id]
+            `SELECT * FROM falecidos WHERE cliente_id = $1 AND admin_id = $2`,
+            [id, admin_id]
         );
  
         return {
@@ -82,19 +83,19 @@ const Cliente = {
         };
     },
  
-    async atualizar(id, { nome, telefone, email }) {
+    async atualizar(id, { nome, telefone, email }, admin_id) {
         const result = await db.query(
             `UPDATE clientes SET nome = $1, telefone = $2, email = $3
-            WHERE id = $4 RETURNING *`,
-            [nome, telefone, email, id]
+            WHERE id = $4 AND admin_id = $5 RETURNING *`,
+            [nome, telefone, email, id, admin_id]
         );
         return result.rows[0];
     },
  
-    async deletar(id) {
+    async deletar(id, admin_id) {
         await db.query(
-            `DELETE FROM clientes WHERE id = $1`,
-            [id]
+            `DELETE FROM clientes WHERE id = $1 AND admin_id = $2`,
+            [id, admin_id]
         );
     }
 };
