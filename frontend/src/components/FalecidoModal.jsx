@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import api from '../services/api'
 
 const formVazio = {
   nome: '',
@@ -12,8 +13,15 @@ export default function FalecidoModal({ aberto, onFechar, onSalvar, falecido }) 
   const [form, setForm] = useState(formVazio)
   const [erro, setErro] = useState('')
   const [salvando, setSalvando] = useState(false)
+  const [clientes, setClientes] = useState([])
 
   const editando = !!falecido
+
+  useEffect(() => {
+    if (aberto) {
+      api.get('/clientes').then(res => setClientes(res.data)).catch(() => {})
+    }
+  }, [aberto])
 
   // Preenche o formulário ao editar
   useEffect(() => {
@@ -156,19 +164,26 @@ export default function FalecidoModal({ aberto, onFechar, onSalvar, falecido }) 
             </div>
 
             <div className="col-12">
-              <label className="form-label">ID do cliente responsável *</label>
-              <input
+              <label className="form-label">Cliente responsável *</label>
+              <select
                 className="input-omar"
                 name="cliente_id"
-                placeholder="ID do cliente vinculado"
                 value={form.cliente_id}
                 onChange={handleChange}
                 required
-              />
-              <span style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, display: 'block' }}>
-                Futuramente será um seletor com os clientes cadastrados.
-              </span>
+              >
+                <option value="">Selecione o cliente...</option>
+                {clientes.map(c => (
+                  <option key={c.id} value={c.id}>{c.nome}</option>
+                ))}
+              </select>
+              {clientes.length === 0 && (
+                <span style={{ fontSize: 11, color: 'var(--text-muted)', marginTop: 4, display: 'block' }}>
+                  Nenhum cliente cadastrado. Cadastre um cliente primeiro.
+                </span>
+              )}
             </div>
+
 
           </div>
 
