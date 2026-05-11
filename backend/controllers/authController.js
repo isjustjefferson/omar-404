@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { publicar } = require('../events/publisher');
 const Usuario = require('../models/Usuario');
 
 const authController = {
@@ -62,6 +63,14 @@ const authController = {
                 { expiresIn: '8h' }
             );
 
+            await publicar('usuaion:logado', {
+                id: usuario.id,
+                nome: usuario.nome,
+                email: usuario.email,
+                perfil: usuario.perfil,
+                logado_em: new Date().toISOString()
+            })
+
             return res.json({
                 mensagem: 'Login realizado com sucesso',
                 token,
@@ -99,6 +108,14 @@ const authController = {
             senha: senhaCriptografada,
             perfil: 'operador',
             admin_id,
+            });
+
+            await publicar('operador:cadastrado', {
+                id: operador.id,
+                nome: operador.nome,
+                email: operador.email,
+                admin_id: operador.admin_id,
+                criado_em: operador.criado_em
             });
 
             return res.status(201).json({

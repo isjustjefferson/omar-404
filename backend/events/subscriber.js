@@ -8,29 +8,24 @@ async function conectarSubscriber(io) {
     await subscriber.connect();
     console.log('Redis subscriber conectado.');
 
-    await subscriber.subscribe('contrato:criado', (mensagem) => {
-        const dados = JSON.parse(mensagem);
-        console.log('Evento recebido - contrato:criado:', dados);
-        io.emit('contrato:criado', dados);
-    });
+    const eventos = [
+        'contrato:criado',
+        'contrato:atualizado',
+        'contrato:cancelado',
+        'sepultamento:confirmado',
+        'falecido:cadastrado',
+        'operador:cadastrado',
+        'operador:removido',
+        'usuario:logado'
+    ];
 
-    await subscriber.subscribe('sepultamento:confirmado', (mensagem) => {
-        const dados = JSON.parse(mensagem);
-        console.log('Evento recebido - sepultamento:confirmado:', dados);
-        io.emit('sepultamento:confirmado', dados);
-    });
-
-    await subscriber.subscribe('falecido:cadastrado', (mensagem) => {
-        const dados = JSON.parse(mensagem);
-        console.log('Evento recebido - falecido:cadastrado: ', dados);
-        io.emit('falecido:cadastrado', dados);
-    });
-
-    await subscriber.subscribe('contrato:cancelado', (mensagem) => {
-        const dados = JSON.parse(mensagem);
-        console.log('Evento recebido - contrato:cancelado:', dados);
-        io.emit('contrato:cancelado', dados);
-    })
+    for (const evento of eventos) {
+        await subscriber.subscribe(evento, (mensagem) => {
+            const dados = JSON.parse(mensagem);
+            console.log(`Evento recebido - ${evento}: `, dados);
+            io.emit(evento, dados);
+        });
+    }
 }
 
 module.exports = { conectarSubscriber };

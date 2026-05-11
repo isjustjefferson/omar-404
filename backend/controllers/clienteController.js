@@ -1,4 +1,5 @@
 const Cliente = require('../models/Cliente');
+const { publicar } = require('../events/publisher');
 const getAdminId = require('../utils/getAdminId');
 
 const clienteController = {
@@ -35,6 +36,14 @@ const clienteController = {
         try {
             const admin_id = await getAdminId(req.usuario);
             const cliente = await Cliente.criar({ ...req.body, admin_id });
+
+            await publicar('cliente:cadastrado', {
+                id: cliente.id,
+                nome: cliente.nome,
+                admin_id: cliente.admin_id,
+                criado_em: cliente.criado_em
+            });
+
             return res.status(201).json(cliente);
         } catch (err) {
             console.log(err);

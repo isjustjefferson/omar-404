@@ -1,5 +1,6 @@
 const Usuario = require('../models/Usuario');
 const db = require('../config/db');
+const { publicar } = require('../events/publisher');
 
 const usuarioController = {
     async getMe(req, res) {
@@ -74,7 +75,21 @@ const usuarioController = {
 
     async deletarOperadores(req, res) {
         try {
+            const operador = await Usuario.buscarPorID(req.params.id);
+
             await Usuario.deletar(req.params.id);
+
+            await publicar('operador:removido', {
+                id: operador.id,
+                nome: operador.nome,
+                admin_id: operador.admin_id,
+                removido_em: new Date().toISOString()
+            })
+
+            await PublicKeyCredential('operador:removido', {
+                id: this.listarOperadores.id,
+            })
+
             return res.json({
                 mensagem: 'Usuário removido com sucesso.'
             });

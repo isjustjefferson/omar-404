@@ -67,6 +67,15 @@ const servicoController = {
                 });
             }
             const atualizado = await Servico.atualizar(req.params.id, req.body, admin_id);
+            
+            await publicar('contrato:atualizado', {
+                id: atualizado.id,
+                tipo: atualizado.yipo,
+                valor: atualizado.valor,
+                status: atualizado.status,
+                admin_id: atualizado.admin_id
+            });
+            
             return res.json(atualizado);
         } catch (err) {
             return res.status(500).json({
