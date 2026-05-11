@@ -9,6 +9,7 @@ const navItems = [
 
 export default function Sidebar() {
   const navigate = useNavigate()
+  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}')
 
   function handleLogout() {
     localStorage.removeItem('token')
@@ -38,6 +39,18 @@ export default function Sidebar() {
             {item.label}
           </NavLink>
         ))}
+
+        {usuario.perfil === 'admin' && (
+          <NavLink
+            to="/operadores"
+            className={({ isActive }) =>
+              'sidebar-link' + (isActive ? ' active' : '')
+            }
+          >
+            <span className="link-icon">◑</span>
+            Operadores
+          </NavLink>
+        )}
 
         <div className="nav-section-label" style={{ marginTop: 24 }}>Conta</div>
 

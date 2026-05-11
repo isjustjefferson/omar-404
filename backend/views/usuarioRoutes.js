@@ -8,8 +8,9 @@ const authController = require('../controllers/authController');
 router.post('/operadores', autenticar, authController.registrarOperador);
 router.get('/operadores', autenticar, apenasAdmin, usuarioController.listarOperadores);
 router.get('/', autenticar, apenasAdmin, usuarioController.getAll);
-router.get('/me', autenticar, apenasAdmin, usuarioController.getMe);
-router.put('/me', autenticar, apenasAdmin, usuarioController.updateMe);
-router.delete('/me', autenticar, apenasAdmin, usuarioController.deleteMe);
+router.get('/me', autenticar, usuarioController.getMe);
+router.put('/me', autenticar, usuarioController.updateMe);
+router.delete('/me', autenticar, usuarioController.deleteMe);
+router.delete('/:id', autenticar, apenasAdmin, usuarioController.deletarOperadores);
 
 module.exports = router;

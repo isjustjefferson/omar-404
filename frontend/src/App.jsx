@@ -9,6 +9,7 @@ import Clientes from './pages/Clientes'
 import Contratos from './pages/Contratos'
 import NotFound from './pages/NotFound'
 import CadastroAdmin from './pages/CadastroAdmin'
+import Operadores from './pages/Operadores'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="falecidos" element={<Falecidos />} />
           <Route path="clientes" element={<Clientes />} />
           <Route path="contratos" element={<Contratos />} />
+          <Route path="operadores" element={<Operadores />} />
           <Route path="404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" replace />} />
         </Route>

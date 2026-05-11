@@ -1,4 +1,5 @@
 const Usuario = require('../models/Usuario');
+const db = require('../config/db');
 
 const usuarioController = {
     async getMe(req, res) {
@@ -55,17 +56,32 @@ const usuarioController = {
 
     async listarOperadores(req, res) {
         try {
-            const result = await db.query(`SELECT id, nome, email, perfil, amin_id, criado_em
+            const result = await db.query(
+            `SELECT id, nome, email, perfil, admin_id, criado_em
             FROM usuarios
-            WHERE perfil = 'operador' AND amin_id = $1
+            WHERE perfil = 'operador' AND admin_id = $1
             ORDER BY criado_em DESC`,
             [req.usuario.id]
             );
             return res.json(result.rows);
         } catch (err) {
+            console.log(err);
             return res.status(500).json({
                 erro: err.message
             })
+        }
+    },
+
+    async deletarOperadores(req, res) {
+        try {
+            await Usuario.deletar(req.params.id);
+            return res.json({
+                mensagem: 'Usuário removido com sucesso.'
+            });
+        } catch (err) {
+            return res.status(500).json({
+                erro: err.message
+            });
         }
     }
 }

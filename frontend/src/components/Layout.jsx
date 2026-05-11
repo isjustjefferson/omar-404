@@ -7,6 +7,7 @@ const pageTitles = {
   '/clientes':  'Clientes',
   '/contratos': 'Contratos',
   '/perfil':    'Meu Perfil',
+  '/operadores': 'Operadores',
 }
 
 export default function Layout() {
