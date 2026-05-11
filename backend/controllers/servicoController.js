@@ -35,13 +35,14 @@ const servicoController = {
     async create(req, res) {
         try {
             const admin_id = await getAdminId(req.usuario);
-            const servico = await Servico.criar(req.body, admin_id);
+            const servico = await Servico.criar({ ...req.body, admin_id });
             
             await publicar('contrato:criado', {
                 id: servico.id,
                 tipo: servico.tipo,
                 descricao: servico.descricao,
                 data_velorio: servico.data_velorio,
+                data_sepultamento: servico.data_sepultamento,
                 valor: servico.valor,
                 falecido_id: servico.falecido_id,
                 cliente_id: servico.cliente_id,
