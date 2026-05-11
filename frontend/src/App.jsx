@@ -8,11 +8,13 @@ import Falecidos from './pages/Falecidos'
 import Clientes from './pages/Clientes'
 import Contratos from './pages/Contratos'
 import NotFound from './pages/NotFound'
+import CadastroAdmin from './pages/CadastroAdmin'
 
 function App() {
   return (
     <Routes>
       <Route path="/login" element={<Login />} />
+      <Route path="/cadastro" element={<CadastroAdmin />}/>
 
       {/* Rotas protegidas — redireciona para /login se não tiver token */}
       <Route element={<PrivateRoute />}>

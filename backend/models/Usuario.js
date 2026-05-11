@@ -3,8 +3,8 @@ const db = require('../config/db.js');
 const Usuario = {
     async criar({ nome, email, senha, perfil = 'operador' }, admin_id = null) {
         const result = await db.query(
-            `INSERT INTO usuarios (nome, email, senha, perfil)
-            VALUES ($1, $2, $3, $4) RETURNING *`,
+            `INSERT INTO usuarios (nome, email, senha, perfil, admin_id)
+            VALUES ($1, $2, $3, $4, $5) RETURNING *`,
             [nome, email, senha, perfil, admin_id]
         );
         return result.rows[0]

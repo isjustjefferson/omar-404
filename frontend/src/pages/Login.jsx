@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import api from '../services/api'
 
 export default function Login() {
@@ -155,6 +155,17 @@ export default function Login() {
           </form>
         </div>
 
+        <p 
+          style={{
+            textAlign: 'center',
+            fontSize: 12,
+            color: 'var(--text-muted)',
+            marginTo: 16
+          }}
+        >
+          Novo administrador?{' '}
+          <Link to='/cadastro' style={{ color: 'var(--accent)'}}>Criar Conta</Link>
+        </p>
         <p
           style={{
             textAlign: 'center',

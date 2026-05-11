@@ -21,6 +21,11 @@ api.interceptors.response.use(
       localStorage.removeItem('token')
       window.location.href = '/login'
     }
+    if (error.response?.status === 403) {
+      window.dispatchEvent(new CustomEvent('omar:forbidden', {
+        detail: {mensagem: error.response?.data?.erro || 'Acesso negado.'}
+      }))
+    }
     return Promise.reject(error)
   }
 )

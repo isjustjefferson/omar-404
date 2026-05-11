@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const pool = require('../config/db');
+const db = require('../config/db');
 const Usuario = require('../models/Usuario');
 const { enviarCodigoVerificacao } = require('../config/mailer');
 
@@ -21,16 +21,16 @@ const adminRegisterController = {
         return res.status(409).json({ erro: 'Email já cadastrado.' });
       }
 
-      await pool.query(
+      await db.query(
         `UPDATE verificacoes_email SET usado = TRUE WHERE email = $1`,
         [email]
       );
 
       const senhaCriptografada = await bcrypt.hash(senha, 10);
       const codigo = gerarCodigo();
-      const expira = new Date(Date.now() + 15 * 60 * 1000); // 15 minutos
+      const expira = new Date(Date.now() + 15 * 60 * 1000); 
 
-      await pool.query(
+      await db.query(
         `INSERT INTO verificacoes_email (email, nome, senha, codigo, expira_em)
          VALUES ($1, $2, $3, $4, $5)`,
         [email, nome, senhaCriptografada, codigo, expira]
@@ -54,7 +54,7 @@ const adminRegisterController = {
         return res.status(400).json({ erro: 'Email e código são obrigatórios.' });
       }
 
-      const result = await pool.query(
+      const result = await db.query(
         `SELECT * FROM verificacoes_email
          WHERE email = $1 AND codigo = $2 AND usado = FALSE
          ORDER BY criado_em DESC LIMIT 1`,
@@ -71,7 +71,7 @@ const adminRegisterController = {
         return res.status(400).json({ erro: 'Código expirado. Solicite um novo.' });
       }
 
-      await pool.query(
+      await db.query(
         `UPDATE verificacoes_email SET usado = TRUE WHERE id = $1`,
         [verificacao.id]
       );
