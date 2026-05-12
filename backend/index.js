@@ -47,7 +47,7 @@ io.on('connection', (socket) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, async () => {
+server.listen(PORT, async () => {
   console.log(`Servidor rodando na porta ${PORT}`);
   await conectarPublisher();
   await conectarSubscriber(io);
