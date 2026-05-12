@@ -8,6 +8,8 @@ const formVazio = {
   falecido_id: '',
   cliente_id: '',
   status: 'pendente',
+  data_velorio: '',
+  data_sepultamento: '',
 }
 
 const tiposServico = [
@@ -51,6 +53,8 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
         falecido_id: contrato.falecido_id || '',
         cliente_id:  contrato.cliente_id  || '',
         status:      contrato.status      || 'pendente',
+        data_velorio: contrato.data_velorio || '',
+        data_sepultamento: contrato.data_sepultamento || '',
       })
     } else {
       setForm(formVazio)
@@ -210,6 +214,28 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
                   <option key={s.value} value={s.value}>{s.label}</option>
                 ))}
               </select>
+            </div>
+
+            <div className="col-md-6">
+              <label className="form-label">Data do velório</label>
+              <input
+                className="input-omar"
+                type="datetime-local"
+                name="data_velorio"
+                value={form.data_velorio}
+                onChange={handleChange}
+              />
+            </div>
+
+            <div className="col-md-6">
+              <label className="form-label">Data do sepultamento</label>
+              <input
+                className="input-omar"
+                type="datetime-local"
+                name="data_sepultamento"
+                value={form.data_sepultamento}
+                onChange={handleChange}
+              />
             </div>
 
             <div className="col-12">
