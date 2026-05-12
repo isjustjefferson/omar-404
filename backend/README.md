@@ -4,15 +4,57 @@
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=ffffff)
-![Bcrypt](https://img.shields.io/badge/Bcrypt-563D7C?style=for-the-badge&logo=lock&logoColor=white)
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
 
 ## Tecnologias
 
-- **Backend:** Node.js + Express
+- **Runtime:** Node.js + Express
 - **Banco de dados:** PostgreSQL
 - **Autenticaçaão:** JWT + bcryptjs
 - **Pub/Sub:** Redis + Socket.io
+- **Email:** Nodemailer
+- **Validação de CPF:** Validado matematicamente no modelo
+
+---
+## Estrutura de arquivos
+
+```yaml
+backend/
+├── config/
+│   ├── db.js                        — conexão com o PostgreSQL
+│   └── mailer.js                    — configuração do Nodemailer
+├── controllers/
+│   ├── adminRegisterController.js   — cadastro de admin com verificação de e-mail
+│   ├── authController.js            — login, registro e cadastro de operadores
+│   ├── clienteController.js         — CRUD de clientes
+│   ├── falecidoController.js        — CRUD de falecidos
+│   ├── servicoController.js         — CRUD de servicos e atualização de status
+│   └── usuarioController.js         — perfil, listagem e remoção de operadores
+├── events/
+│   ├── publisher.js                 — publica eventos no Redis
+│   └── subscriber.js                — escuta eventos e emite via Socket.io
+├── middlewares/
+│   ├── auth.js                      — verifica e decodifica o token JWT
+│   └── perfil.js                    — restringe rotas ao perfil admin
+├── models/
+│   ├── Cliente.js                   — queries de clientes com validação de CPF
+│   ├── Falecido.js                  — queries de falecidos
+│   ├── Servico.js                   — queries de servicos/contratos
+│   └── Usuario.js                   — queries de usuarios
+├── utils/
+│   └── getAdminId.js                — resolve o admin_id para admin e operador
+├── views/
+│   ├── adminRegisterRoutes.js       — rotas de cadastro de admin
+│   ├── authRoutes.js                — rotas de autenticação
+│   ├── clienteRoutes.js             — rotas de clientes
+│   ├── falecidoRoutes.js            — rotas de falecidos
+│   ├── servicoRoutes.js             — rotas de servicos
+│   └── usuarioRoutes.js             — rotas de usuarios e operadores
+├── .env.example
+├── index.js                         — entry point, configuração do Express e Socket.io
+└── package.json
+```
 
 ---
 
@@ -20,21 +62,28 @@
 
 - [Node.js v18+](https://nodejs.org)
 - [PostgreSQL v14+](https://www.postgresql.org/download/)
-- [Redis](https://redis.io/downloads/)
+- [Redis](https://redis.io/downloads/) (via WSL no Windows)
 - [Git](https://git-scm.com)
 
 ---
 
 ## Como rodar localmente
 
-### 1. Rodar o Redis:
-
+### 1. Iniciar o Redis
+#### Windows (WSL): 
 ```bash
-sudo service redis-server start  
+wsl
+sudo service redis-server start
+redis-cli ping  # deve retornar PONG
+```
+#### Linux/macOS: 
+```bash
+sudo service redis-server start
+redis-cli ping  # deve retornar PONG
 ```
 > Para instalar o Redis no WSL, rode: `sudo apt install redis-server`.
 
-### 2. Em outro terminal, instalar dependencias:
+### 2. Instalar dependências
 
 ```bash
 cd backend
@@ -60,48 +109,48 @@ DB_PASSWORD=sua_senha_aqui
 JWT_SECRET=um_segredo_longo_e_aleatorio
 
 REDIS_URL=redis://seu_host_redis:6379
+
+EMAIL_USER=seu_email@gmail.com
+EMAIL_PASS=sua_senha_de_app_gmail
+EMAIL_FROM=Omar-404 <seu_email@gmail.com>
 ```
+> Para o `EMAIL_PASS`, use uma **senha de app** do Gmail: Google Account > Seguranca > Verificacao em duas etapas > Senhas de app.
 
 ### 4. Criar o banco de dados
-
 ```bash
 psql -U postgres
 ```
-
 ```sql
 CREATE DATABASE omar404 ENCODING 'UTF8' LC_COLLATE 'Portuguese_Brazil.1252' LC_CTYPE 'Portuguese_Brazil.1252' TEMPLATE template0;
 \q
 ```
-
 > **Linux/macOS:** use `pt_BR.UTF-8` no lugar de `Portuguese_Brazil.1252`
 
-### 5. Executar o schema e o seed
-
+### 5. Executar o schema
 ```bash
 psql -U postgres -d omar404 -f database/schema.sql
-psql -U postgres -d omar404 -f database/seed.sql
 ```
 
-> **Atencao:** o seed nao insere usuarios, pois as senhas precisam ser criptografadas.
-> Crie o primeiro usuario via `/auth/register` conforme explicado abaixo.
-
 ### 6. Rodar o servidor
-
 ```bash
 cd backend
 npm run dev
 ```
-
-Acesse: [http://localhost:3000](http://localhost:3000)
-
-
+Se tudo conectou corretamente, deve aparecer: 
+```yaml
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+```
 ---
 
-## Criar o primeiro usuario
+## Criar o primeiro admininastor
+O cadastro de admins é feito pelo frontend com verificação de e-mail (codigo de 6 digitos valido por 15 minutos). Acesse `/cadastro` na interface.
+
+Para testes rápidos via Postman ou Insomnia: 
 
 ```
 POST http://localhost:3000/auth/register
-Content-Type: application/json
 
 {
   "nome": "Admin",
@@ -113,58 +162,61 @@ Content-Type: application/json
 
 ---
 
-## Endpoints disponiveis
+## Endpoints disponíveis
 
-### Autenticacao
+### Autenticação
 
-| Metodo | Rota | Descricao |
-|--------|------|-----------|
-| POST | `/auth/register` | Criar novo usuario |
-| POST | `/auth/login` | Login e geracao do token JWT |
+| Método | Rota | Descrição | Auth |
+|--------|------|-----------|------|
+| POST | `/auth/register` | Criar novo usuário (uso interno/testes) | -- |
+| POST | `/auth/login` | Login e geração do token JWT | -- |
+| POST | `/auth/admin/solicitar` | Solicitar cadastro de admin (envia código por e-mail) | -- |
+| POST | `/auth/admin/solicitar` | Confirmar código e cria admin | -- |
 
-### Perfil (requer token)
+### Usuários (requer token)
 
-| Metodo | Rota | Descricao |
-|--------|------|-----------|
-| GET | `/users/me` | Ver perfil do usuario logado |
-| GET | `/users` | Listar todos os usuarios |
-| PUT | `/users/me` | Atualizar perfil |
-| DELETE | `/users/me` | Remover conta |
-
-### Falecidos (requer token)
-
-| Metodo | Rota | Descricao |
-|--------|------|-----------|
-| GET | `/falecidos` | Listar todos os falecidos |
-| GET | `/falecidos/:id` | Buscar falecido por ID |
-| POST | `/falecidos` | Cadastrar novo falecido |
-| PUT | `/falecidos/:id` | Atualizar falecido |
-| DELETE | `/falecidos/:id` | Remover falecido |
+| Método | Rota | Descrição | Perfil |
+|--------|------|-----------|--------|
+| GET | `/users/me` | Ver perfil do usuário logado | todos |
+| PUT | `/users/me` | Atualizar perfil | todos |
+| DELETE | `/users/me` | Remover própria conta | todos |
+| GET | `/users` | Listar todos os usuários | admin |
+| POST | `/users/operadores` | Cadastrar novo operador | admin |
+| GET | `/users/operadores` | Listar operadores do admin logado | admin |
+| DELETE | `/users/:id` | Remover operador | admin |
 
 ### Clientes (requer token)
 
-| Metodo | Rota | Descricao |
-|--------|------|-----------|
-| GET | `/clientes` | Listar todos os clientes |
-| GET | `/clientes/:id` | Buscar cliente com falecidos vinculados |
-| POST | `/clientes` | Cadastrar novo cliente |
-| PUT | `/clientes/:id` | Atualizar cliente |
-| DELETE | `/clientes/:id` | Remover cliente |
+| Método | Rota | Descrição | Perfil |
+|--------|------|-----------|--------|
+| GET | `/clientes` | Listar todos os clientes | todos |
+| GET | `/clientes/:id` | Buscar cliente com falecidos vinculados | todos |
+| POST | `/clientes` | Cadastrar novo cliente | admin |
+| PUT | `/clientes/:id` | Atualizar cliente | admin |
+| DELETE | `/clientes/:id` | Remover cliente | admin |
 
-### Servicos (requer token)
+### Falecidos (requer token)
 
-| Metodo | Rota | Descricao |
-|--------|------|-----------|
-| GET | `/servicos` | Listar todos os serviços |
-| GET | `/servicos/:id` | Buscar serviço por ID |
-| POST | `/servicos` | Cadastrar novo serviço |
-| PUT | `/servicos/:id` | Atualizar serviço |
-| PATCH | `/servicos/:id/status` | Atualizar status do serviço |
-| DELETE | `/clientes/:id` | Remover serviço |
+| Método | Rota | Descrição | Perfil |
+|--------|------|-----------|--------|
+| GET | `/falecidos` | Listar todos os falecidos | todos |
+| GET | `/falecidos/:id` | Buscar falecido por ID | todos |
+| POST | `/falecidos` | Cadastrar novo falecido | admin |
+| PUT | `/falecidos/:id` | Atualizar falecido | admin |
+| DELETE | `/falecidos/:id` | Remover falecido | admin |
+
+### Serviços (requer token)
+
+| Método | Rota | Descrição | Perfil |
+|--------|------|-----------|--------|
+| GET | `/servicos` | Listar todos os serviços | todos |
+| GET | `/servicos/:id` | Buscar serviço por ID | todos |
+| POST | `/servicos` | Cadastrar novo serviço | admin |
+| PUT | `/servicos/:id` | Atualizar serviço | admin |
+| PATCH | `/servicos/:id/status` | Atualizar status do serviço | admin |
+| DELETE | `/clientes/:id` | Remover serviço | admin |
 
 ### Como usar o token
-
-Apos o login, inclua o token em todas as requisicoes protegidas:
 
 ```
 Authorization: Bearer SEU_TOKEN_AQUI
@@ -174,173 +226,52 @@ No Postman: aba **Authorization** -> **Bearer Token** -> cole o token.
 
 ---
 
-## Exemplos de uso no Postman
-
-### Login
-
-```
-POST http://localhost:3000/auth/login
-
-{
-  "email": "admin@omar404.com",
-  "senha": "sua_senha"
-}
-```
-
-### Cadastrar cliente
-
-```
-POST http://localhost:3000/clientes
-
-{
-  "nome": "Pedro Costa",
-  "cpf": "999.888.777-66",
-  "telefone": "(81) 99999-0003",
-  "email": "pedro@email.com"
-}
-```
-
-> **Atencao:** o CPF deve estar no formato `000.000.000-00` e ser unico no sistema.
-> O comportamento do axios não está adequado, será corrigido no futuro.
-
-### Buscar cliente com falecidos vinculados
-
-```
-GET http://localhost:3000/clientes/1
-```
-
-Retorna o cliente e todos os falecidos vinculados a ele:
-
-```json
-{
-  "id": 1,
-  "nome": "Maria Silva",
-  "cpf": "111.222.333-44",
-  "falecidos": [
-    {
-      "id": 3,
-      "nome": "Carlos Oliveira",
-      "data_falecimento": "2024-03-20"
-    }
-  ]
-}
-```
-
-### Atualizar cliente
-
-```
-PUT http://localhost:3000/clientes/1
-
-{
-  "nome": "Maria Silva Santos",
-  "telefone": "(81) 98888-0001",
-  "email": "maria.nova@email.com"
-}
-```
-
-> **Atencao:** o CPF nao pode ser alterado pelo PUT — apenas nome, telefone e email.
-
-### Deletar cliente
-
-```
-DELETE http://localhost:3000/clientes/1
-```
-
-> Se o cliente tiver falecidos vinculados, o sistema bloqueia a exclusao automaticamente
-> e retorna um erro explicativo.
-
-### Cadastrar falecido
-
-```
-POST http://localhost:3000/falecidos
-
-{
-  "nome": "Carlos Oliveira",
-  "data_nascimento": "1950-05-10",
-  "data_falecimento": "2024-03-20",
-  "causa_morte": "Causas naturais",
-  "cliente_id": 1
-}
-```
-
-> **Atencao:** o `cliente_id` precisa existir na tabela `clientes`.
-> Use `SELECT id, nome FROM clientes;` no psql para ver os IDs disponiveis.
-
-> No terminal, deve aparecer algo como:
-> ```bash
-> Evento publicado: falecido:cadastrado ...
-> Evento recebido - falecido:cadastrado: ...
-> ```
-
-### Cadastrar servico
-```
-POST http://localhost:3000/servicos
-
-{
-  "tipo": "Velorio",
-  "descricao": "Sala standard 12h",
-  "valor": 1500.00,
-  "data_velorio": "2024-03-21 08:00:00",
-  "data_sepultamento": "2024-03-21 16:00:00",
-  "falecido_id": 1,
-  "cliente_id": 1
-}
-```
-
-> No terminal, deve aparecer algo como:
-> ```bash
-> Evento publicado: contrato:criado ...
-> Evento recebido - contrato:criado: ...
-> ```
-
-### Atualizar apenas o status do servico
-
-```
-PATCH http://localhost:3000/servicos/1/status
-
-{
-  "status": "concluido"
-}
-```
-> Status válidos: `pendente`, `em_andamento`, `concluido`, `cancelado`.
-
-> No terminal, deve aparecer algo como:
-> ```bash
-> Evento publicado: sepultamento:confirmado ...
-> Evento recebido - sepultamento:confirmado: ...
-> ```
+## Multitenancy
+Cada admin gerencia seus próprios registros. Operadores visualizam apemas dados do admin ao qual estão vinculados. A lógica é resolvida automaticamente pelo utilitário `utils/getAdminId.js`:
+- Se o usuário logado é admin: usa o proprio `id`
+- Se o usuário logado é operador: busca o `admin_id` vinculado no banco
 
 ---
 
-## Resetar dados do banco (obrigatório)
+## Eventos Pub/Sub
+O sistema publica eventos via Redis e notifica o frontend em tempo real via Socket.io.
 
-Se quiser limpar os dados e reiniciar os IDs do zero:
+| Evento | Onde é disparado | Quando | 
+|--------|------------------|--------|
+| `usuario:logado` | `authController.login` | Ao fazer login |
+| `cliente:cadastrado` | `clienteController.create` | Ao cadastrar cliente |
+| `falecido:cadastrado` | `falecidoController.create` | Ao cadastrar falecido |
+| `contrato:cadastrado` | `servicoController.create` | Ao cadastrar serviço |
+| `contrato:atualizado` | `servicoController.update` | Ao editar serviço |
+| `contrato:cancelado` | `servicoController.updateStatus` | Status do serviço vira `cancelado` |
+| `sepultamento:confirmado` | `servicoController.updateStatus` | Status do serviço vira `concluido` |
+| `operador:cadastrado` | `authController.registrarOperador` | Ao cadastrar operador |
+| `operador:removido` | `usuarioController.deletarOperadores` | Ao remover operador |
+Para testar, observe o terminal do servidor após cada ação: 
+```yaml
+Evento publicado: contrato:criado { id: 1, tipo: 'Velorio' ... }
+Evento recebido - contrato:criado: { id: 1, tipo: 'Velorio' ... }
+```
+> A ordem dos logs pode variar — comportamento normal do event loop do Node.js.
+---
+
+### Resetar dados do banco (se necessário)
 
 ```bash
 psql -U postgres -d omar404
 ```
-
 ```sql
 TRUNCATE TABLE servicos, falecidos, clientes RESTART IDENTITY CASCADE;
 \q
 ```
-
-Depois rode o seed novamente:
-
-```bash
-psql -U postgres -d omar404 -f database/seed.sql
-```
-
 ---
 
-## Observacoes
+## Observações
 
 - Nunca suba o arquivo `.env` para o GitHub — ele esta no `.gitignore`
-- O `JWT_SECRET` em producao deve ser uma string longa e aleatória
-- Senhas sao armazenadas com hash bcrypt — nunca em texto puro
-- O token JWT expira em 8h — apos isso e necessario fazer login novamente
-- O CPF deve estar no formato `000.000.000-00` e ser validado pela Brasil API
-- Clientes com falecidos vinculados nao podem ser removidos
+- O `JWT_SECRET` em produção deve ser uma string longa e aleatória
+- Senhas são armazenadas com hash bcrypt — nunca em texto puro
+- O token JWT expira em 8h — configurável no `authController`
+- O CPF é validado matematicamente - CPFs com dígitos aleatórios muito provavelmente serão rejeitados
+- Clientes com falecidos vinculados não podem ser removidos (`ON DELETE RESTRIC`)
 - IDs no PostgreSQL não reiniciam automaticamente ao recriar registros — isso é comportamento normal
-- Todo serviço precisa de um `falecido_id` e `cliente_id` existentes no banco.
-- A ordem dos logs do Pub/Sub pode variar - isso é um comportamento normal do Node.js.
