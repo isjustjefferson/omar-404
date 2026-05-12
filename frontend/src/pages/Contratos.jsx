@@ -25,31 +25,34 @@ export default function Contratos() {
   const [contratoEditando, setContratoEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
   const [carregando, setCarregando] = useState(true)
+  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}')
+  const confirmaAdmin = usuario.perfil === 'admin'
+
   const handleContratoCriado = useCallback((dados) => {
-  setDados(prev => [dados, ...prev])
-}, [])
+    setDados(prev => [dados, ...prev])
+  }, [])
 
-const handleContratoAtualizado = useCallback((dados) => {
-  setDados(prev => prev.map(c => c.id === dados.id ? { ...c, ...dados } : c))
-}, [])
+  const handleContratoAtualizado = useCallback((dados) => {
+    setDados(prev => prev.map(c => c.id === dados.id ? { ...c, ...dados } : c))
+  }, [])
 
-const handleContratoCancelado = useCallback((dados) => {
-  setDados(prev => prev.map(c => c.id === dados.id ? { ...c, status: 'cancelado' } : c))
-}, [])
+  const handleContratoCancelado = useCallback((dados) => {
+    setDados(prev => prev.map(c => c.id === dados.id ? { ...c, status: 'cancelado' } : c))
+  }, [])
 
-const handleSepultamentoConfirmado = useCallback((dados) => {
-  setDados(prev => prev.map(c => c.id === dados.id ? { ...c, status: 'concluido' } : c))
-}, [])
+  const handleSepultamentoConfirmado = useCallback((dados) => {
+    setDados(prev => prev.map(c => c.id === dados.id ? { ...c, status: 'concluido' } : c))
+  }, [])
 
-const handleContratoRemovido = useCallback((dados) => {
-  setDados(prev => prev.filter(c => c.id !== Number(dados.id)))
-}, [])
+  const handleContratoRemovido = useCallback((dados) => {
+    setDados(prev => prev.filter(c => c.id !== Number(dados.id)))
+  }, [])
 
-useSocket('contrato:removido', handleContratoRemovido)
-useSocket('contrato:criado', handleContratoCriado)
-useSocket('contrato:atualizado', handleContratoAtualizado)
-useSocket('contrato:cancelado', handleContratoCancelado)
-useSocket('sepultamento:confirmado', handleSepultamentoConfirmado)
+  useSocket('contrato:removido', handleContratoRemovido)
+  useSocket('contrato:criado', handleContratoCriado)
+  useSocket('contrato:atualizado', handleContratoAtualizado)
+  useSocket('contrato:cancelado', handleContratoCancelado)
+  useSocket('sepultamento:confirmado', handleSepultamentoConfirmado)
 
   useEffect(() => {
     api.get('/servicos')
@@ -92,7 +95,9 @@ useSocket('sepultamento:confirmado', handleSepultamentoConfirmado)
           <h1 className="page-title">Contratos</h1>
           <p className="page-subtitle">Serviços e contratos funerários</p>
         </div>
-        <button className="btn-omar" onClick={abrirNovo}>+ Novo contrato</button>
+        {confirmaAdmin && (
+          <button className="btn-omar" onClick={abrirNovo}>+ Novo contrato</button>
+        )}
       </div>
 
       <div className="card-omar">
@@ -155,25 +160,27 @@ useSocket('sepultamento:confirmado', handleSepultamentoConfirmado)
                         {statusLabel[c.status] || c.status}
                       </span>
                     </td>
-                    <td style={{ textAlign: 'right' }}>
-                      <button
-                        className="btn-ghost me-2"
-                        style={{ padding: '4px 12px', fontSize: 12 }}
-                        onClick={() => abrirEditar(c)}
-                      >
-                        Editar
-                      </button>
-                      <button
-                        className="btn-danger-ghost"
-                        style={{ padding: '4px 12px', fontSize: 12 }}
-                        onClick={() => setConfirmandoId(c.id)}
-                      >
-                        Remover
-                      </button>
-                    </td>
+                    {confirmaAdmin && (
+                      <td style={{ textAlign: 'right' }}>
+                        <button
+                          className="btn-ghost me-2"
+                          style={{ padding: '4px 12px', fontSize: 12 }}
+                          onClick={() => abrirEditar(c)}
+                        >
+                          Editar
+                        </button>
+                        <button
+                          className="btn-danger-ghost"
+                          style={{ padding: '4px 12px', fontSize: 12 }}
+                          onClick={() => setConfirmandoId(c.id)}
+                        >
+                          Remover
+                        </button>
+                      </td>
+                    )}
                   </tr>
 
-                  {confirmandoId === c.id && (
+                  {confirmaAdmin && confirmandoId === c.id && (
                     <tr key={`confirm-${c.id}`}>
                       <td colSpan={5} style={{
                         background: 'rgba(192,84,74,0.08)',

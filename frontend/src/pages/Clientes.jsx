@@ -10,6 +10,8 @@ export default function Clientes() {
   const [clienteEditando, setClienteEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
   const [carregando, setCarregando] = useState(true)
+  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}')
+  const confirmaAdmin = usuario.perfil === 'admin'
 
   const handleClienteCadastrado = useCallback((cliente) => {
     setDados(prev => {
@@ -95,7 +97,9 @@ export default function Clientes() {
           <h1 className="page-title">Clientes</h1>
           <p className="page-subtitle">Contratantes e responsáveis</p>
         </div>
-        <button className="btn-omar" onClick={abrirNovo}>+ Novo cliente</button>
+        { confirmaAdmin && (
+          <button className="btn-omar" onClick={abrirNovo}>+ Novo cliente</button>
+        )}
       </div>
  
       <div className="card-omar">
@@ -151,25 +155,27 @@ export default function Clientes() {
                     <td style={{ color: 'var(--text-secondary)', fontFamily: 'DM Mono, monospace', fontSize: 13 }}>{c.cpf}</td>
                     <td style={{ color: 'var(--text-secondary)' }}>{c.telefone || '—'}</td>
                     <td style={{ color: 'var(--text-secondary)' }}>{c.email || '—'}</td>
-                    <td style={{ textAlign: 'right' }}>
-                      <button
-                        className="btn-ghost me-2"
-                        style={{ padding: '4px 12px', fontSize: 12 }}
-                        onClick={() => abrirEditar(c)}
-                      >
-                        Editar
-                      </button>
-                      <button
-                        className="btn-danger-ghost"
-                        style={{ padding: '4px 12px', fontSize: 12 }}
-                        onClick={() => setConfirmandoId(c.id)}
-                      >
-                        Remover
-                      </button>
-                    </td>
+                    {confirmaAdmin && (
+                      <td style={{ textAlign: 'right' }}>
+                        <button
+                          className="btn-ghost me-2"
+                          style={{ padding: '4px 12px', fontSize: 12 }}
+                          onClick={() => abrirEditar(c)}
+                        >
+                          Editar
+                        </button>
+                        <button
+                          className="btn-danger-ghost"
+                          style={{ padding: '4px 12px', fontSize: 12 }}
+                          onClick={() => setConfirmandoId(c.id)}
+                        >
+                          Remover
+                        </button>
+                      </td>
+                    )}
                   </tr>
  
-                  {confirmandoId === c.id && (
+                  {confirmaAdmin && confirmandoId === c.id && (
                     <tr key={`confirm-${c.id}`}>
                       <td colSpan={5} style={{
                         background: 'rgba(192,84,74,0.08)',

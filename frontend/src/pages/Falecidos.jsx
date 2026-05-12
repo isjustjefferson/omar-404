@@ -11,25 +11,28 @@ export default function Falecidos() {
   const [falecidoEditando, setFalecidoEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
   const [carregando, setCarregando] = useState(true)
+  const usuario = JSON.parse(localStorage.getItem('usuario') || '{}')
+  const confirmaAdmin = usuario.perfil === 'admin'
+
   const handleFalecidoCadastrado = useCallback((f) => {
-  setDados(prev => {
-    const jaExiste = prev.some(d => d.id === f.id)
-    if (jaExiste) return prev
-    return [f, ...prev]
-  })
-}, [])
+    setDados(prev => {
+      const jaExiste = prev.some(d => d.id === f.id)
+      if (jaExiste) return prev
+      return [f, ...prev]
+    })
+  }, [])
 
-const handleFalecidoAtualizado = useCallback((f) => {
-  setDados(prev => prev.map(d => d.id === f.id ? { ...d, ...f } : d))
-}, [])
+  const handleFalecidoAtualizado = useCallback((f) => {
+    setDados(prev => prev.map(d => d.id === f.id ? { ...d, ...f } : d))
+  }, [])
 
-const handleFalecidoRemovido = useCallback((f) => {
-  setDados(prev => prev.filter(d => d.id !== Number(f.id)))
-}, [])
+  const handleFalecidoRemovido = useCallback((f) => {
+    setDados(prev => prev.filter(d => d.id !== Number(f.id)))
+  }, [])
 
-useSocket('falecido:cadastrado', handleFalecidoCadastrado)
-useSocket('falecido:atualizado', handleFalecidoAtualizado)
-useSocket('falecido:removido', handleFalecidoRemovido)
+  useSocket('falecido:cadastrado', handleFalecidoCadastrado)
+  useSocket('falecido:atualizado', handleFalecidoAtualizado)
+  useSocket('falecido:removido', handleFalecidoRemovido)
 
   useEffect(() => {
     api.get('/falecidos')
@@ -72,7 +75,9 @@ useSocket('falecido:removido', handleFalecidoRemovido)
           <h1 className="page-title">Falecidos</h1>
           <p className="page-subtitle">Registros de falecidos no sistema</p>
         </div>
-        <button className="btn-omar" onClick={abrirNovo}>+ Novo registro</button>
+        {confirmaAdmin && (
+          <button className="btn-omar" onClick={abrirNovo}>+ Novo registro</button>
+        )}
       </div>
 
       <div className="card-omar">
@@ -128,25 +133,27 @@ useSocket('falecido:removido', handleFalecidoRemovido)
                     <td style={{ color: 'var(--text-secondary)' }}>{f.data_nascimento || '—'}</td>
                     <td style={{ color: 'var(--text-secondary)' }}>{f.data_falecimento}</td>
                     <td style={{ color: 'var(--text-secondary)' }}>{f.causa_morte || '—'}</td>
-                    <td style={{ textAlign: 'right' }}>
-                      <button
-                        className="btn-ghost me-2"
-                        style={{ padding: '4px 12px', fontSize: 12 }}
-                        onClick={() => abrirEditar(f)}
-                      >
-                        Editar
-                      </button>
-                      <button
-                        className="btn-danger-ghost"
-                        style={{ padding: '4px 12px', fontSize: 12 }}
-                        onClick={() => setConfirmandoId(f.id)}
-                      >
-                        Remover
-                      </button>
-                    </td>
+                    {confirmaAdmin && (
+                      <td style={{ textAlign: 'right' }}>
+                        <button
+                          className="btn-ghost me-2"
+                          style={{ padding: '4px 12px', fontSize: 12 }}
+                          onClick={() => abrirEditar(f)}
+                        >
+                          Editar
+                        </button>
+                        <button
+                          className="btn-danger-ghost"
+                          style={{ padding: '4px 12px', fontSize: 12 }}
+                          onClick={() => setConfirmandoId(f.id)}
+                        >
+                          Remover
+                        </button>
+                      </td>
+                    )}
                   </tr>
 
-                  {confirmandoId === f.id && (
+                  {confirmaAdmin && confirmandoId === f.id && (
                     <tr key={`confirm-${f.id}`}>
                       <td colSpan={5} style={{
                         background: 'rgba(192,84,74,0.08)',
