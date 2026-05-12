@@ -1,3 +1,5 @@
+import { useCallback } from 'react'
+import useSocket from '../hooks/useSocket'
 import { useState, useEffect } from 'react'
 import api from '../services/api'
 import ContratoModal from '../components/ContratoModal'
@@ -23,6 +25,31 @@ export default function Contratos() {
   const [contratoEditando, setContratoEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
   const [carregando, setCarregando] = useState(true)
+  const handleContratoCriado = useCallback((dados) => {
+  setDados(prev => [dados, ...prev])
+}, [])
+
+const handleContratoAtualizado = useCallback((dados) => {
+  setDados(prev => prev.map(c => c.id === dados.id ? { ...c, ...dados } : c))
+}, [])
+
+const handleContratoCancelado = useCallback((dados) => {
+  setDados(prev => prev.map(c => c.id === dados.id ? { ...c, status: 'cancelado' } : c))
+}, [])
+
+const handleSepultamentoConfirmado = useCallback((dados) => {
+  setDados(prev => prev.map(c => c.id === dados.id ? { ...c, status: 'concluido' } : c))
+}, [])
+
+const handleContratoRemovido = useCallback((dados) => {
+  setDados(prev => prev.filter(c => c.id !== Number(dados.id)))
+}, [])
+
+useSocket('contrato:removido', handleContratoRemovido)
+useSocket('contrato:criado', handleContratoCriado)
+useSocket('contrato:atualizado', handleContratoAtualizado)
+useSocket('contrato:cancelado', handleContratoCancelado)
+useSocket('sepultamento:confirmado', handleSepultamentoConfirmado)
 
   useEffect(() => {
     api.get('/servicos')
@@ -46,20 +73,17 @@ export default function Contratos() {
   }
 
   async function handleSalvar(form) {
-    if (contratoEditando) {
-      const res = await api.put(`/servicos/${contratoEditando.id}`, form)
-      setDados(dados.map(c => c.id === contratoEditando.id ? res.data : c))
-    } else {
-      const res = await api.post('/servicos', form)
-      setDados([res.data, ...dados])
-    }
+  if (contratoEditando) {
+    await api.put(`/servicos/${contratoEditando.id}`, form)
+  } else {
+    await api.post('/servicos', form)
   }
+}
 
   async function handleDeletar(id) {
-    await api.delete(`/servicos/${id}`)
-    setDados(dados.filter(c => c.id !== id))
-    setConfirmandoId(null)
-  }
+  await api.delete(`/servicos/${id}`)
+  setConfirmandoId(null)
+}
 
   return (
     <>
