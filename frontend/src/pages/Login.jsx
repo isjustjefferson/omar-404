@@ -1,3 +1,4 @@
+import socket from '../services/socket'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import api from '../services/api'
@@ -21,6 +22,9 @@ export default function Login() {
       })
       localStorage.setItem('token', res.data.token)
       localStorage.setItem('usuario', JSON.stringify(res.data.usuario))
+      console.log('conectando socket...')
+      socket.connect()
+      console.log('socket conectado:', socket.connected)
       navigate('/')
     } catch (err) {
       setErro(err.response?.data?.erro || 'E-mail ou senha inválidos.')
