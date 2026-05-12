@@ -23,21 +23,21 @@ export default function FalecidoModal({ aberto, onFechar, onSalvar, falecido }) 
     }
   }, [aberto])
 
-  // Preenche o formulário ao editar
   useEffect(() => {
-    if (falecido) {
-      setForm({
-        nome:             falecido.nome            || '',
-        data_nascimento:  falecido.data_nascimento  || '',
-        data_falecimento: falecido.data_falecimento || '',
-        causa_morte:      falecido.causa_morte      || '',
-        cliente_id:       falecido.cliente_id       || '',
-      })
-    } else {
-      setForm(formVazio)
-    }
-    setErro('')
-  }, [falecido, aberto])
+  if (falecido) {
+    
+    setForm({
+      nome:             falecido.nome            || '',
+      data_nascimento:  falecido.data_nascimento  ? falecido.data_nascimento.split('T')[0] : '',
+      data_falecimento: falecido.data_falecimento ? falecido.data_falecimento.split('T')[0] : '',
+      causa_morte:      falecido.causa_morte      || '',
+      cliente_id:       falecido.cliente_id       || '',
+    })
+  } else {
+    setForm(formVazio)
+  }
+  setErro('')
+}, [falecido, aberto])
 
   function handleChange(e) {
     setForm({ ...form, [e.target.name]: e.target.value })
