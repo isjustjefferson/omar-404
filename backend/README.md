@@ -241,7 +241,7 @@ O sistema publica eventos via Redis e notifica o frontend em tempo real via Sock
 | `usuario:logado` | `authController.login` | Ao fazer login |
 | `cliente:cadastrado` | `clienteController.create` | Ao cadastrar cliente |
 | `falecido:cadastrado` | `falecidoController.create` | Ao cadastrar falecido |
-| `contrato:cadastrado` | `servicoController.create` | Ao cadastrar serviço |
+| `contrato:criado` | `servicoController.create` | Ao cadastrar serviço |
 | `contrato:atualizado` | `servicoController.update` | Ao editar serviço |
 | `contrato:cancelado` | `servicoController.updateStatus` | Status do serviço vira `cancelado` |
 | `sepultamento:confirmado` | `servicoController.updateStatus` | Status do serviço vira `concluido` |
@@ -268,7 +268,7 @@ TRUNCATE TABLE servicos, falecidos, clientes RESTART IDENTITY CASCADE;
 
 ## Observações
 
-- Nunca suba o arquivo `.env` para o GitHub — ele esta no `.gitignore`
+- Nunca suba o arquivo `.env` para o GitHub — ele está no `.gitignore`
 - O `JWT_SECRET` em produção deve ser uma string longa e aleatória
 - Senhas são armazenadas com hash bcrypt — nunca em texto puro
 - O token JWT expira em 8h — configurável no `authController`
