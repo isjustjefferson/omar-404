@@ -37,9 +37,14 @@ const clienteController = {
             const admin_id = await getAdminId(req.usuario);
             const cliente = await Cliente.criar({ ...req.body, admin_id });
 
+            console.log('CLIENTE COMPLETO:', cliente);
+
             await publicar('cliente:cadastrado', {
                 id: cliente.id,
                 nome: cliente.nome,
+                cpf: cliente.cpf,
+                telefone: cliente.telefone,
+                email: cliente.email,
                 admin_id: cliente.admin_id,
                 criado_em: cliente.criado_em
             });
@@ -53,25 +58,34 @@ const clienteController = {
         }
     },
 
-    async update(req, res) {
-        try {
-            const admin_id = await getAdminId(req.usuario);
-            const cliente = await Cliente.buscarPorId(req.params.id, admin_id);
-            if(!cliente) {
-                return res.status(404).json({
-                    erro: 'Cliente não encontrado.'
-                });
-            }
-            const atualizado = await Cliente.atualizar(req.params.id, req.body, admin_id);
-            return res.json({
-                mensagem: 'Cliente atualizado com sucesso.'
-            });
-        } catch (err) {
-            return res.status(500).json({
-                erro: err.message
+   async update(req, res) {
+    try {
+        const admin_id = await getAdminId(req.usuario);
+        const cliente = await Cliente.buscarPorId(req.params.id, admin_id);
+        if(!cliente) {
+            return res.status(404).json({
+                erro: 'Cliente não encontrado.'
             });
         }
-    },
+        const atualizado = await Cliente.atualizar(req.params.id, req.body, admin_id);
+        
+        await publicar('cliente:atualizado', {
+            id: atualizado.id,
+            nome: atualizado.nome,
+            cpf: atualizado.cpf,
+            telefone: atualizado.telefone,
+            email: atualizado.email,
+            admin_id: atualizado.admin_id,
+            criado_em: atualizado.criado_em
+        });
+
+        return res.json(atualizado);
+    } catch (err) {
+        return res.status(500).json({
+            erro: err.message
+        });
+    }
+},
 
     async delete(req, res) {
         try {
@@ -82,7 +96,12 @@ const clienteController = {
                     erro: 'Cliente não encontrado.'
                 });
             }
-            await Cliente.deletar(req.params.id, admin_id);
+           await Cliente.deletar(req.params.id, admin_id);
+
+           await publicar('cliente:removido', {
+                id: cliente.id
+            });
+
             return res.json({
                 mensagem: 'Cliente removido com sucesso.'
             });
