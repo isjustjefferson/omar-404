@@ -63,7 +63,7 @@ const authController = {
                 { expiresIn: '8h' }
             );
 
-            await publicar('usuaion:logado', {
+            await publicar('usuario:logado', {
                 id: usuario.id,
                 nome: usuario.nome,
                 email: usuario.email,
