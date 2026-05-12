@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
+import useSocket from '../hooks/useSocket'
 import api from '../services/api'
 import ClienteModal from '../components/ClienteModal'
  
@@ -9,7 +10,29 @@ export default function Clientes() {
   const [clienteEditando, setClienteEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
   const [carregando, setCarregando] = useState(true)
- 
+
+  const handleClienteCadastrado = useCallback((cliente) => {
+    setDados(prev => {
+      const jaExiste = prev.some(c => c.id === cliente.id)
+      if (jaExiste) return prev
+      return [cliente, ...prev]
+    })
+  }, [])
+
+  const handleClienteRemovido = useCallback((cliente) => {
+    setDados(prev => prev.filter(c => c.id !== cliente.id))
+  }, [])
+
+  const handleClienteAtualizado = useCallback((cliente) => {
+    setDados(prev => prev.map(c => c.id === cliente.id ? { ...c, ...cliente } : c))
+  }, [])
+
+  useSocket('cliente:cadastrado', handleClienteCadastrado)
+  useSocket('cliente:removido', handleClienteRemovido)
+  useSocket('cliente:atualizado', handleClienteAtualizado)
+
+
+  
   useEffect(() => {
     api.get('/clientes')
       .then(res => setDados(res.data))
@@ -18,8 +41,8 @@ export default function Clientes() {
   }, [])
  
   const filtrados = dados.filter(c =>
-    c.nome.toLowerCase().includes(busca.toLowerCase())
-  )
+  c.nome && c.nome.toLowerCase().includes(busca.toLowerCase())
+)
  
   function abrirNovo() {
     setClienteEditando(null)
@@ -32,14 +55,32 @@ export default function Clientes() {
   }
  
   async function handleSalvar(form) {
-    if (clienteEditando) {
-      const res = await api.put(`/clientes/${clienteEditando.id}`, form)
-      setDados(dados.map(c => c.id === clienteEditando.id ? res.data : c))
-    } else {
-      const res = await api.post('/clientes', form)
-      setDados([res.data, ...dados])
-    }
+
+  if (clienteEditando) {
+
+    const res = await api.put(`/clientes/${clienteEditando.id}`, form)
+
+    setDados(prev =>
+      prev.map(c =>
+        c.id === clienteEditando.id ? res.data : c
+      )
+    )
+
+  } else {
+
+    const res = await api.post('/clientes', form)
+
+    setDados(prev => {
+
+      const jaExiste = prev.some(c => c.id === res.data.id)
+
+      if (jaExiste) return prev
+
+      return [res.data, ...prev]
+    })
+
   }
+}
  
   async function handleDeletar(id) {
     await api.delete(`/clientes/${id}`)
@@ -104,7 +145,7 @@ export default function Clientes() {
               </tr>
             ) : (
               filtrados.map(c => (
-                <>
+              <React.Fragment key={c.id}>
                   <tr key={c.id}>
                     <td style={{ fontWeight: 500 }}>{c.nome}</td>
                     <td style={{ color: 'var(--text-secondary)', fontFamily: 'DM Mono, monospace', fontSize: 13 }}>{c.cpf}</td>
@@ -160,7 +201,7 @@ export default function Clientes() {
                       </td>
                     </tr>
                   )}
-                </>
+                </React.Fragment>
               ))
             )}
           </tbody>
