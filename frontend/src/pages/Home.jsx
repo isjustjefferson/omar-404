@@ -1,3 +1,5 @@
+import { useCallback } from 'react'
+import useSocket from '../hooks/useSocket'
 import { useState, useEffect } from 'react'
 import api from '../services/api'
 
@@ -22,8 +24,35 @@ export default function Home() {
     pendentes: '—',
     total: '—',
   })
+  
   const [recentes, setRecentes] = useState([])
   const [carregando, setCarregando] = useState(true)
+
+  const atualizarStats = useCallback(() => {
+  Promise.all([
+    api.get('/falecidos'),
+    api.get('/clientes'),
+    api.get('/servicos'),
+  ]).then(([falecidos, clientes, servicos]) => {
+    const pendentes = servicos.data.filter(s => s.status === 'pendente').length
+    setStats({
+      falecidos: falecidos.data.length,
+      clientes:  clientes.data.length,
+      pendentes,
+      total:     servicos.data.length,
+    })
+    setRecentes(servicos.data.slice(0, 5))
+  }).catch(() => {})
+}, [])
+
+useSocket('cliente:cadastrado', atualizarStats)
+useSocket('cliente:removido', atualizarStats)
+useSocket('falecido:cadastrado', atualizarStats)
+useSocket('falecido:removido', atualizarStats)
+useSocket('contrato:criado', atualizarStats)
+useSocket('contrato:removido', atualizarStats)
+useSocket('contrato:cancelado', atualizarStats)
+useSocket('sepultamento:confirmado', atualizarStats)
 
   useEffect(() => {
     Promise.all([
@@ -43,10 +72,10 @@ export default function Home() {
   }, [])
 
   const cards = [
-    { label: 'Falecidos registrados', value: stats.falecidos, sub: 'total no sistema' },
-    { label: 'Clientes ativos',       value: stats.clientes,  sub: 'contratantes'     },
-    { label: 'Contratos pendentes',   value: stats.pendentes, sub: 'aguardando'        },
-    { label: 'Serviços registrados',  value: stats.total,     sub: 'total no sistema' },
+    { label: 'Falecidos registrados', value: stats.falecidos, sub: 'registrados no sistema' },
+    { label: 'Clientes ativos',       value: stats.clientes,  sub: 'contratantes cadastrados'     },
+    { label: 'Contratos pendentes',   value: stats.pendentes, sub: 'aguardando execução'        },
+    { label: 'Total de contratos',  value: stats.total,     sub: 'registrados no sistema' },
   ]
 
   return (
