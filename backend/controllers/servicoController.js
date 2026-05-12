@@ -70,12 +70,12 @@ const servicoController = {
             const atualizado = await Servico.atualizar(req.params.id, req.body, admin_id);
             
             await publicar('contrato:atualizado', {
-                id: atualizado.id,
-                tipo: atualizado.yipo,
-                valor: atualizado.valor,
-                status: atualizado.status,
-                admin_id: atualizado.admin_id
-            });
+            id: atualizado.id,
+            tipo: atualizado.tipo,  // ← era yipo
+            valor: atualizado.valor,
+            status: atualizado.status,
+            admin_id: atualizado.admin_id
+        });
             
             return res.json(atualizado);
         } catch (err) {
@@ -132,24 +132,27 @@ const servicoController = {
     },
 
     async delete(req, res) {
-        try {
-            const admin_id = await getAdminId(req.usuario);
-            const servico = await Servico.buscarPorId(req.params.id, admin_id);
-            if (!servico) {
-                return res.status(404).json({
-                    erro: 'Serviço não encontrado.'
-                });
-            }     
-            await Servico.deletar(req.params.id, admin_id);
-            return res.json({
-                mensagem: 'Serviço removido com sucesso.'
+    try {
+        const admin_id = await getAdminId(req.usuario);
+        const servico = await Servico.buscarPorId(req.params.id, admin_id);
+        if (!servico) {
+            return res.status(404).json({
+                erro: 'Serviço não encontrado.'
             });
-        } catch (err) {
-            return res.status(500).json({
-                erro: err.message
-            });
-        }
+        }     
+        await Servico.deletar(req.params.id, admin_id);
+        console.log('deletou, agora vai publicar')
+        await publicar('contrato:removido', { id: req.params.id });
+        console.log('publicou')
+        return res.json({
+            mensagem: 'Serviço removido com sucesso.'
+        });
+    } catch (err) {
+        return res.status(500).json({
+            erro: err.message
+        });
     }
+}
 };
 
 module.exports = servicoController;
