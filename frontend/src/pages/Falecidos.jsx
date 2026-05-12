@@ -1,3 +1,5 @@
+import { useCallback } from 'react'
+import useSocket from '../hooks/useSocket'
 import { useState, useEffect } from 'react'
 import api from '../services/api'
 import FalecidoModal from '../components/FalecidoModal'
@@ -9,6 +11,25 @@ export default function Falecidos() {
   const [falecidoEditando, setFalecidoEditando] = useState(null)
   const [confirmandoId, setConfirmandoId] = useState(null)
   const [carregando, setCarregando] = useState(true)
+  const handleFalecidoCadastrado = useCallback((f) => {
+  setDados(prev => {
+    const jaExiste = prev.some(d => d.id === f.id)
+    if (jaExiste) return prev
+    return [f, ...prev]
+  })
+}, [])
+
+const handleFalecidoAtualizado = useCallback((f) => {
+  setDados(prev => prev.map(d => d.id === f.id ? { ...d, ...f } : d))
+}, [])
+
+const handleFalecidoRemovido = useCallback((f) => {
+  setDados(prev => prev.filter(d => d.id !== Number(f.id)))
+}, [])
+
+useSocket('falecido:cadastrado', handleFalecidoCadastrado)
+useSocket('falecido:atualizado', handleFalecidoAtualizado)
+useSocket('falecido:removido', handleFalecidoRemovido)
 
   useEffect(() => {
     api.get('/falecidos')
@@ -33,19 +54,16 @@ export default function Falecidos() {
 
   async function handleSalvar(form) {
     if (falecidoEditando) {
-      const res = await api.put(`/falecidos/${falecidoEditando.id}`, form)
-      setDados(dados.map(f => f.id === falecidoEditando.id ? res.data : f))
+      await api.put(`/falecidos/${falecidoEditando.id}`, form)
     } else {
-      const res = await api.post('/falecidos', form)
-      setDados([res.data, ...dados])
+      await api.post('/falecidos', form)
     }
   }
 
   async function handleDeletar(id) {
-    await api.delete(`/falecidos/${id}`)
-    setDados(dados.filter(f => f.id !== id))
-    setConfirmandoId(null)
-  }
+  await api.delete(`/falecidos/${id}`)
+  setConfirmandoId(null)
+}
 
   return (
     <>
