@@ -43,35 +43,36 @@ export default function Login() {
         overflow: 'hidden',
       }}
     >
+      
       <img
-  src="/sr_omarr.png"
-  alt="Sr. Omar"
-  style={{
-    position: 'absolute',
-    bottom: 0,
-    left: '20%',
-    transform: 'translateX(-50%)',
-    height: '90vh',
-    opacity: 0.40,
-    pointerEvents: 'none',
-    userSelect: 'none',
-  }}
-/>
+        src="/sr_omarr.png"
+        alt="Sr. Omar"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          left: '20%',
+          transform: 'translateX(-50%)',
+          height: '90vh',
+          opacity: 0.40,
+          pointerEvents: 'none',
+          userSelect: 'none',
+        }}
+      />
 
-{/* Caixão no lado direito */}
-<img
-  src="/caixao.png"
-  alt="Caixão"
-  style={{
-    position: 'absolute',
-    bottom: '20%',
-    right: '10%',
-    height: '45vh',
-    opacity: 0.45,
-    pointerEvents: 'none',
-    userSelect: 'none',
-  }}
-/>
+      {/* Caixão no lado direito */}
+      <img
+        src="/caixao.png"
+        alt="Caixão"
+        style={{
+          position: 'absolute',
+          bottom: '20%',
+          right: '10%',
+          height: '45vh',
+          opacity: 0.45,
+          pointerEvents: 'none',
+          userSelect: 'none',
+        }}
+      />
 
       {/* Formulário de login */}
       <div style={{ width: '100%', maxWidth: 380, position: 'relative', zIndex: 1 }}>
