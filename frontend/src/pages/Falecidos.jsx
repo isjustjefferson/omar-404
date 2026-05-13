@@ -64,9 +64,18 @@ export default function Falecidos() {
   }
 
   async function handleDeletar(id) {
-  await api.delete(`/falecidos/${id}`)
-  setConfirmandoId(null)
-}
+    await api.delete(`/falecidos/${id}`)
+    setConfirmandoId(null)
+  }
+
+  function formatarData(data) {
+    if (!data) return '—'
+    return new Date(data).toLocaleString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    })
+  }
 
   return (
     <>
@@ -130,8 +139,8 @@ export default function Falecidos() {
                 <>
                   <tr key={f.id}>
                     <td style={{ fontWeight: 500 }}>{f.nome}</td>
-                    <td style={{ color: 'var(--text-secondary)' }}>{f.data_nascimento || '—'}</td>
-                    <td style={{ color: 'var(--text-secondary)' }}>{f.data_falecimento}</td>
+                    <td style={{ color: 'var(--text-secondary)' }}>{formatarData(f.data_nascimento) || '—'}</td>
+                    <td style={{ color: 'var(--text-secondary)' }}>{formatarData(f.data_falecimento)}</td>
                     <td style={{ color: 'var(--text-secondary)' }}>{f.causa_morte || '—'}</td>
                     {confirmaAdmin && (
                       <td style={{ textAlign: 'right' }}>

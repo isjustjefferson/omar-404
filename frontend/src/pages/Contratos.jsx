@@ -76,17 +76,28 @@ export default function Contratos() {
   }
 
   async function handleSalvar(form) {
-  if (contratoEditando) {
-    await api.put(`/servicos/${contratoEditando.id}`, form)
-  } else {
-    await api.post('/servicos', form)
+    if (contratoEditando) {
+      await api.put(`/servicos/${contratoEditando.id}`, form)
+    } else {
+      await api.post('/servicos', form)
+    }
   }
-}
 
   async function handleDeletar(id) {
-  await api.delete(`/servicos/${id}`)
-  setConfirmandoId(null)
-}
+    await api.delete(`/servicos/${id}`)
+    setConfirmandoId(null)
+  }
+
+  function formatarData(data) {
+    if (!data) return '—'
+    return new Date(data).toLocaleString('pt-BR', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+    })
+  }
 
   return (
     <>
@@ -118,7 +129,11 @@ export default function Contratos() {
           <thead>
             <tr>
               <th>Tipo de serviço</th>
+              <th>Clientes</th>
               <th>Falecido</th>
+              <th>Velório</th>
+              <th>Sepultamento</th>
+              <th>Descrição</th>
               <th>Valor</th>
               <th>Status</th>
               <th></th>
@@ -127,13 +142,13 @@ export default function Contratos() {
           <tbody>
             {carregando ? (
               <tr>
-                <td colSpan={5} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
+                <td colSpan={9} style={{ textAlign: 'center', color: 'var(--text-muted)', padding: 32 }}>
                   Carregando...
                 </td>
               </tr>
             ) : filtrados.length === 0 ? (
               <tr>
-                <td colSpan={5}>
+                <td colSpan={9}>
                   <div style={{
                     background: 'rgba(100,200,80,0.05)',
                     border: '1px solid rgba(100,200,80,0.15)',
@@ -153,7 +168,11 @@ export default function Contratos() {
                 <>
                   <tr key={c.id}>
                     <td style={{ fontWeight: 500 }}>{c.tipo}</td>
+                    <td style={{ color: 'var(--text-secondary)' }}>{c.nome_cliente || `#${c.cliente_id}`}</td>
                     <td style={{ color: 'var(--text-secondary)' }}>{c.nome_falecido || `#${c.falecido_id}`}</td>
+                    <td style={{ color: 'var(--text-secondary)', fontSize: 12 }}>{formatarData(c.data_velorio)}</td>
+                    <td style={{ color: 'var(--text-secondary)', fontSize: 12 }}>{formatarData(c.data_sepultamento)}</td>
+                    <td style={{ color: 'var(--text-secondary)', fontSize: 12, maxWidth: 200 }}>{c.descricao}</td>
                     <td style={{ fontFamily: 'DM Mono, monospace', fontSize: 13 }}>{c.valor}</td>
                     <td>
                       <span className={`badge-status ${statusClasse[c.status] || 'badge-pendente'}`}>
@@ -182,7 +201,7 @@ export default function Contratos() {
 
                   {confirmaAdmin && confirmandoId === c.id && (
                     <tr key={`confirm-${c.id}`}>
-                      <td colSpan={5} style={{
+                      <td colSpan={9} style={{
                         background: 'rgba(192,84,74,0.08)',
                         border: '1px solid rgba(192,84,74,0.2)',
                         borderRadius: 8,
