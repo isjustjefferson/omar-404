@@ -90,7 +90,7 @@ cd backend
 npm install
 ```
 
-### 3. Configurar variaveis de ambiente
+### 3. Configurar variáveis de ambiente
 
 ```bash
 cp .env.example .env
@@ -143,9 +143,40 @@ Redis publisher conectado.
 Redis subscriber conectado.
 ```
 ---
+## Como rodar com Docker
+Se preferir não instalar PostgreSQL e Redis localmente, use o Docker Compose na raiz do projeto:
+
+1. Preencha o `.env` com seus dados:
+```env
+PORT=3000
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=omar404
+DB_USER=postgres
+DB_PASSWORD=sua_senha_aqui
+
+JWT_SECRET=um_segredo_longo_e_aleatorio
+
+REDIS_URL=redis://seu_host_redis:6379
+
+EMAIL_USER=seu_email@gmail.com
+EMAIL_PASS=sua_senha_de_app_gmail
+EMAIL_FROM=Omar-404 <seu_email@gmail.com>
+```
+> Para o `EMAIL_PASS`, use uma **senha de app** do Gmail: Google Account > Seguranca > Verificacao em duas etapas > Senhas de app.
+
+2. Rode o Docker Compose:
+```bash
+docker compose up --build
+```
+
+O backend estará disponível em `http://localhost:3000`
+>  Ao usar Docker, o schema é executado automaticamente na primeira inicialização do banco.
+
+---
 
 ## Criar o primeiro admininastor
-O cadastro de admins é feito pelo frontend com verificação de e-mail (codigo de 6 digitos valido por 15 minutos). Acesse `/cadastro` na interface.
+O cadastro de admins é feito pelo frontend com verificação de e-mail (codigo de 6 digitos válido por 15 minutos). Acesse `/cadastro` na interface.
 
 Para testes rápidos via Postman ou Insomnia: 
 
