@@ -36,7 +36,7 @@ cd frontend
 npm install
 ```
 
-### 2. Configurar variaveis de ambiente
+### 2. Configurar variáveis de ambiente
 
 Crie um arquivo `.env` na pasta frontend:
 
@@ -50,6 +50,24 @@ VITE_API_URL=http://localhost:3000
 npm run dev
 ```
 Acesse: http://localhost:5173
+
+## Como rodar com Docker
+Se preferir rodar junto com o backend e banco de dados:
+
+1. Configurar variáveis de ambiente:
+
+Crie um arquivo `.env` na pasta frontend:
+
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+2. Rode o Docker Compose:
+```bash
+docker compose up --build
+```
+O frontend estará disponível em `http://localhost:5173`.
+
 ---
 ## Estrutura de arquivos
 ```yaml
