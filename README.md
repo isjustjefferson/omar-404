@@ -6,6 +6,7 @@
 ![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
 ![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=ffffff)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
 Sistema de gestão funerária desenvolvido como projeto acadêmico. Permite o cadastro e gerenciamento de clientes, falecidos e contratos de serviço, com suporte a múltiplos administradores e operadores, autenticação JWT, controle de acesso por perfil e eventos em tempo real via Pub/Sub.
 
@@ -19,6 +20,7 @@ Sistema de gestão funerária desenvolvido como projeto acadêmico. Permite o ca
 | Autenticação | JWT + bcryptjs |
 | Pub/Sub | Redis + Socket.io |
 | Estilização | Bootstrap 5 + CSS customizado |
+| Conteinerização | Docker + Docker Compose |
 
 ---
 
@@ -57,7 +59,9 @@ omar-404/
 │   │   ├── falecidoRoutes.js
 │   │   ├── servicoRoutes.js
 │   │   └── usuarioRoutes.js
+│   ├── .dockerignore
 │   ├── .env.example
+│   ├── Dockerfile
 │   ├── index.js
 │   └── package.json
 ├── database/
@@ -93,10 +97,19 @@ omar-404/
 │   │   │   └── socket.js
 │   │   ├── App.jsx
 │   │   └── main.jsx
+│   ├── .dockerignore
+│   ├── .gitignore
+│   ├── Dockerfile
+│   ├── README.md
+│   ├── eslint.config.js
 │   ├── index.html
-│   └── package.json
+│   ├── package-lock.json
+│   ├── package.json
+│   └── vite.config.js
 ├── .gitignore
-└── README.md
+├── README.md
+├── .env
+└── docker-compose.yml
 ```
 
 ---
@@ -107,10 +120,48 @@ Cada parte do projeto tem seu proprio README com instrucoes detalhadas de config
 - **[Frontend README.md](./frontend/README.md)**— instalação, variáveis de ambiente, páginas e integração com Socket.io
 
 ---
-## Como rodar projeto completo
-São necessário **3 terminais** abertos simultaneamente.
+## Como rodar projeto
 
-### Terminal 1 - Redis:
+### Com Docker (recomendado)
+- Pré-requisitos: [Docker](https://www.docker.com/products/docker-desktop) instalado.
+ 1. Crie um arquivo `env` na raiz do projeto com a seguinte estrutura:
+
+```env
+POSTGRES_DB=nome_do_banco
+POSTGRES_USER=seu_usuario_banco
+POSTGRES_PASSWORD=sua_senha_banco
+
+JWT_SECRET=um_segredo_longo_e_aleatorio
+
+REDIS_URL=redis://redis:6379
+
+EMAIL_USER=seu_email@gmail.com
+EMAIL_PASS=sua_senha_de_app_gmail
+EMAIL_FROM=Omar-404 <seu_email@gmail.com>
+
+VITE_API_URL=http://localhost:3000
+```
+
+2. Subir todos o serviços:
+
+```bash
+docker compose up --build
+```
+
+3. Acessar:
+- Frontend: http://localhost:5173
+- Backend: http://localhost:3000
+
+Para parar: `docker compose down`
+
+Para parar e limpar o banco: `docker compose down -v`
+
+---
+
+### Sem Docker
+São necessários **3 terminais** abertos simultaneamente.
+
+#### Terminal 1 - Redis:
 ```bash
 # Windows (WSL)
 wsl
@@ -120,14 +171,14 @@ sudo service redis-server start
 sudo service redis-server start
 ```
 
-### Terminal 2 - Backend:
+#### Terminal 2 - Backend:
 ```bash
 cd backend
 npm install   # caso não tenha instalado dependências
 npm run dev
 ```
 
-### Terminal 3 - Frontend:
+#### Terminal 3 - Frontend:
 ```bash
 cd backend
 npm install   # caso não tenha instalado dependências
@@ -141,7 +192,7 @@ Acesse o sistema em http://localhost:5173.
 - Cadastro de administradores com verificação de e-mail (codigo de 6 dígitos).
 - Login com JWT (expiração configurável).
 - Controle de acesso por perfil: `admin` e `operador`.
-- Multitenancy: cada `admin` gerencia seus pr´rprios registros; `operadores` só visualizam dados do admin ao qual estão vinculados.
+- Multitenancy: cada `admin` gerencia seus próprios registros; `operadores` só visualizam dados do admin ao qual estão vinculados.
 - CRUD completo de clientes, falecidos e contratos de serviço.
 - Validação matemática de CPF no frontend e backend.
 - Eventos em tempo real via Redis Pub/Sub + Socket.io.
