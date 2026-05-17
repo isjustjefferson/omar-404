@@ -57,7 +57,7 @@ export default function FalecidoModal({ aberto, onFechar, onSalvar, falecido }) 
       await onSalvar(form)
       onFechar()
     } catch (err) {
-      setErro(err.message || 'Erro ao salvar registro.')
+      setErro(err.response?.data?.erro || err.message || 'Erro ao registrar falecido.')
     } finally {
       setSalvando(false)
     }

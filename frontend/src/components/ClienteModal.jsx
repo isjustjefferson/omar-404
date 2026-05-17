@@ -69,7 +69,7 @@ export default function ClienteModal({ aberto, onFechar, onSalvar, cliente }) {
       await onSalvar(form)
       onFechar()
     } catch (err) {
-      setErro(err.message || 'Erro ao salvar cliente.')
+      setErro(err.response?.data?.erro || err.message || 'Erro ao registrar cliente.')
     } finally {
       setSalvando(false)
     }

@@ -101,7 +101,7 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
       await onSalvar({ ...form, valor: valorNumerico })
       onFechar()
     } catch (err) {
-      setErro(err.message || 'Erro ao salvar contrato.')
+      setErro(err.response?.data?.erro || err.message || 'Erro ao registrar contrato.')
     } finally {
       setSalvando(false)
     }
