@@ -23,7 +23,7 @@ export default function NotFound() {
           marginBottom: 8,
         }}
       >
-        Esta página também partiu.
+        Trágico! Esta página também partiu.
       </h2>
       <p style={{ color: 'var(--text-secondary)', fontSize: 14, marginBottom: 28 }}>
         O endereço que você tentou acessar não existe no sistema.
