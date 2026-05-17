@@ -45,7 +45,30 @@ const falecidoController = {
 
 
             if (!nome || !data_falecimento || !cliente_id) {
-                return res.status(400).json({ erro: 'Nome, data de falecimento e cliente_id são obrigatórios.' });
+                return res.status(400).json({ erro: 'Nome, data de falecimento e cliente são obrigatórios.' });
+            }
+
+            if (data_nascimento && data_falecimento) {
+                const nascimento = new Date(data_nascimento);
+                const falecimento = new Date(data_falecimento);
+
+                if (falecimento < nascimento) {
+                    return res.status(400).json({
+                        erro: 'A data de falecimento não deve ser posterior ao nascimento.'
+                    })
+                }
+            }
+
+            if (new Date(data_falecimento) > new Date()) {
+                return res.status(400).json({
+                    erro: 'A data de falecimento não pode ser uma data futura.'
+                })
+            }
+
+            if (new Date(data_nascimento) > new Date()) {
+                return res.status(400).json({
+                    erro: 'A data de nascimento não pode ser uma data futura.'
+                })
             }
 
             const falecido = await Falecido.criar({
