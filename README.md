@@ -156,6 +156,8 @@ Para parar: `docker compose down`
 
 Para parar e limpar o banco: `docker compose down -v`
 
+**Atenção:** Durante alguns testes do container via WSL, percebemos que há um erro de conflito com o Redis ao rodar o projeto. É possível que seja necessário desativar o serviço em ambiente Linux com `sudo systemctl stop redis`. Caso algum erro persista, recomendamos rodar o projeto sem Docker.
+
 ---
 
 ### Sem Docker
