@@ -1,6 +1,7 @@
 const Usuario = require('../models/Usuario');
 const db = require('../config/db');
 const { publicar } = require('../events/publisher');
+const cache = require('../utils/cache');
 
 const usuarioController = {
     async getMe(req, res) {
@@ -78,7 +79,7 @@ const usuarioController = {
             const operador = await Usuario.buscarPorID(req.params.id);
 
             await Usuario.deletar(req.params.id);
-
+            await cache.deletar(`admin_id:operador:${req.params.id}`);
             await publicar('operador:removido', {
                 id: operador.id,
                 nome: operador.nome,

@@ -1,12 +1,22 @@
 const Falecido = require('../models/Falecido');
+const Cliente = require('../models/Cliente');
 const { publicar } = require('../events/publisher');
 const getAdminId = require('../utils/getAdminId');
+const cache = require('../utils/cache');
+
+const CACHE_TTL = 60;
 
 const falecidoController = {
     async getAll(req, res) {
         try {
             const admin_id = await getAdminId(req.usuario);
+            const cacheKey = `falecidos:admin:${admin_id}`;
+
+            const cached = await cache.get(cacheKey);
+            if (cached) return res.json(cached);
+            
             const falecidos = await Falecido.listarTodos(admin_id);
+            await cache.set(cacheKey, falecidos, CACHE_TTL);
             return res.json(falecidos);
         } catch (err) {
             return res.status(500).json({
@@ -35,6 +45,14 @@ const falecidoController = {
     async create(req, res) {
         try {
             const admin_id = await getAdminId(req.usuario);
+            
+            const totalClientes = await Cliente.contarCliente(admin_id);
+            if (totalClientes === 0){
+                return res.status(422).json({
+                    erro: 'Trágico! Você não tem clientes cadastrados. Registre um cliente para prosseguir essa operação.'
+                })
+            }
+
             const { 
                 nome,
                 data_nascimento, 
@@ -80,6 +98,7 @@ const falecidoController = {
                 admin_id
             });
 
+            await cache.deletar(`falecidos:admin:${admin_id}`);
             await publicar('falecido:cadastrado', {
                 id: falecido.id,
                 nome: falecido.nome,
@@ -134,6 +153,7 @@ const falecidoController = {
             cliente_id: falecido.cliente_id,
         });
 
+        await cache.deletar(`falecidos:admin:${admin_id}`);
         return res.json(falecido);
     } catch (err) {
         return res.status(500).json({ erro: err.message });
@@ -150,7 +170,7 @@ const falecidoController = {
             });
         }
         await Falecido.deletar(req.params.id, admin_id);
-        
+        await cache.deletar(`falecidos:admin:${admin_id}`);
         await publicar('falecido:removido', { id: req.params.id });
         
         return res.json({

@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const { conectarPublisher } = require('./events/publisher');
 const { conectarSubscriber } = require('./events/subscriber');
+const { conectarCache } = require('./utils/cache');
 
 const adminRegisterRoutes = require('./views/adminRegisterRoutes');
 const authRoutes = require('./views/authRoutes');
@@ -51,4 +52,5 @@ server.listen(PORT, async () => {
   console.log(`Servidor rodando na porta ${PORT}`);
   await conectarPublisher();
   await conectarSubscriber(io);
+  await conectarCache();
 });

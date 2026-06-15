@@ -1,12 +1,23 @@
 const Servico = require('../models/Servico');
+const Falecido = require('../models/Falecido');
+const Cliente = require('../models/Cliente');   
 const { publicar } = require('../events/publisher');
 const getAdminId = require('../utils/getAdminId');
+const cache = require('../utils/cache');
+
+const CACHE_TTL = 60;
 
 const servicoController = {
     async getAll(req, res) {
         try {
             const admin_id = await getAdminId(req.usuario);
+            const cacheKey = `servicos:admin:${admin_id}`;
+
+            const cached = await cache.get(cacheKey);
+            if (cached) return res.json(cached);
+            
             const servicos = await Servico.listarTodos(admin_id);
+            await cache.set(cacheKey, servicos, CACHE_TTL);
             return res.json(servicos);
         } catch (err) {
             return res.status(500).json({
@@ -35,8 +46,24 @@ const servicoController = {
     async create(req, res) {
         try {
             const admin_id = await getAdminId(req.usuario);
+            
+            const totalClientes = await Cliente.contarCliente(admin_id);
+            if (totalClientes === 0) {
+                return res.status(422).json({
+                    erro: 'Trágico! Você não tem clientes cadastrados. Registre um cliente para prosseguir essa operação.'
+                });
+            } 
+            
+            const totalFalecidos = await Falecido.contarFalecido(admin_id);
+            if (totalFalecidos === 0) {
+                return res.status(422).json({
+                    erro: 'Trágico! Você não tem falecidos cadastrados. Registre um falecido para prosseguir essa operação.'
+                });
+            }          
+            
             const servico = await Servico.criar({ ...req.body, admin_id });
             
+            await cache.deletar(`servicos:admin:${admin_id}`);
             await publicar('contrato:criado', {
                 id: servico.id,
                 tipo: servico.tipo,
@@ -67,8 +94,9 @@ const servicoController = {
                     erro: 'Serviço não encontrado.'
                 });
             }
-            const atualizado = await Servico.atualizar(req.params.id, req.body, admin_id);
             
+            const atualizado = await Servico.atualizar(req.params.id, req.body, admin_id);
+            await cache.deletar(`servicos:admin:${admin_id}`);
             await publicar('contrato:atualizado', {
             id: atualizado.id,
             tipo: atualizado.tipo,  // ← era yipo
@@ -96,6 +124,8 @@ const servicoController = {
                     erro: 'Serviço não encontrado'
                 });
             }
+
+            await cache.deletar(`servicos:admin:${admin_id}`);
 
             if (status === 'concluido') {
                 await publicar('sepultamento:confirmado', {
@@ -141,9 +171,8 @@ const servicoController = {
             });
         }     
         await Servico.deletar(req.params.id, admin_id);
-        console.log('deletou, agora vai publicar')
+        await cache.deletar(`servicos:admin:${admin_id}`);
         await publicar('contrato:removido', { id: req.params.id });
-        console.log('publicou')
         return res.json({
             mensagem: 'Serviço removido com sucesso.'
         });

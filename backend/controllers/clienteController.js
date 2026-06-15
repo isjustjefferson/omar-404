@@ -1,12 +1,21 @@
 const Cliente = require('../models/Cliente');
 const { publicar } = require('../events/publisher');
 const getAdminId = require('../utils/getAdminId');
+const cache = require('../utils/cache');
+
+const CACHE_TTL = 60;
 
 const clienteController = {
     async getAll(req, res) {
         try {
             const admin_id = await getAdminId(req.usuario);
+            const cacheKey = `clientes:admin:${admin_id}`;
+
+            const cached = await cache.get(cacheKey);
+            if (cached) return res.json(cached);
+            
             const clientes = await Cliente.listarTodos(admin_id);
+            await cache.set(cacheKey, clientes, CACHE_TTL);
             return res.json(clientes);
         } catch (err) {
             return res.status(500).json({
@@ -39,6 +48,7 @@ const clienteController = {
 
             console.log('CLIENTE COMPLETO:', cliente);
 
+            await cache.deletar(`clientes:admin:${admin_id}`);
             await publicar('cliente:cadastrado', {
                 id: cliente.id,
                 nome: cliente.nome,
@@ -69,6 +79,7 @@ const clienteController = {
         }
         const atualizado = await Cliente.atualizar(req.params.id, req.body, admin_id);
         
+        await cache.deletar(`clientes:admin${admin_id}`);
         await publicar('cliente:atualizado', {
             id: atualizado.id,
             nome: atualizado.nome,
@@ -96,9 +107,9 @@ const clienteController = {
                     erro: 'Cliente não encontrado.'
                 });
             }
-           await Cliente.deletar(req.params.id, admin_id);
-
-           await publicar('cliente:removido', {
+            await Cliente.deletar(req.params.id, admin_id);
+            await cache.deletar(`clientes:admin:${admin_id}`);
+            await publicar('cliente:removido', {
                 id: cliente.id
             });
 
