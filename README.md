@@ -21,6 +21,7 @@ Sistema de gestão funerária desenvolvido como projeto acadêmico. Permite o ca
 | Pub/Sub | Redis + Socket.io |
 | Estilização | Bootstrap 5 + CSS customizado |
 | Conteinerização | Docker + Docker Compose |
+| Caching | Redis |
 
 ---
 
@@ -52,6 +53,7 @@ omar-404/
 │   │   └── Usuario.js
 │   ├── utils/
 │   │   └── getAdminId.js
+│   │   └── cache.js
 │   ├── views/
 │   │   ├── adminRegisterRoutes.js
 │   │   ├── authRoutes.js
@@ -198,6 +200,9 @@ Acesse o sistema em http://localhost:5173.
 - CRUD completo de clientes, falecidos e contratos de serviço.
 - Validação matemática de CPF no frontend e backend.
 - Eventos em tempo real via Redis Pub/Sub + Socket.io.
+- O sistema utiliza Redis como cache de listagens e resolucao de admin_id.
+- TTL padrao de 60 segundos para listagens e 5 minutos para admin_id de operadores.
+- O cache e invalidado automaticamente em operacoes de escrita (POST, PUT, DELETE).
 
 ---
 ## Eventos Pub/Sub
