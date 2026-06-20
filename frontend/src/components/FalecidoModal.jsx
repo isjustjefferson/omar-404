@@ -26,6 +26,7 @@ export default function FalecidoModal({ aberto, onFechar, onSalvar, falecido }) 
   useEffect(() => {
   if (falecido) {
     
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setForm({
       nome:             falecido.nome            || '',
       data_nascimento:  falecido.data_nascimento  ? falecido.data_nascimento.split('T')[0] : '',

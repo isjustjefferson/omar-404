@@ -46,6 +46,7 @@ export default function ContratoModal({ aberto, onFechar, onSalvar, contrato }) 
 
   useEffect(() => {
     if (contrato) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setForm({
         tipo:        contrato.tipo        || '',
         descricao:   contrato.descricao   || '',

@@ -16,6 +16,7 @@ export default function ClienteModal({ aberto, onFechar, onSalvar, cliente }) {
 
   useEffect(() => {
     if (cliente) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setForm({
         nome:     cliente.nome     || '',
         cpf:      cliente.cpf      || '',
@@ -52,7 +53,7 @@ export default function ClienteModal({ aberto, onFechar, onSalvar, cliente }) {
   async function handleSubmit(e) {
     e.preventDefault()
     setErro('')
-
+  
     if (!form.nome || !form.cpf) {
       setErro('Nome e CPF são obrigatórios.')
       return

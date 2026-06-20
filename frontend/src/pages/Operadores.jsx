@@ -19,7 +19,7 @@ export default function Operadores() {
       const res = await api.get('/users/operadores')
       setOperadores(res.data)
     } catch (err) {
-      setErro('Erro ao carregar operadores.')
+      setErro(err.response?.data?.erro || 'Erro ao carregar operadores.')
     }
   }
 
@@ -50,7 +50,7 @@ export default function Operadores() {
       await api.delete(`/users/${id}`)
       carregarOperadores()
     } catch (err) {
-      setErro('Erro ao remover operador.')
+      setErro(err.response?.data?.erro || 'Erro ao remover operador.')
     }
   }
 
