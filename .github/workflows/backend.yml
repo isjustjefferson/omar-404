@@ -1,0 +1,56 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [main, develop]
+    paths: 
+      - 'backend/**'
+  pull_request:
+    branches: [main, develop]
+    paths: 
+      - 'backend/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  defaults:
+    run:
+      working-directory: ./backend
+
+  steps:
+    - name: Checkout do código
+      uses: actions/checkout@v4
+
+    - name: Configurar Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: backenf/package-lock.json
+
+    - name: Instalar dependências
+      run: npm CI
+
+    - name: Verificar sintaxe (syntax check)
+      run: |
+        for file in $(fin . -name "*.js" -not -path "./node_modules/*"); do
+          node --check "$file" || exit 1
+        done
+    
+    - name: Tentar iniciar o servidor (smoke test)
+      env: 
+        PORT: 3000
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_NAME: omar404
+        DB_USER: postgres
+        DB_PASSWORD: postgres
+        JWT_SECRET: ci_test_secret
+        REDIS_URL: redis://localhost:6379
+        EMAIL_USER: test@test.com
+        EMAIL_PASS: test
+        EMAIL_FROM: test@test.com
+      run: |
+        timeout 5 node indez.js || true
