@@ -15,6 +15,7 @@
 - **Pub/Sub:** Redis + Socket.io
 - **Email:** Nodemailer
 - **Validação de CPF:** Validado matematicamente no modelo
+- **Estratégia de caching**: Redis como cache de listagens e resolução de admin_id.
 
 ---
 ## Estrutura de arquivos
@@ -44,6 +45,7 @@ backend/
 │   └── Usuario.js                   — queries de usuarios
 ├── utils/
 │   └── getAdminId.js                — resolve o admin_id para admin e operador
+│   └── cache.js                     — resolve o cache para listagens e admin_id
 ├── views/
 │   ├── adminRegisterRoutes.js       — rotas de cadastro de admin
 │   ├── authRoutes.js                — rotas de autenticação
@@ -284,6 +286,13 @@ Evento publicado: contrato:criado { id: 1, tipo: 'Velorio' ... }
 Evento recebido - contrato:criado: { id: 1, tipo: 'Velorio' ... }
 ```
 > A ordem dos logs pode variar — comportamento normal do event loop do Node.js.
+---
+
+## Estratégia de caching
+
+- O sistema utiliza Redis como cache de listagens e resolucao de admin_id.
+- TTL padrao de 60 segundos para listagens e 5 minutos para admin_id de operadores.
+- O cache e invalidado automaticamente em operacoes de escrita (POST, PUT, DELETE).
 ---
 
 ### Resetar dados do banco (se necessário)
