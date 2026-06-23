@@ -7,6 +7,8 @@
 ![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
 ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=ffffff)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Backend CI](https://github.com/isjustjefferson/omar-404/actions/workflows/backend.yml/badge.svg)
+![Frontend CI](https://github.com/isjustjefferson/omar-404/actions/workflows/frontend.yml/badge.svg)
 
 Sistema de gestão funerária desenvolvido como projeto acadêmico. Permite o cadastro e gerenciamento de clientes, falecidos e contratos de serviço, com suporte a múltiplos administradores e operadores, autenticação JWT, controle de acesso por perfil e eventos em tempo real via Pub/Sub.
 
@@ -29,6 +31,10 @@ Sistema de gestão funerária desenvolvido como projeto acadêmico. Permite o ca
 
 ```yaml
 omar-404/
+├── .github/
+│   ├── workflows/
+│   │   ├── backend.yml
+│   │   ├── frontend.yml
 ├── backend/
 │   ├── config/
 │   │   ├── db.js
@@ -217,6 +223,17 @@ Acesse o sistema em http://localhost:5173.
 | `sepultamento:confirmado` | `servicoController.updateStatus` | Status do serviço vira `concluido` |
 | `operador:cadastrado` | `authController.registrarOperador` | Ao cadastrar operador |
 | `operador:removido` | `usuarioController.deletarOperadores` | Ao remover operador |
+
+---
+## CI/CD
+
+O projeto possui pipelines de integracao continua via GitHub Actions, executados
+a cada push e pull request nas branches `main` e `develop`.
+
+| Workflow | O que valida |
+|----------|---------------|
+| Backend CI | Sintaxe dos arquivos JS e inicializacao do servidor |
+| Frontend CI | Lint (ESLint) e build de producao (Vite) |
 
 ---
 # Colaboradores:
