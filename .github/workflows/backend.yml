@@ -66,3 +66,20 @@ jobs:
           EMAIL_FROM: test@test.com
         run: |
           timeout 5 node index.js || true
+          
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy na EC2 via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/omar-404
+            git pull origin main
+            docker compose up -d --build
+            docker compose ps
