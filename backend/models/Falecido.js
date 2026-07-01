@@ -53,6 +53,14 @@ const Falecido = {
             `DELETE FROM falecidos WHERE id = $1 AND admin_id =  $2`,
             [id, admin_id]
         );
+    },
+
+    async contarFalecido(admin_id) {
+        const result = await db.query(
+            `SELECT COUNT(*) FROM falecidos WHERE admin_id = $1`,
+            [admin_id]
+        );
+        return result.rows[0];
     }
 };
 
