@@ -1,0 +1,15 @@
+
+> omar404-qa@1.0.0 test:bdd
+> cucumber-js --config cucumber.js
+
+◇ injected env (0) from .env.test
+◇ injected env (0) from .env.test
+Banco e Redis de teste resetados.
+◇ injected env (0) from .env.test
+Massa de dados de teste criada.
+..............................................................................
+
+2 hooks (2 passed)
+11 scenarios (11 passed)
+76 steps (76 passed)
+0m 2.224s (0m 2.199s executing your code)

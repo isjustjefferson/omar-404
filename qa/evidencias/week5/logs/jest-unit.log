@@ -1,0 +1,54 @@
+
+> omar404-qa@1.0.0 test:unit
+> jest --config jest.config.js --selectProjects unit
+
+Running one project: unit
+◇ injected env (0) from .env.test
+◇ injected env (0) from .env.test
+Banco e Redis de teste resetados.
+◇ injected env (0) from .env.test
+Massa de dados de teste criada.
+PASS unit tests/unit/servico.atualizarStatus.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 1 |[39m [36mconst[39m path [33m=[39m require([32m'path'[39m)
+     [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+    [31m[1m>[22m[39m[90m 3 |[39m
+     [90m   |[39m [31m[1m^[22m[39m
+     [90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.<anonymous> (support/env.js:3:8)
+
+PASS unit tests/unit/getAdminId.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+     [90m 3 |[39m
+    [31m[1m>[22m[39m[90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m   |[39m        [31m[1m^[22m[39m
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m
+     [90m 7 |[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m||[39m [32m'http://localhost:5173'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.config (support/env.js:4:8)
+
+
+Test Suites: 2 passed, 2 total
+Tests:       7 passed, 7 total
+Snapshots:   0 total
+Time:        0.193 s, estimated 1 s
+Ran all test suites.

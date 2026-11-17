@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Omar-404 Semana 5" tests="4" failures="2" errors="0" time="17.143">
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2026-11-17T18:09:01" time="12.385" tests="2">
+    <testcase classname=" CT26 - transições de status publicam os eventos corretos" name=" CT26 - transições de status publicam os eventos corretos" time="11.753">
+    </testcase>
+    <testcase classname=" CT27 - PUT sem status preserva status e com status publica evento" name=" CT27 - PUT sem status preserva status e com status publica evento" time="0.24">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: &quot;em_andamento&quot;
+Received: null
+    at Object.toBe (C:\Projetos\omar-404\qa\tests\events\ct26-ct27-servicos-eventos.test.js:110:33)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2026-11-17T18:09:14" time="4.715" tests="2">
+    <testcase classname=" CT14 - todas as operações publicam evento" name=" CT14 - todas as operações publicam evento" time="2.621">
+    </testcase>
+    <testcase classname=" CT15 - eventos são isolados por administrador" name=" CT15 - eventos são isolados por administrador" time="1.956">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 0
+Received: 2
+    at Object.toBe (C:\Projetos\omar-404\qa\tests\events\ct14-ct15-eventos.test.js:181:64)</failure>
+    </testcase>
+  </testsuite>
+</testsuites>

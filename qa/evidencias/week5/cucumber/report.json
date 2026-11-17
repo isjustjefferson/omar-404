@@ -1,0 +1,1133 @@
+[
+  {
+    "description": "  Como gestor da funerária\n  Quero que operadores tenham acesso somente de leitura\n  Para proteger os dados de cada administrador",
+    "elements": [
+      {
+        "description": "",
+        "id": "controle-de-acesso-por-perfil;administrador-realiza-operações-de-escrita",
+        "keyword": "Cenário",
+        "line": 11,
+        "name": "Administrador realiza operações de escrita",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5967300
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 59469599
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 12,
+            "name": "que o administrador \"Admin A\" está autenticado",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 15988100
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 13,
+            "name": "ele cadastra, atualiza e remove um cliente",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:21"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 548499
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 14,
+            "name": "todas as operações de escrita têm sucesso",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:41"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 91300
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT07",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "controle-de-acesso-por-perfil;operador-não-realiza-operações-de-escrita",
+        "keyword": "Cenário",
+        "line": 17,
+        "name": "Operador não realiza operações de escrita",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1496399
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 61365900
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 18,
+            "name": "que o operador \"Operador A1\" está autenticado",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:14"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 17415700
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 19,
+            "name": "ele tenta executar uma operação de escrita",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 147300
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 20,
+            "name": "a resposta tem status 403",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 82200
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 21,
+            "name": "a mensagem informa que apenas administradores podem realizar a ação",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:55"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 807900
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 22,
+            "name": "nenhum dado é criado, alterado ou removido",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:59"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 37900
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT07",
+            "line": 16
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "controle-de-acesso-por-perfil;operador-consulta-dados-do-próprio-administrador",
+        "keyword": "Cenário",
+        "line": 25,
+        "name": "Operador consulta dados do próprio administrador",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1377999
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 57884499
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 26,
+            "name": "que o operador \"Operador A1\" está autenticado",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:14"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 11058599
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 27,
+            "name": "ele consulta clientes, falecidos e serviços",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:64"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 66500
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 28,
+            "name": "a resposta tem status 200",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1894700
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 29,
+            "name": "a resposta contém apenas os registros do \"Admin A\"",
+            "match": {
+              "location": "features\\step_definitions\\acesso.steps.js:73"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 39899
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT07",
+            "line": 24
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "controle-de-acesso-por-perfil",
+    "line": 2,
+    "keyword": "Funcionalidade",
+    "name": "Controle de acesso por perfil",
+    "tags": [],
+    "uri": "features\\controle-acesso.feature"
+  },
+  {
+    "description": "  Como administrador do sistema\n  Quero autenticar com e-mail e senha\n  Para receber um token JWT e acessar meus dados",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-e-emissão-de-token;login-com-credenciais-válidas",
+        "keyword": "Cenário",
+        "line": 11,
+        "name": "Login com credenciais válidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1564599
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 65200
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 12,
+            "name": "que o administrador \"Admin A\" está cadastrado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 5488699
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 13,
+            "name": "que um cliente socket está conectado para observar eventos",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:17"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 57804000
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 14,
+            "name": "ele envia o e-mail e a senha corretos para o login",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:22"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 78400
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 15,
+            "name": "a resposta tem status 200",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 108899
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 16,
+            "name": "a resposta contém um token JWT e os dados do usuário, sem a senha",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:37"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 98199
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 17,
+            "name": "o token expira em 8 horas",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:45"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1011058999
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 18,
+            "name": "o evento \"usuario:logado\" é publicado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:51"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 547600
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT01",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-e-emissão-de-token;login-com-credenciais-inválidas",
+        "keyword": "Esquema do Cenário",
+        "line": 30,
+        "name": "Login com credenciais inválidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1919300
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 46000
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 22,
+            "name": "que o administrador \"Admin A\" está cadastrado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 56469200
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 23,
+            "name": "ele tenta login com e-mail \"admina@teste.com\", senha \"SenhaErrada\" e corpo \"completo\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:26"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 88799
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 24,
+            "name": "a resposta tem status 401",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 58899
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "a resposta não contém token",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:56"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 72100
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "a mensagem informa \"credenciais inválidas\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:60"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 43099
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT02",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-e-emissão-de-token;login-com-credenciais-inválidas",
+        "keyword": "Esquema do Cenário",
+        "line": 31,
+        "name": "Login com credenciais inválidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1303699
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 44799
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 22,
+            "name": "que o administrador \"Admin A\" está cadastrado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 2028099
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 23,
+            "name": "ele tenta login com e-mail \"inexistente@teste.com\", senha \"Senha@123\" e corpo \"completo\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:26"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 53899
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 24,
+            "name": "a resposta tem status 401",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 24600
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "a resposta não contém token",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:56"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 47500
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "a mensagem informa \"credenciais inválidas\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:60"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 32799
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT02",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-e-emissão-de-token;login-com-credenciais-inválidas",
+        "keyword": "Esquema do Cenário",
+        "line": 32,
+        "name": "Login com credenciais inválidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1225100
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 73599
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 22,
+            "name": "que o administrador \"Admin A\" está cadastrado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1335499
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 23,
+            "name": "ele tenta login com e-mail \"\", senha \"\" e corpo \"completo\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:26"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 45700
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 24,
+            "name": "a resposta tem status 400",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 23500
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "a resposta não contém token",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:56"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 32499
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "a mensagem informa \"obrigatórios\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:60"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 46400
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT02",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-e-emissão-de-token;login-com-credenciais-inválidas",
+        "keyword": "Esquema do Cenário",
+        "line": 33,
+        "name": "Login com credenciais inválidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1189900
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 41799
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 22,
+            "name": "que o administrador \"Admin A\" está cadastrado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1151400
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 23,
+            "name": "ele tenta login com e-mail \"admina@teste.com\", senha \"\" e corpo \"completo\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:26"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 25999
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 24,
+            "name": "a resposta tem status 400",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 15699
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "a resposta não contém token",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:56"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 31100
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "a mensagem informa \"obrigatórios\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:60"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 23700
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT02",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-e-emissão-de-token;login-com-credenciais-inválidas",
+        "keyword": "Esquema do Cenário",
+        "line": 34,
+        "name": "Login com credenciais inválidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1109099
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 38099
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 22,
+            "name": "que o administrador \"Admin A\" está cadastrado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 1168599
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 23,
+            "name": "ele tenta login com e-mail \"\", senha \"Senha@123\" e corpo \"completo\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:26"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 35699
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 24,
+            "name": "a resposta tem status 400",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 22000
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "a resposta não contém token",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:56"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 29899
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "a mensagem informa \"obrigatórios\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:60"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 33999
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT02",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-e-emissão-de-token;login-com-credenciais-inválidas",
+        "keyword": "Esquema do Cenário",
+        "line": 35,
+        "name": "Login com credenciais inválidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 887099
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 27799
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 22,
+            "name": "que o administrador \"Admin A\" está cadastrado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 993799
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 23,
+            "name": "ele tenta login com e-mail \"admina@teste.com\", senha \"Senha@123\" e corpo \"sem-email\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:26"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 37399
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 24,
+            "name": "a resposta tem status 400",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 23599
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "a resposta não contém token",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:56"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 23000
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "a mensagem informa \"obrigatórios\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:60"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 36300
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT02",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-e-emissão-de-token;login-com-credenciais-inválidas",
+        "keyword": "Esquema do Cenário",
+        "line": 36,
+        "name": "Login com credenciais inválidas",
+        "steps": [
+          {
+            "result": {
+              "status": "passed",
+              "duration": 904199
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 8,
+            "name": "que a API está disponível",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:7"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 27299
+            },
+            "arguments": [],
+            "keyword": "Dado ",
+            "line": 22,
+            "name": "que o administrador \"Admin A\" está cadastrado",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:12"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 952999
+            },
+            "arguments": [],
+            "keyword": "Quando ",
+            "line": 23,
+            "name": "ele tenta login com e-mail \"admina@teste.com\", senha \"Senha@123\" e corpo \"sem-senha\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:26"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 30799
+            },
+            "arguments": [],
+            "keyword": "Então ",
+            "line": 24,
+            "name": "a resposta tem status 400",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:33"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 19600
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 25,
+            "name": "a resposta não contém token",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:56"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 21999
+            },
+            "arguments": [],
+            "keyword": "E ",
+            "line": 26,
+            "name": "a mensagem informa \"obrigatórios\"",
+            "match": {
+              "location": "features\\step_definitions\\login.steps.js:60"
+            }
+          },
+          {
+            "result": {
+              "status": "passed",
+              "duration": 44300
+            },
+            "keyword": "After",
+            "hidden": true
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CT02",
+            "line": 20
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-e-emissão-de-token",
+    "line": 2,
+    "keyword": "Funcionalidade",
+    "name": "Login e emissão de token",
+    "tags": [],
+    "uri": "features\\login.feature"
+  }
+]

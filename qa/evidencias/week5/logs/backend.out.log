@@ -1,0 +1,6124 @@
+◇ injected env (0) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+Redis cache conectado.
+◇ injected env (0) from .env // tip: ⌘ enable debugging { debug: true }
+◇ injected env (0) from .env // tip: ⌘ override existing { override: true }
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+Redis cache conectado.
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:13.517Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:13.517Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:16.619Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:16.619Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:16.998Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:16.998Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.060Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.060Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.119Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.119Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.177Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.177Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.237Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.237Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.296Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.296Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.355Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.355Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:17.459Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:17.459Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:17.471Z,
+  admin_id: 2
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:17.471Z',
+  admin_id: 2
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.659Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.659Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.717Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:17.717Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.776Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.776Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.835Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:17.835Z'
+}
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:01:17.912Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 3, nome: 'Operador A1', removido_em: '2026-11-17T18:01:17.912Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:01:17.919Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 4, nome: 'Operador B1', removido_em: '2026-11-17T18:01:17.919Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:01:17.925Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 2, nome: 'Admin B', removido_em: '2026-11-17T18:01:17.925Z' }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:18.113Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:18.113Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:18.171Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:18.171Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:18.230Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:18.230Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:18.246Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:18.246Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:18.269Z,
+  admin_id: 5
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:18.269Z',
+  admin_id: 5
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:18.275Z,
+  admin_id: 6
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:18.275Z',
+  admin_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:18.298Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:18.298Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:18.304Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:18.304Z',
+  admin_id: 1
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:30.696Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:30.696Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:33.341Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:33.341Z'
+}
+Cliente conectado: w1ZfSNv9i0i-zE4OAAAB
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:33.784Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:33.784Z'
+}
+Error: CPF inválido.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:32:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Cliente desconectado: w1ZfSNv9i0i-zE4OAAAB
+Cliente conectado: yW0tAz7By2Y2CrCjAAAD
+Cliente conectado: XgQ8lfJj4zPlFtJtAAAF
+Cliente conectado: kukPwe9xOVHqQPnUAAAH
+Cliente conectado: GewTy_vEHt0KwuYcAAAJ
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:34.263Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:34.263Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:34.323Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:01:34.323Z'
+}
+Error: CPF inválido.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:32:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Cliente desconectado: yW0tAz7By2Y2CrCjAAAD
+Cliente desconectado: XgQ8lfJj4zPlFtJtAAAF
+Cliente desconectado: kukPwe9xOVHqQPnUAAAH
+Cliente desconectado: GewTy_vEHt0KwuYcAAAJ
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:34.858Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:01:34.858Z'
+}
+Cliente conectado: lcNXomKYVuN9C1AsAAAL
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:34.883Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:34.883Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Cliente desconectado: lcNXomKYVuN9C1AsAAAL
+Cliente conectado: FA4IaikTLHAlGpF1AAAN
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:01:38.231Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:01:38.231Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Cliente desconectado: FA4IaikTLHAlGpF1AAAN
+Cliente conectado: P-9Wfla8xlXtBbZeAAAP
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:02:06.540Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:02:06.540Z'
+}
+Cliente desconectado: P-9Wfla8xlXtBbZeAAAP
+Cliente conectado: ezWOKQ-QgJ-mSa-uAAAR
+Cliente desconectado: ezWOKQ-QgJ-mSa-uAAAR
+◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+Redis cache conectado.
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:06.637Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:06.637Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.076Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.076Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.561Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.561Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.627Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.627Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:09.686Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:09.686Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:09.746Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:09.746Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.806Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.806Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.864Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:09.864Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:09.923Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:09.923Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:10.033Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:10.033Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:10.040Z,
+  admin_id: 2
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:10.040Z',
+  admin_id: 2
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.223Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.223Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.282Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.282Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:10.339Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:10.339Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:10.397Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:10.397Z'
+}
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:04:10.479Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 3, nome: 'Operador A1', removido_em: '2026-11-17T18:04:10.479Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:04:10.486Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 4, nome: 'Operador B1', removido_em: '2026-11-17T18:04:10.486Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:04:10.493Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 2, nome: 'Admin B', removido_em: '2026-11-17T18:04:10.493Z' }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.674Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.674Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.733Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.733Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.791Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:10.791Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:10.812Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:10.812Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:10.836Z,
+  admin_id: 5
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:10.836Z',
+  admin_id: 5
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:10.842Z,
+  admin_id: 6
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:10.842Z',
+  admin_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:10.862Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:10.862Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:10.868Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:10.868Z',
+  admin_id: 1
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:23.121Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:23.121Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:25.888Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:25.888Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:26.450Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:26.450Z'
+}
+Evento publicado: usuario:logado
+Cliente conectado: Mw05Ke6uuWn_b_9oAAAB
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:26.488Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:26.488Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Cliente desconectado: Mw05Ke6uuWn_b_9oAAAB
+Cliente conectado: oni6_IbmpeRbeeRpAAAD
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:04:31.494Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:04:31.494Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Cliente desconectado: oni6_IbmpeRbeeRpAAAD
+Cliente conectado: fEbM211iCtAgCG-KAAAF
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:31.937Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:31.937Z'
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:04:32.356Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:04:32.356Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:04:32.356Z'
+}
+EVENTO: cliente:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente Evento Atualizado',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:04:32.356Z
+}
+Evento publicado: cliente:atualizado
+Evento recebido - cliente:atualizado:  {
+  id: 6,
+  nome: 'Cliente Evento Atualizado',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:04:32.356Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Evento 234567890',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 6,
+  criado_em: 2026-11-17T18:04:32.633Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Evento 234567890',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 6,
+  criado_em: '2026-11-17T18:04:32.633Z'
+}
+EVENTO: falecido:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Evento Atualizado',
+  data_nascimento: 1951-01-01T02:00:00.000Z,
+  data_falecimento: 2021-05-10T03:00:00.000Z,
+  causa_morte: 'Causa atualizada',
+  cliente_id: 6
+}
+Evento publicado: falecido:atualizado
+Evento recebido - falecido:atualizado:  {
+  id: 5,
+  nome: 'Falecido Evento Atualizado',
+  data_nascimento: '1951-01-01T02:00:00.000Z',
+  data_falecimento: '2021-05-10T03:00:00.000Z',
+  causa_morte: 'Causa atualizada',
+  cliente_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 5,
+  cliente_id: 6,
+  criado_em: 2026-11-17T18:04:32.906Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 5,
+  cliente_id: 6,
+  criado_em: '2026-11-17T18:04:32.906Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 7, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 7, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 7,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 7,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+EVENTO: contrato:removido
+DADOS ENVIADOS AO REDIS: { id: '7' }
+Evento publicado: contrato:removido
+Evento recebido - contrato:removido:  { id: '7' }
+EVENTO: falecido:removido
+DADOS ENVIADOS AO REDIS: { id: '5' }
+Evento publicado: falecido:removido
+Evento recebido - falecido:removido:  { id: '5' }
+EVENTO: cliente:removido
+DADOS ENVIADOS AO REDIS: { id: 6 }
+Evento publicado: cliente:removido
+Evento recebido - cliente:removido:  { id: 6 }
+EVENTO: operador:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Operador Evento',
+  email: 'operador.evento.1794938672920@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:04:32.990Z
+}
+Evento publicado: operador:cadastrado
+Evento recebido - operador:cadastrado:  {
+  id: 8,
+  nome: 'Operador Evento',
+  email: 'operador.evento.1794938672920@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:04:32.990Z'
+}
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Operador Evento',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:04:32.992Z'
+}
+Evento recebido - operador:removido:  {
+  id: 8,
+  nome: 'Operador Evento',
+  removido_em: '2026-11-17T18:04:32.992Z'
+}
+Evento publicado: operador:removido
+Cliente desconectado: fEbM211iCtAgCG-KAAAF
+Cliente conectado: wv-KHxl8Fjy-2NNIAAAH
+Cliente conectado: tf-sIyoSD3FATXtCAAAJ
+Cliente conectado: oPcVMTvgkQWQCkHwAAAL
+Cliente conectado: Dkcc6Ui78Xmm0cFgAAAN
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:34.562Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:34.562Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:34.619Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:04:34.619Z'
+}
+Evento publicado: usuario:logado
+CLIENTE COMPLETO: {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:04:34.936Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:04:34.936Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:04:34.936Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Falecido Evento 456789012',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 7,
+  criado_em: 2026-11-17T18:04:34.943Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 6,
+  nome: 'Falecido Evento 456789012',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 7,
+  criado_em: '2026-11-17T18:04:34.943Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 6,
+  cliente_id: 7,
+  criado_em: 2026-11-17T18:04:34.948Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 6,
+  cliente_id: 7,
+  criado_em: '2026-11-17T18:04:34.948Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 6,
+  cliente_id: 7,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 8,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 6,
+  cliente_id: 7,
+  admin_id: 1
+}
+Cliente desconectado: wv-KHxl8Fjy-2NNIAAAH
+Cliente desconectado: tf-sIyoSD3FATXtCAAAJ
+Cliente desconectado: oPcVMTvgkQWQCkHwAAAL
+Cliente desconectado: Dkcc6Ui78Xmm0cFgAAAN
+Cliente conectado: fJJikiq4dDH5kmo3AAAP
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:50.616Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:04:50.616Z'
+}
+Cliente desconectado: fJJikiq4dDH5kmo3AAAP
+Cliente conectado: p6P92eXelwkbF22YAAAR
+Cliente desconectado: p6P92eXelwkbF22YAAAR
+◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+Redis cache conectado.
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:39.411Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:39.411Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:41.856Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:41.856Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.217Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.217Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.278Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.278Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:42.337Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:42.337Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:42.396Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:42.396Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.455Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.455Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.515Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.515Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:42.574Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:42.574Z'
+}
+Evento publicado: usuario:logado
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:05:42.681Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:05:42.681Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:05:42.688Z,
+  admin_id: 2
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:05:42.688Z',
+  admin_id: 2
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.983Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:42.983Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:43.042Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:43.042Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:43.100Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:43.100Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:43.159Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:05:43.159Z'
+}
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:05:43.248Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 3, nome: 'Operador A1', removido_em: '2026-11-17T18:05:43.248Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:05:43.255Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 4, nome: 'Operador B1', removido_em: '2026-11-17T18:05:43.255Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:05:43.261Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 2, nome: 'Admin B', removido_em: '2026-11-17T18:05:43.261Z' }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:43.450Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:43.450Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:43.509Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:43.509Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:43.567Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:43.567Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:05:43.587Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:05:43.587Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:05:43.606Z,
+  admin_id: 5
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:05:43.606Z',
+  admin_id: 5
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:05:43.612Z,
+  admin_id: 6
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:05:43.612Z',
+  admin_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:05:43.633Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:05:43.633Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:05:43.640Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:05:43.640Z',
+  admin_id: 1
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:55.875Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:55.875Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:58.474Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:58.474Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:59.011Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:05:59.011Z'
+}
+Evento publicado: usuario:logado
+Cliente conectado: U0SHg0KZBgd52wndAAAB
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:05:59.049Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:05:59.049Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Cliente desconectado: U0SHg0KZBgd52wndAAAB
+Cliente conectado: IqMxlk3l0bwt8U8ZAAAD
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:06:10.809Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:06:10.809Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Cliente desconectado: IqMxlk3l0bwt8U8ZAAAD
+Cliente conectado: CrwXqEBTf-FCjJ3-AAAF
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:11.230Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:11.230Z'
+}
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:11.650Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:11.650Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:06:11.650Z'
+}
+EVENTO: cliente:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente Evento Atualizado',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:11.650Z
+}
+Evento publicado: cliente:atualizado
+Evento recebido - cliente:atualizado:  {
+  id: 6,
+  nome: 'Cliente Evento Atualizado',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:06:11.650Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Evento 234567890',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 6,
+  criado_em: 2026-11-17T18:06:11.931Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Evento 234567890',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 6,
+  criado_em: '2026-11-17T18:06:11.931Z'
+}
+EVENTO: falecido:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Evento Atualizado',
+  data_nascimento: 1951-01-01T02:00:00.000Z,
+  data_falecimento: 2021-05-10T03:00:00.000Z,
+  causa_morte: 'Causa atualizada',
+  cliente_id: 6
+}
+Evento publicado: falecido:atualizado
+Evento recebido - falecido:atualizado:  {
+  id: 5,
+  nome: 'Falecido Evento Atualizado',
+  data_nascimento: '1951-01-01T02:00:00.000Z',
+  data_falecimento: '2021-05-10T03:00:00.000Z',
+  causa_morte: 'Causa atualizada',
+  cliente_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 5,
+  cliente_id: 6,
+  criado_em: 2026-11-17T18:06:12.202Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 5,
+  cliente_id: 6,
+  criado_em: '2026-11-17T18:06:12.202Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 7, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 7, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 7,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 7,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+EVENTO: contrato:removido
+DADOS ENVIADOS AO REDIS: { id: '7' }
+Evento publicado: contrato:removido
+Evento recebido - contrato:removido:  { id: '7' }
+EVENTO: falecido:removido
+DADOS ENVIADOS AO REDIS: { id: '5' }
+Evento publicado: falecido:removido
+Evento recebido - falecido:removido:  { id: '5' }
+EVENTO: cliente:removido
+DADOS ENVIADOS AO REDIS: { id: 6 }
+Evento publicado: cliente:removido
+Evento recebido - cliente:removido:  { id: 6 }
+EVENTO: operador:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Operador Evento',
+  email: 'operador.evento.1794938772234@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:12.294Z
+}
+Evento publicado: operador:cadastrado
+Evento recebido - operador:cadastrado:  {
+  id: 8,
+  nome: 'Operador Evento',
+  email: 'operador.evento.1794938772234@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:06:12.294Z'
+}
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Operador Evento',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:06:12.295Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  {
+  id: 8,
+  nome: 'Operador Evento',
+  removido_em: '2026-11-17T18:06:12.295Z'
+}
+Cliente desconectado: CrwXqEBTf-FCjJ3-AAAF
+Cliente conectado: zfi8WoYrY3KV0JIyAAAH
+Cliente conectado: 3_GBaTkfN0w3qb0HAAAJ
+Cliente conectado: gSJN5ocTiXWiuis9AAAL
+Cliente conectado: QP1RtNw3NbSDvKLoAAAN
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:13.875Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:13.875Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:06:13.933Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:06:13.933Z'
+}
+Evento publicado: usuario:logado
+CLIENTE COMPLETO: {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:14.249Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:14.249Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:06:14.249Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Falecido Evento 456789012',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 7,
+  criado_em: 2026-11-17T18:06:14.256Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 6,
+  nome: 'Falecido Evento 456789012',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 7,
+  criado_em: '2026-11-17T18:06:14.256Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 6,
+  cliente_id: 7,
+  criado_em: 2026-11-17T18:06:14.260Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 6,
+  cliente_id: 7,
+  criado_em: '2026-11-17T18:06:14.260Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 6,
+  cliente_id: 7,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 8,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 6,
+  cliente_id: 7,
+  admin_id: 1
+}
+Cliente desconectado: zfi8WoYrY3KV0JIyAAAH
+Cliente desconectado: 3_GBaTkfN0w3qb0HAAAJ
+Cliente desconectado: gSJN5ocTiXWiuis9AAAL
+Cliente desconectado: QP1RtNw3NbSDvKLoAAAN
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:18.367Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:18.367Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:18.452Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:18.452Z'
+}
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93877845924',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:18.462Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93877845924',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:18.462Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93877845924',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:06:18.462Z'
+}
+EVENTO: cliente:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente BDD Atualizado',
+  cpf: '93877845924',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:06:18.462Z
+}
+Evento publicado: cliente:atualizado
+Evento recebido - cliente:atualizado:  {
+  id: 6,
+  nome: 'Cliente BDD Atualizado',
+  cpf: '93877845924',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:06:18.462Z'
+}
+EVENTO: cliente:removido
+DADOS ENVIADOS AO REDIS: { id: 6 }
+Evento publicado: cliente:removido
+Evento recebido - cliente:removido:  { id: 6 }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:06:18.528Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:06:18.528Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:06:18.613Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:06:18.613Z'
+}
+Evento publicado: usuario:logado
+Cliente conectado: Yn-Ys4jsDcpgKUZYAAAP
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:18.692Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:18.692Z'
+}
+Cliente desconectado: Yn-Ys4jsDcpgKUZYAAAP
+Cliente conectado: KzyP7wwedYB37Ld9AAAR
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:40.928Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:06:40.928Z'
+}
+Cliente desconectado: KzyP7wwedYB37Ld9AAAR
+Cliente conectado: wl3jz39l0EQE6ZEyAAAT
+Cliente desconectado: wl3jz39l0EQE6ZEyAAAT
+◇ injected env (0) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+Redis cache conectado.
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:05.319Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:05.319Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:07.755Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:07.755Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.117Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.117Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.178Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.178Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.237Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.237Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.296Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.296Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.357Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.357Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.416Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.416Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.475Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.475Z'
+}
+Evento publicado: usuario:logado
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:08.577Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:08.577Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:08.585Z,
+  admin_id: 2
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:08.585Z',
+  admin_id: 2
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.763Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.763Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.822Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:08.822Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.881Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.881Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.938Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:08.938Z'
+}
+Evento publicado: usuario:logado
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:07:09.024Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 3, nome: 'Operador A1', removido_em: '2026-11-17T18:07:09.024Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:07:09.031Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 4, nome: 'Operador B1', removido_em: '2026-11-17T18:07:09.031Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:07:09.040Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 2, nome: 'Admin B', removido_em: '2026-11-17T18:07:09.040Z' }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:09.223Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:09.223Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:09.282Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:09.282Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:09.340Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:09.340Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:09.357Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:09.357Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:09.378Z,
+  admin_id: 5
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:09.378Z',
+  admin_id: 5
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:09.383Z,
+  admin_id: 6
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:09.383Z',
+  admin_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:09.405Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:09.405Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:09.411Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:09.411Z',
+  admin_id: 1
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:21.683Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:21.683Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:24.274Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:24.274Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:24.689Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:24.689Z'
+}
+Cliente conectado: qB_EkizEAl5uTLNkAAAB
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:24.724Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:24.724Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Cliente desconectado: qB_EkizEAl5uTLNkAAAB
+Cliente conectado: F88YvZZgHBB7jLimAAAD
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:07:36.475Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:07:36.475Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Cliente desconectado: F88YvZZgHBB7jLimAAAD
+Cliente conectado: 4UE3yTNFcWJUabzgAAAF
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:36.905Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:36.905Z'
+}
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:37.315Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:37.315Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:07:37.315Z'
+}
+EVENTO: cliente:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente Evento Atualizado',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:37.315Z
+}
+Evento publicado: cliente:atualizado
+Evento recebido - cliente:atualizado:  {
+  id: 6,
+  nome: 'Cliente Evento Atualizado',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:07:37.315Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Evento 234567890',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 6,
+  criado_em: 2026-11-17T18:07:37.592Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Evento 234567890',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 6,
+  criado_em: '2026-11-17T18:07:37.592Z'
+}
+EVENTO: falecido:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Evento Atualizado',
+  data_nascimento: 1951-01-01T02:00:00.000Z,
+  data_falecimento: 2021-05-10T03:00:00.000Z,
+  causa_morte: 'Causa atualizada',
+  cliente_id: 6
+}
+Evento publicado: falecido:atualizado
+Evento recebido - falecido:atualizado:  {
+  id: 5,
+  nome: 'Falecido Evento Atualizado',
+  data_nascimento: '1951-01-01T02:00:00.000Z',
+  data_falecimento: '2021-05-10T03:00:00.000Z',
+  causa_morte: 'Causa atualizada',
+  cliente_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 5,
+  cliente_id: 6,
+  criado_em: 2026-11-17T18:07:37.863Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 5,
+  cliente_id: 6,
+  criado_em: '2026-11-17T18:07:37.863Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 7, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 7, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 7,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 7,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+EVENTO: contrato:removido
+DADOS ENVIADOS AO REDIS: { id: '7' }
+Evento publicado: contrato:removido
+Evento recebido - contrato:removido:  { id: '7' }
+EVENTO: falecido:removido
+DADOS ENVIADOS AO REDIS: { id: '5' }
+Evento publicado: falecido:removido
+Evento recebido - falecido:removido:  { id: '5' }
+EVENTO: cliente:removido
+DADOS ENVIADOS AO REDIS: { id: 6 }
+Evento publicado: cliente:removido
+Evento recebido - cliente:removido:  { id: 6 }
+EVENTO: operador:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Operador Evento',
+  email: 'operador.evento.1794938857890@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:37.947Z
+}
+Evento publicado: operador:cadastrado
+Evento recebido - operador:cadastrado:  {
+  id: 8,
+  nome: 'Operador Evento',
+  email: 'operador.evento.1794938857890@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:07:37.947Z'
+}
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Operador Evento',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:07:37.952Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  {
+  id: 8,
+  nome: 'Operador Evento',
+  removido_em: '2026-11-17T18:07:37.952Z'
+}
+Cliente desconectado: 4UE3yTNFcWJUabzgAAAF
+Cliente conectado: -QN5UVZn3b_h4UTSAAAH
+Cliente conectado: IMzV21-tg88CRHPYAAAJ
+Cliente conectado: 8-fJHKI9Q3WNvS47AAAL
+Cliente conectado: 9Rlu80m_9l8mWdF5AAAN
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:39.525Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:39.525Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:39.583Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:39.583Z'
+}
+CLIENTE COMPLETO: {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:39.894Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:39.894Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:07:39.894Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Falecido Evento 456789012',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 7,
+  criado_em: 2026-11-17T18:07:39.899Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 6,
+  nome: 'Falecido Evento 456789012',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 7,
+  criado_em: '2026-11-17T18:07:39.899Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 6,
+  cliente_id: 7,
+  criado_em: 2026-11-17T18:07:39.903Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 6,
+  cliente_id: 7,
+  criado_em: '2026-11-17T18:07:39.903Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 6,
+  cliente_id: 7,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 8,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 6,
+  cliente_id: 7,
+  admin_id: 1
+}
+Cliente desconectado: -QN5UVZn3b_h4UTSAAAH
+Cliente desconectado: IMzV21-tg88CRHPYAAAJ
+Cliente desconectado: 8-fJHKI9Q3WNvS47AAAL
+Cliente desconectado: 9Rlu80m_9l8mWdF5AAAN
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:44.131Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:44.131Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:44.218Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:44.218Z'
+}
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93886422011',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:44.224Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93886422011',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:44.224Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93886422011',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:07:44.224Z'
+}
+EVENTO: cliente:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente BDD Atualizado',
+  cpf: '93886422011',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:07:44.224Z
+}
+Evento publicado: cliente:atualizado
+Evento recebido - cliente:atualizado:  {
+  id: 6,
+  nome: 'Cliente BDD Atualizado',
+  cpf: '93886422011',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:07:44.224Z'
+}
+EVENTO: cliente:removido
+DADOS ENVIADOS AO REDIS: { id: 6 }
+Evento publicado: cliente:removido
+Evento recebido - cliente:removido:  { id: 6 }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:44.300Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:44.300Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:44.379Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:07:44.379Z'
+}
+Cliente conectado: eSmte1-yhVO7g_aKAAAP
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:44.458Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:07:44.458Z'
+}
+Cliente desconectado: eSmte1-yhVO7g_aKAAAP
+Cliente conectado: DCCUGHPKPg7441TLAAAR
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:06.716Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:06.716Z'
+}
+Cliente desconectado: DCCUGHPKPg7441TLAAAR
+Cliente conectado: f7YqiTIJx59e8a11AAAT
+Cliente desconectado: f7YqiTIJx59e8a11AAAT
+◇ injected env (0) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+Redis cache conectado.
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:42.835Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:42.835Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.259Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.259Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.621Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.621Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.682Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.682Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:45.741Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:45.741Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:45.800Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:45.800Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.858Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.858Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.917Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:45.917Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:45.975Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 7,
+  nome: 'Operador órfão',
+  email: 'operadororfao@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:45.975Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:08:46.081Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Invadido',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:08:46.081Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:08:46.088Z,
+  admin_id: 2
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:08:46.088Z',
+  admin_id: 2
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.269Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.269Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.328Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 2,
+  nome: 'Admin B',
+  email: 'adminb@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.328Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:46.386Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:46.386Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:46.448Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 4,
+  nome: 'Operador B1',
+  email: 'operadorb1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:08:46.448Z'
+}
+Evento publicado: usuario:logado
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:08:46.533Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 3, nome: 'Operador A1', removido_em: '2026-11-17T18:08:46.533Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 4,
+  nome: 'Operador B1',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:08:46.540Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 4, nome: 'Operador B1', removido_em: '2026-11-17T18:08:46.540Z' }
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 2,
+  nome: 'Admin B',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:08:46.547Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  { id: 2, nome: 'Admin B', removido_em: '2026-11-17T18:08:46.547Z' }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.856Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.856Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.918Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.918Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.976Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 6,
+  nome: 'Admin D',
+  email: 'admind@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:46.976Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:08:46.995Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:08:46.995Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:08:47.015Z,
+  admin_id: 5
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:08:47.015Z',
+  admin_id: 5
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:08:47.021Z,
+  admin_id: 6
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:08:47.021Z',
+  admin_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:08:47.041Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 10,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '0.01',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:08:47.041Z',
+  admin_id: 1
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:08:47.047Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 11,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '99999999.99',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:08:47.047Z',
+  admin_id: 1
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:59.316Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:08:59.316Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:01.931Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:01.931Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:02.344Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:02.344Z'
+}
+Cliente conectado: BGzhMfuw4vBmJIodAAAB
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:09:02.381Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 5,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:09:02.381Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 5,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 1,
+  cliente_id: 1,
+  admin_id: 1
+}
+Cliente desconectado: BGzhMfuw4vBmJIodAAAB
+Cliente conectado: 8NTKDG3Nfp-dfwt8AAAD
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: 2026-11-17T18:09:14.131Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 6,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 1,
+  cliente_id: 1,
+  criado_em: '2026-11-17T18:09:14.131Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 6, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Cliente desconectado: 8NTKDG3Nfp-dfwt8AAAD
+Cliente conectado: RmEOALFS9tNVVMGdAAAF
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:14.570Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:14.570Z'
+}
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:14.983Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:14.983Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente Evento 123456789',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:09:14.983Z'
+}
+EVENTO: cliente:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente Evento Atualizado',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:14.983Z
+}
+Evento publicado: cliente:atualizado
+Evento recebido - cliente:atualizado:  {
+  id: 6,
+  nome: 'Cliente Evento Atualizado',
+  cpf: '12345678909',
+  telefone: '81999999999',
+  email: 'cliente.evento.123456789@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:09:14.983Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Evento 234567890',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 6,
+  criado_em: 2026-11-17T18:09:15.260Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido Evento 234567890',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 6,
+  criado_em: '2026-11-17T18:09:15.260Z'
+}
+EVENTO: falecido:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido Evento Atualizado',
+  data_nascimento: 1951-01-01T02:00:00.000Z,
+  data_falecimento: 2021-05-10T03:00:00.000Z,
+  causa_morte: 'Causa atualizada',
+  cliente_id: 6
+}
+Evento publicado: falecido:atualizado
+Evento recebido - falecido:atualizado:  {
+  id: 5,
+  nome: 'Falecido Evento Atualizado',
+  data_nascimento: '1951-01-01T02:00:00.000Z',
+  data_falecimento: '2021-05-10T03:00:00.000Z',
+  causa_morte: 'Causa atualizada',
+  cliente_id: 6
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 5,
+  cliente_id: 6,
+  criado_em: 2026-11-17T18:09:15.534Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 7,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 5,
+  cliente_id: 6,
+  criado_em: '2026-11-17T18:09:15.534Z',
+  admin_id: 1
+}
+EVENTO: contrato:atualizado
+DADOS ENVIADOS AO REDIS: { id: 7, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+Evento publicado: contrato:atualizado
+Evento recebido - contrato:atualizado:  { id: 7, tipo: 'Velório', valor: '1500.00', status: null, admin_id: 1 }
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 7,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+EVENTO: contrato:cancelado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+Evento publicado: contrato:cancelado
+Evento recebido - contrato:cancelado:  {
+  id: 7,
+  tipo: 'Velório',
+  status: 'cancelado',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 5,
+  cliente_id: 6,
+  admin_id: 1
+}
+EVENTO: contrato:removido
+DADOS ENVIADOS AO REDIS: { id: '7' }
+Evento publicado: contrato:removido
+Evento recebido - contrato:removido:  { id: '7' }
+EVENTO: falecido:removido
+DADOS ENVIADOS AO REDIS: { id: '5' }
+Evento publicado: falecido:removido
+Evento recebido - falecido:removido:  { id: '5' }
+EVENTO: cliente:removido
+DADOS ENVIADOS AO REDIS: { id: 6 }
+Evento publicado: cliente:removido
+Evento recebido - cliente:removido:  { id: 6 }
+EVENTO: operador:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Operador Evento',
+  email: 'operador.evento.1794938955551@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:15.617Z
+}
+Evento publicado: operador:cadastrado
+Evento recebido - operador:cadastrado:  {
+  id: 8,
+  nome: 'Operador Evento',
+  email: 'operador.evento.1794938955551@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:09:15.617Z'
+}
+EVENTO: operador:removido
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Operador Evento',
+  admin_id: undefined,
+  removido_em: '2026-11-17T18:09:15.620Z'
+}
+Evento publicado: operador:removido
+Evento recebido - operador:removido:  {
+  id: 8,
+  nome: 'Operador Evento',
+  removido_em: '2026-11-17T18:09:15.620Z'
+}
+Cliente desconectado: RmEOALFS9tNVVMGdAAAF
+Cliente conectado: rio-_jBzxCmpEEdiAAAH
+Cliente conectado: 9AFy0dCj7Jh_ZLl-AAAJ
+Cliente conectado: bnIGsJ3fOEMToyyDAAAL
+Cliente conectado: vz5_bVmigD_r46-lAAAN
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:17.191Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:17.191Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:09:17.249Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:09:17.249Z'
+}
+CLIENTE COMPLETO: {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:17.567Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:17.567Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 7,
+  nome: 'Cliente Evento 345678901',
+  cpf: '34567890175',
+  telefone: '81999999999',
+  email: 'cliente.evento.345678901@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:09:17.567Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Falecido Evento 456789012',
+  data_nascimento: 1950-01-01T02:00:00.000Z,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: 'Teste',
+  cliente_id: 7,
+  criado_em: 2026-11-17T18:09:17.572Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 6,
+  nome: 'Falecido Evento 456789012',
+  data_nascimento: '1950-01-01T02:00:00.000Z',
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: 'Teste',
+  cliente_id: 7,
+  criado_em: '2026-11-17T18:09:17.572Z'
+}
+EVENTO: contrato:criado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 6,
+  cliente_id: 7,
+  criado_em: 2026-11-17T18:09:17.577Z,
+  admin_id: 1
+}
+Evento publicado: contrato:criado
+Evento recebido - contrato:criado:  {
+  id: 8,
+  tipo: 'Velório',
+  descricao: 'Serviço de teste',
+  data_velorio: null,
+  data_sepultamento: null,
+  valor: '1500.00',
+  falecido_id: 6,
+  cliente_id: 7,
+  criado_em: '2026-11-17T18:09:17.577Z',
+  admin_id: 1
+}
+EVENTO: sepultamento:confirmado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 6,
+  cliente_id: 7,
+  admin_id: 1
+}
+Evento publicado: sepultamento:confirmado
+Evento recebido - sepultamento:confirmado:  {
+  id: 8,
+  tipo: 'Velório',
+  status: 'concluido',
+  data_velorio: null,
+  data_sepultamento: null,
+  falecido_id: 6,
+  cliente_id: 7,
+  admin_id: 1
+}
+Cliente desconectado: rio-_jBzxCmpEEdiAAAH
+Cliente desconectado: 9AFy0dCj7Jh_ZLl-AAAJ
+Cliente desconectado: bnIGsJ3fOEMToyyDAAAL
+Cliente desconectado: vz5_bVmigD_r46-lAAAN
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:21.754Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:21.754Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:21.839Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:21.839Z'
+}
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93896183630',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:21.847Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93896183630',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:21.847Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente BDD',
+  cpf: '93896183630',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:09:21.847Z'
+}
+EVENTO: cliente:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente BDD Atualizado',
+  cpf: '93896183630',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-17T18:09:21.847Z
+}
+Evento publicado: cliente:atualizado
+Evento recebido - cliente:atualizado:  {
+  id: 6,
+  nome: 'Cliente BDD Atualizado',
+  cpf: '93896183630',
+  telefone: '81999999999',
+  email: 'cliente.bdd@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-17T18:09:21.847Z'
+}
+EVENTO: cliente:removido
+DADOS ENVIADOS AO REDIS: { id: 6 }
+Evento publicado: cliente:removido
+Evento recebido - cliente:removido:  { id: 6 }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:09:21.920Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:09:21.920Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:09:21.999Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 3,
+  nome: 'Operador A1',
+  email: 'operadora1@teste.com',
+  perfil: 'operador',
+  logado_em: '2026-11-17T18:09:21.999Z'
+}
+Cliente conectado: gJswZ7zKwr7reoOTAAAP
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:22.078Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:22.078Z'
+}
+Cliente desconectado: gJswZ7zKwr7reoOTAAAP
+Cliente conectado: MD98oWk1DJK3ivcwAAAR
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:44.211Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-17T18:09:44.211Z'
+}
+Cliente desconectado: MD98oWk1DJK3ivcwAAAR
+Cliente conectado: eLCOvzXaFzKxJrQlAAAT
+Cliente desconectado: eLCOvzXaFzKxJrQlAAAT

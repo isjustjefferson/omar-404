@@ -1,0 +1,69 @@
+
+> omar404-qa@1.0.0 test:e2e
+> cypress run --project cypress
+
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        16.3.0                                                                         │
+  │ Browser:        Electron 150 (headless) (deprecated)                                           │
+  │ Node Version:   v26.13.1 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Specs:          1 found (ct04-login.cy.js)                                                     │
+  │ Searched:       e2e/**/*.cy.js                                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Warning: The Electron browser is deprecated as a test browser and will be removed in a future version of Cypress.
+
+Switch to Chrome or another installed browser to avoid a breaking change when you upgrade.
+
+Read more about supported browsers: https://on.cypress.io/launching-browsers
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  ct04-login.cy.js                                                                (1 of 1)
+
+
+  CT04 - Login pela interface
+    √ (a) credenciais válidas autenticam e redirecionam (2277ms)
+    √ (b) senha incorreta mantém o usuário na tela de login (708ms)
+
+
+  2 passing (3s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     3 seconds                                                                        │
+  │ Spec Ran:     ct04-login.cy.js                                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Video output: C:\Projetos\omar-404\qa\evidencias\week5\cypress\videos\ct04-login.cy.js.mp4
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ √  ct04-login.cy.js                         00:03        2        2        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    √  All specs passed!                        00:03        2        2        -        -        -  
+
