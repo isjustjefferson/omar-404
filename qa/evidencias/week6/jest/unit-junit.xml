@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Omar-404 Semana 6 - Unitário" tests="4" failures="0" errors="0" time="0.184">
+  <testsuite name="CT18 - Validação unitária de CPF em Cliente.criar" errors="0" failures="0" skipped="0" timestamp="2026-11-19T13:21:02" time="0.141" tests="4">
+    <testcase classname="CT18 - Validação unitária de CPF em Cliente.criar dígitos repetidos lança erro sem consultar o banco" name="CT18 - Validação unitária de CPF em Cliente.criar dígitos repetidos lança erro sem consultar o banco" time="0.017">
+    </testcase>
+    <testcase classname="CT18 - Validação unitária de CPF em Cliente.criar dígito verificador errado lança erro sem consultar o banco" name="CT18 - Validação unitária de CPF em Cliente.criar dígito verificador errado lança erro sem consultar o banco" time="0">
+    </testcase>
+    <testcase classname="CT18 - Validação unitária de CPF em Cliente.criar letras lança erro sem consultar o banco" name="CT18 - Validação unitária de CPF em Cliente.criar letras lança erro sem consultar o banco" time="0">
+    </testcase>
+    <testcase classname="CT18 - Validação unitária de CPF em Cliente.criar campos obrigatórios lançam erro sem consultar o banco" name="CT18 - Validação unitária de CPF em Cliente.criar campos obrigatórios lançam erro sem consultar o banco" time="0.001">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -11,7 +11,11 @@
     "test:events": "jest --config jest.config.js --selectProjects events",
     "test:bdd": "cucumber-js --config cucumber.js",
     "test:e2e": "cypress run --project cypress",
-    "test:week5": "node scripts/run-week5.js"
+    "test:week5": "node scripts/run-week5.js",
+    "test:week6:api": "jest --config jest.week6.api.config.js",
+    "test:week6:unit": "jest --config jest.week6.unit.config.js",
+    "test:week6:e2e": "cypress run --project cypress --config-file cypress.week6.config.js",
+    "test:week6": "node scripts/run-week6.js"
   },
   "devDependencies": {
     "@cucumber/cucumber": "^13.3.0",

@@ -9,7 +9,8 @@ const { USUARIOS } = require('./fixtures')
 const QA_ROOT = path.join(__dirname, '..')
 const STATE_FILE = path.join(QA_ROOT, '.qa-server-state.json')
 const ENV_FILE = path.join(QA_ROOT, '.env.test')
-const LOG_DIR = path.join(QA_ROOT, 'evidencias', 'week5', 'logs')
+const WEEK_DIR = process.env.QA_WEEK_DIR || 'week5'
+const LOG_DIR = path.join(QA_ROOT, 'evidencias', WEEK_DIR, 'logs')
 const BACKEND_DIR = path.join(QA_ROOT, '..', 'backend')
 const FRONTEND_DIR = path.join(QA_ROOT, '..', 'frontend')
 

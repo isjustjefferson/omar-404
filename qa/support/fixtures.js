@@ -72,13 +72,35 @@ function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
+function emailUnico(prefixo = 'week6') {
+  return `${prefixo}-${Date.now()}-${Math.floor(Math.random() * 10000)}@teste.com`
+}
+
+function dataISO(deslocamentoDias = 0) {
+  const data = new Date()
+  data.setHours(12, 0, 0, 0)
+  data.setDate(data.getDate() + deslocamentoDias)
+  const ano = data.getFullYear()
+  const mes = String(data.getMonth() + 1).padStart(2, '0')
+  const dia = String(data.getDate()).padStart(2, '0')
+  return `${ano}-${mes}-${dia}`
+}
+
+function formatarCpf(cpf) {
+  const numeros = String(cpf).replace(/\D/g, '')
+  return `${numeros.slice(0, 3)}.${numeros.slice(3, 6)}.${numeros.slice(6, 9)}-${numeros.slice(9)}`
+}
+
 module.exports = {
   USUARIOS,
   CPF_VALIDOS,
   CPF_INVALIDOS,
   gerarCpf,
+  formatarCpf,
   payloadCliente,
   payloadFalecido,
   payloadServico,
-  delay
+  delay,
+  emailUnico,
+  dataISO
 }

@@ -1,0 +1,599 @@
+◇ injected env (0) from .env // tip: ⌘ suppress logs { quiet: true }
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+Redis cache conectado.
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:18:20.804Z'
+}
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:18:20.804Z'
+}
+Evento publicado: usuario:logado
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:18:28.012Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:18:28.012Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:18:32.329Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:18:32.329Z'
+}
+Cliente conectado: cDLN7f8KRu9jMaW3AAAB
+Cliente desconectado: cDLN7f8KRu9jMaW3AAAB
+Cliente conectado: x_juHXVHNI002mesAAAD
+Cliente desconectado: x_juHXVHNI002mesAAAD
+Cliente conectado: xeYUdvK1xFnBfG3YAAAF
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:19:09.665Z'
+}
+Cliente desconectado: xeYUdvK1xFnBfG3YAAAF
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:19:09.665Z'
+}
+Cliente conectado: G9kQ0aXgX5MTJbkzAAAH
+Cliente desconectado: G9kQ0aXgX5MTJbkzAAAH
+◇ injected env (0) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+◇ injected env (0) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Servidor rodando na porta 3000
+Redis publisher conectado.
+Redis subscriber conectado.
+Redis cache conectado.
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:13.584Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:13.584Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:16.629Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:16.629Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:17.731Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:17.731Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:17.810Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 5,
+  nome: 'Admin C',
+  email: 'adminc@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:17.810Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 5,
+  nome: 'Falecido CT22 1795094417836-903',
+  data_nascimento: 2026-11-09T03:00:00.000Z,
+  data_falecimento: 2026-11-09T03:00:00.000Z,
+  causa_morte: null,
+  cliente_id: 1,
+  criado_em: 2026-11-19T13:20:17.843Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 5,
+  nome: 'Falecido CT22 1795094417836-903',
+  data_nascimento: '2026-11-09T03:00:00.000Z',
+  data_falecimento: '2026-11-09T03:00:00.000Z',
+  causa_morte: null,
+  cliente_id: 1,
+  criado_em: '2026-11-19T13:20:17.843Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Falecido CT22 1795094417916-868',
+  data_nascimento: 2026-11-14T03:00:00.000Z,
+  data_falecimento: 2026-11-19T03:00:00.000Z,
+  causa_morte: null,
+  cliente_id: 1,
+  criado_em: 2026-11-19T13:20:17.920Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 6,
+  nome: 'Falecido CT22 1795094417916-868',
+  data_nascimento: '2026-11-14T03:00:00.000Z',
+  data_falecimento: '2026-11-19T03:00:00.000Z',
+  causa_morte: null,
+  cliente_id: 1,
+  criado_em: '2026-11-19T13:20:17.920Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Falecido CT22 1795094417964-787',
+  data_nascimento: null,
+  data_falecimento: 2026-11-14T03:00:00.000Z,
+  causa_morte: null,
+  cliente_id: 1,
+  criado_em: 2026-11-19T13:20:17.967Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 7,
+  nome: 'Falecido CT22 1795094417964-787',
+  data_nascimento: null,
+  data_falecimento: '2026-11-14T03:00:00.000Z',
+  causa_morte: null,
+  cliente_id: 1,
+  criado_em: '2026-11-19T13:20:17.967Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Falecido CT23 Admin C',
+  data_nascimento: null,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: null,
+  cliente_id: 1,
+  criado_em: 2026-11-19T13:20:18.042Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 8,
+  nome: 'Falecido CT23 Admin C',
+  data_nascimento: null,
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: null,
+  cliente_id: 1,
+  criado_em: '2026-11-19T13:20:18.042Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:18.385Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:18.385Z'
+}
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente CT17 4725',
+  cpf: '529.982.247-25',
+  telefone: '81999999999',
+  email: 'cliente.ct17.4725@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.477Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente CT17 4725',
+  cpf: '529.982.247-25',
+  telefone: '81999999999',
+  email: 'cliente.ct17.4725@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.477Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente CT17 4725',
+  cpf: '529.982.247-25',
+  telefone: '81999999999',
+  email: 'cliente.ct17.4725@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-19T13:20:18.477Z'
+}
+CLIENTE COMPLETO: {
+  id: 7,
+  nome: 'Cliente CT17 7735',
+  cpf: '11144477735',
+  telefone: '81999999999',
+  email: 'cliente.ct17.7735@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.511Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 7,
+  nome: 'Cliente CT17 7735',
+  cpf: '11144477735',
+  telefone: '81999999999',
+  email: 'cliente.ct17.7735@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.511Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 7,
+  nome: 'Cliente CT17 7735',
+  cpf: '11144477735',
+  telefone: '81999999999',
+  email: 'cliente.ct17.7735@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-19T13:20:18.511Z'
+}
+Error: CPF inválido.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:32:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Error: CPF inválido.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:32:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Error: CPF inválido.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:32:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Error: CPF inválido.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:32:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Error: CPF inválido.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:32:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Error: Nome e CPF são obrigatórios.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:27:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Error: Nome e CPF são obrigatórios.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:27:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Error: Nome e CPF são obrigatórios.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:27:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+CLIENTE COMPLETO: {
+  id: 8,
+  nome: 'Cliente CT19 Base',
+  cpf: '52998224725',
+  telefone: '81999999999',
+  email: 'cliente.ct19.base@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.603Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Cliente CT19 Base',
+  cpf: '52998224725',
+  telefone: '81999999999',
+  email: 'cliente.ct19.base@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.603Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 8,
+  nome: 'Cliente CT19 Base',
+  cpf: '52998224725',
+  telefone: '81999999999',
+  email: 'cliente.ct19.base@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-19T13:20:18.603Z'
+}
+CLIENTE COMPLETO: {
+  id: 9,
+  nome: 'Cliente CT19 (a) com máscara',
+  cpf: '529.982.247-25',
+  telefone: '81999999999',
+  email: 'cliente.ct19.(a).com.máscara@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.644Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 9,
+  nome: 'Cliente CT19 (a) com máscara',
+  cpf: '529.982.247-25',
+  telefone: '81999999999',
+  email: 'cliente.ct19.(a).com.máscara@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.644Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 9,
+  nome: 'Cliente CT19 (a) com máscara',
+  cpf: '529.982.247-25',
+  telefone: '81999999999',
+  email: 'cliente.ct19.(a).com.máscara@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-19T13:20:18.644Z'
+}
+CLIENTE COMPLETO: {
+  id: 10,
+  nome: 'Cliente CT20 Sem Vinculo',
+  cpf: '99988877714',
+  telefone: '81999999999',
+  email: 'cliente.ct20.sem.vinculo@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.702Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 10,
+  nome: 'Cliente CT20 Sem Vinculo',
+  cpf: '99988877714',
+  telefone: '81999999999',
+  email: 'cliente.ct20.sem.vinculo@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.702Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 10,
+  nome: 'Cliente CT20 Sem Vinculo',
+  cpf: '99988877714',
+  telefone: '81999999999',
+  email: 'cliente.ct20.sem.vinculo@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-19T13:20:18.702Z'
+}
+CLIENTE COMPLETO: {
+  id: 11,
+  nome: 'Cliente CT20 Falecido Sem Servico',
+  cpf: '88899966680',
+  telefone: '81999999999',
+  email: 'cliente.ct20.falecido.sem.servico@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.744Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 11,
+  nome: 'Cliente CT20 Falecido Sem Servico',
+  cpf: '88899966680',
+  telefone: '81999999999',
+  email: 'cliente.ct20.falecido.sem.servico@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:18.744Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 11,
+  nome: 'Cliente CT20 Falecido Sem Servico',
+  cpf: '88899966680',
+  telefone: '81999999999',
+  email: 'cliente.ct20.falecido.sem.servico@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-19T13:20:18.744Z'
+}
+EVENTO: falecido:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 9,
+  nome: 'Falecido CT20 Sem Servico',
+  data_nascimento: null,
+  data_falecimento: 2020-01-01T03:00:00.000Z,
+  causa_morte: null,
+  cliente_id: 11,
+  criado_em: 2026-11-19T13:20:18.812Z
+}
+Evento publicado: falecido:cadastrado
+Evento recebido - falecido:cadastrado:  {
+  id: 9,
+  nome: 'Falecido CT20 Sem Servico',
+  data_nascimento: null,
+  data_falecimento: '2020-01-01T03:00:00.000Z',
+  causa_morte: null,
+  cliente_id: 11,
+  criado_em: '2026-11-19T13:20:18.812Z'
+}
+EVENTO: cliente:atualizado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Cliente CT20 Atualizado',
+  cpf: '55544433380',
+  telefone: '81977777777',
+  email: 'ct20-atualizado@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:20:16.485Z
+}
+Evento publicado: cliente:atualizado
+Evento recebido - cliente:atualizado:  {
+  id: 1,
+  nome: 'Cliente CT20 Atualizado',
+  cpf: '55544433380',
+  telefone: '81977777777',
+  email: 'ct20-atualizado@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-19T13:20:16.485Z'
+}
+EVENTO: falecido:removido
+DADOS ENVIADOS AO REDIS: { id: '9' }
+Evento publicado: falecido:removido
+Evento recebido - falecido:removido:  { id: '9' }
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 8,
+  nome: 'Admin CT05',
+  email: 'ct05-1795094419147-1735@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:23.631Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 8,
+  nome: 'Admin CT05',
+  email: 'ct05-1795094419147-1735@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:20:23.631Z'
+}
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:21:02.076Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:21:02.076Z'
+}
+Cliente conectado: jMmxh0V4Lxkk1uMFAAAB
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:21:14.449Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:21:14.449Z'
+}
+Cliente desconectado: jMmxh0V4Lxkk1uMFAAAB
+Cliente conectado: ax9VKVP-i2GxoMfDAAAD
+CLIENTE COMPLETO: {
+  id: 6,
+  nome: 'Cliente CT21 Válido 1795094474866',
+  cpf: '529.982.247-25',
+  telefone: '(81) 98888-8888',
+  email: 'ct21-valido@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:21:15.766Z
+}
+EVENTO: cliente:cadastrado
+DADOS ENVIADOS AO REDIS: {
+  id: 6,
+  nome: 'Cliente CT21 Válido 1795094474866',
+  cpf: '529.982.247-25',
+  telefone: '(81) 98888-8888',
+  email: 'ct21-valido@teste.com',
+  admin_id: 1,
+  criado_em: 2026-11-19T13:21:15.766Z
+}
+Evento publicado: cliente:cadastrado
+Evento recebido - cliente:cadastrado:  {
+  id: 6,
+  nome: 'Cliente CT21 Válido 1795094474866',
+  cpf: '529.982.247-25',
+  telefone: '(81) 98888-8888',
+  email: 'ct21-valido@teste.com',
+  admin_id: 1,
+  criado_em: '2026-11-19T13:21:15.766Z'
+}
+Cliente desconectado: ax9VKVP-i2GxoMfDAAAD
+Cliente conectado: EJ2XuJn4IuHjmYvdAAAF
+EVENTO: usuario:logado
+DADOS ENVIADOS AO REDIS: {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:21:16.650Z'
+}
+Evento publicado: usuario:logado
+Evento recebido - usuario:logado:  {
+  id: 1,
+  nome: 'Admin A',
+  email: 'admina@teste.com',
+  perfil: 'admin',
+  logado_em: '2026-11-19T13:21:16.650Z'
+}
+Cliente desconectado: EJ2XuJn4IuHjmYvdAAAF
+Cliente conectado: 18S80bY4OKUVnGEuAAAH
+Error: CPF inválido.
+    at Object.criar (C:\Projetos\omar-404\backend\models\Cliente.js:32:19)
+    at create (C:\Projetos\omar-404\backend\controllers\clienteController.js:47:43)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+Cliente desconectado: 18S80bY4OKUVnGEuAAAH

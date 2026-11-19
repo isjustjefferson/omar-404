@@ -4,9 +4,13 @@ const fs = require('fs')
 const path = require('path')
 const bcrypt = require('bcryptjs')
 const { pool, end } = require('../support/db')
-const { USUARIOS, CPF_VALIDOS, gerarCpf } = require('../support/fixtures')
+const { USUARIOS, CPF_VALIDOS, gerarCpf, formatarCpf } = require('../support/fixtures')
 
-const SAIDA_MASSA = path.join(__dirname, '..', 'evidencias', 'week5', 'massa-dados.md')
+const WEEK_DIR = process.env.QA_WEEK_DIR || 'week5'
+const SAIDA_MASSA = path.join(__dirname, '..', 'evidencias', WEEK_DIR, 'massa-dados.md')
+const CPFS_SEED = WEEK_DIR === 'week6'
+  ? { clienteA1: gerarCpf('555444333'), clienteA2: gerarCpf('666555444'), clienteB1: gerarCpf('777666555'), clienteB2: gerarCpf('888777666') }
+  : CPF_VALIDOS
 
 async function main() {
   const client = await pool.connect()
@@ -34,11 +38,11 @@ async function main() {
     }
 
     const clientes = [
-      ['A1', 'Cliente A1', CPF_VALIDOS.clienteA1, 'Admin A'],
-      ['A2', 'Cliente A2', CPF_VALIDOS.clienteA2, 'Admin A'],
-      ['B1', 'Cliente B1', CPF_VALIDOS.clienteB1, 'Admin B'],
-      ['B2', 'Cliente B2', CPF_VALIDOS.clienteB2, 'Admin B'],
-      ['D1', 'Cliente D1', `${gerarCpf('111222333').slice(0, 3)}.${gerarCpf('111222333').slice(3, 6)}.${gerarCpf('111222333').slice(6, 9)}-${gerarCpf('111222333').slice(9)}`, 'Admin D']
+      ['A1', 'Cliente A1', CPFS_SEED.clienteA1, 'Admin A'],
+      ['A2', 'Cliente A2', CPFS_SEED.clienteA2, 'Admin A'],
+      ['B1', 'Cliente B1', CPFS_SEED.clienteB1, 'Admin B'],
+      ['B2', 'Cliente B2', CPFS_SEED.clienteB2, 'Admin B'],
+      ['D1', 'Cliente D1', gerarCpf('111222333'), 'Admin D']
     ]
 
     for (const [chave, nome, cpf, admin] of clientes) {
@@ -79,11 +83,19 @@ async function main() {
 
     await client.query('COMMIT')
 
+    const tituloSemana = WEEK_DIR === 'week6' ? 'Semana 6' : 'Semana 5'
     const linhas = [
-      '# Massa de dados - Semana 5',
+      `# Massa de dados - ${tituloSemana}`,
       '',
       `Senha comum: \`${'Senha@123'}\``,
       '',
+      ...(WEEK_DIR === 'week6'
+        ? [
+            'CPFs reservados para CT17/CT21: `529.982.247-25` e `11144477735`.',
+            'E-mails de CT05/CT06 são gerados automaticamente e não fazem parte desta massa fixa.',
+            ''
+          ]
+        : []),
       '## Usuários',
       '',
       '| Nome | E-mail | Perfil | Vínculo | ID |',
@@ -99,7 +111,7 @@ async function main() {
 
     linhas.push('', '## Clientes', '', '| Nome | CPF | Admin | ID |', '| --- | --- | --- | --- |')
     for (const [chave, nome, cpf, admin] of clientes) {
-      linhas.push(`| ${nome} | ${cpf} | ${admin} | ${idsClientes[chave]} |`)
+      linhas.push(`| ${nome} | ${formatarCpf(cpf)} | ${admin} | ${idsClientes[chave]} |`)
     }
 
     linhas.push('', '## Falecidos e serviços', '', '| Falecido | Cliente | Serviço | ID |', '| --- | --- | --- | --- |')
