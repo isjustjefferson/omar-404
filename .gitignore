@@ -1,3 +1,5 @@
 node_modules/
 .env
 .vscode/
+# Guia de execução dos testes (arquivo local)
+Execucao_dos_testes_Omar-404.md
