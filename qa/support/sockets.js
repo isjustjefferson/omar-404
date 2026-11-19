@@ -52,7 +52,7 @@ async function connectSocket(label, token) {
 
 async function disconnectAll(conexoes) {
   for (const conexao of conexoes || []) {
-    if (conexao && conexao.socket && conexao.socket.connected) {
+    if (conexao && conexao.socket) {
       conexao.socket.disconnect()
     }
   }

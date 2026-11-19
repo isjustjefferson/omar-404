@@ -38,6 +38,10 @@ function saveState(dados) {
   fs.writeFileSync(STATE_FILE, JSON.stringify(estado, null, 2))
 }
 
+function clearState() {
+  fs.rmSync(STATE_FILE, { force: true })
+}
+
 function findPidsByPort(porta) {
   if (process.platform === 'win32') {
     try {
@@ -149,11 +153,15 @@ function spawnComLog(comando, args, opcoes) {
   })
   fs.closeSync(out)
   fs.closeSync(err)
+  child.unref()
   return child
 }
 
 async function ensureBackend() {
-  if (await isTestBackend()) return false
+  if (await isTestBackend()) {
+    clearState()
+    return false
+  }
 
   const env = { ...process.env, ...loadEnv() }
   killPort(3000)
@@ -165,10 +173,10 @@ async function ensureBackend() {
     outLog: path.join(LOG_DIR, 'backend.out.log'),
     errLog: path.join(LOG_DIR, 'backend.err.log')
   })
+  saveState({ backendPid: child.pid })
 
   await waitForUrl(env.BASE_URL || 'http://localhost:3000')
   await waitForTestBackend()
-  saveState({ backendPid: child.pid })
   return true
 }
 
@@ -186,8 +194,8 @@ async function ensureFrontend() {
     errLog: path.join(LOG_DIR, 'frontend.err.log')
   })
 
-  await waitForUrl(env.FRONTEND_URL || 'http://localhost:5173')
   saveState({ frontendPid: child.pid })
+  await waitForUrl(env.FRONTEND_URL || 'http://localhost:5173')
   return true
 }
 
@@ -217,5 +225,6 @@ module.exports = {
   ensureBackend,
   ensureFrontend,
   stopAll,
+  clearState,
   readState
 }

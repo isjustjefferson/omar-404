@@ -19,4 +19,10 @@ async function end() {
   await pool.end()
 }
 
+if (typeof afterAll === 'function') {
+  afterAll(async () => {
+    await end()
+  })
+}
+
 module.exports = { pool, query, end }

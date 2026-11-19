@@ -85,15 +85,25 @@ test('CT26 - transições de status publicam os eventos corretos', async () => {
 }, 60000)
 
 test('CT27 - PUT sem status preserva status e com status publica evento', async () => {
+  const falhas = []
+  const registrar = (descricao, condicao, detalhe = '') => {
+    if (!condicao) falhas.push(`${descricao}${detalhe ? `: ${detalhe}` : ''}`)
+  }
   const observador = await connectSocket('ct27')
   conexoes.push(observador)
-  const servicoId = await criarServico()
+
+  const criacao = await http()
+    .post('/servicos')
+    .set(authHeader(admin.token))
+    .send(payloadServico(clienteId, falecidoId))
+  registrar('CT27 criação do serviço', criacao.status === 201, `status=${criacao.status}`)
+  const servicoId = criacao.body.id
 
   const preparacao = await http()
     .patch(`/servicos/${servicoId}/status`)
     .set(authHeader(admin.token))
     .send({ status: 'em_andamento' })
-  expect(preparacao.status).toBe(200)
+  registrar('CT27 preparação do status', preparacao.status === 200, `status=${preparacao.status}`)
   observador.limpar()
   await delay(200)
 
@@ -106,12 +116,15 @@ test('CT27 - PUT sem status preserva status e com status publica evento', async 
     .set(authHeader(admin.token))
     .send(corpo)
 
-  expect(semStatus.status).toBe(200)
-  expect(semStatus.body.status).toBe('em_andamento')
+  registrar('CT27 PUT sem status', semStatus.status === 200, `status=${semStatus.status}`)
+  registrar('CT27 status preservado', semStatus.body.status === 'em_andamento', `status=${semStatus.body.status}`)
   await delay(300)
-  expect(observador.recebidos('contrato:atualizado').length).toBe(1)
-  expect(observador.recebidos('sepultamento:confirmado').length).toBe(0)
-  expect(observador.recebidos('contrato:cancelado').length).toBe(0)
+
+  const atualizados = observador.recebidos('contrato:atualizado')
+  registrar('CT27 evento contrato:atualizado sem status', atualizados.length === 1, `recebidos=${atualizados.length}`)
+  registrar('CT27 payload mantém status sem status', atualizados.some((item) => item.payload.status === 'em_andamento'))
+  registrar('CT27 evento sepultamento:confirmado sem status', observador.recebidos('sepultamento:confirmado').length === 0)
+  registrar('CT27 evento contrato:cancelado sem status', observador.recebidos('contrato:cancelado').length === 0)
 
   observador.limpar()
   await delay(300)
@@ -121,10 +134,14 @@ test('CT27 - PUT sem status preserva status e com status publica evento', async 
     .set(authHeader(admin.token))
     .send({ ...corpoBase, status: 'concluido' })
 
-  expect(concluido.status).toBe(200)
+  registrar('CT27 PUT com status concluido', concluido.status === 200, `status=${concluido.status}`)
+  registrar('CT27 status concluido', concluido.body.status === 'concluido', `status=${concluido.body.status}`)
   await delay(300)
-  expect(observador.recebidos('contrato:atualizado').length).toBe(1)
-  expect(observador.recebidos('sepultamento:confirmado').length).toBe(1)
+
+  const concluidos = observador.recebidos('sepultamento:confirmado')
+  registrar('CT27 evento contrato:atualizado com concluido', observador.recebidos('contrato:atualizado').length === 1)
+  registrar('CT27 evento sepultamento:confirmado', concluidos.length === 1, `recebidos=${concluidos.length}`)
+  registrar('CT27 payload de sepultamento:confirmado', concluidos.some((item) => item.payload.status === 'concluido'))
 
   observador.limpar()
   await delay(300)
@@ -134,8 +151,14 @@ test('CT27 - PUT sem status preserva status e com status publica evento', async 
     .set(authHeader(admin.token))
     .send({ ...corpoBase, status: 'cancelado' })
 
-  expect(cancelado.status).toBe(200)
+  registrar('CT27 PUT com status cancelado', cancelado.status === 200, `status=${cancelado.status}`)
+  registrar('CT27 status cancelado', cancelado.body.status === 'cancelado', `status=${cancelado.body.status}`)
   await delay(300)
-  expect(observador.recebidos('contrato:atualizado').length).toBe(1)
-  expect(observador.recebidos('contrato:cancelado').length).toBe(1)
+
+  const cancelados = observador.recebidos('contrato:cancelado')
+  registrar('CT27 evento contrato:atualizado com cancelado', observador.recebidos('contrato:atualizado').length === 1)
+  registrar('CT27 evento contrato:cancelado', cancelados.length === 1, `recebidos=${cancelados.length}`)
+  registrar('CT27 payload de contrato:cancelado', cancelados.some((item) => item.payload.status === 'cancelado'))
+
+  expect(falhas).toEqual([])
 })

@@ -140,6 +140,10 @@ test('CT14 - todas as operações publicam evento', async () => {
 })
 
 test('CT15 - eventos são isolados por administrador', async () => {
+  const falhas = []
+  const registrar = (descricao, condicao, detalhe = '') => {
+    if (!condicao) falhas.push(`${descricao}${detalhe ? `: ${detalhe}` : ''}`)
+  }
   const socketsPorNome = {}
   for (const nome of ['Admin A', 'Operador A1', 'Admin B', 'Operador B1']) {
     socketsPorNome[nome] = await connectSocket(nome)
@@ -150,20 +154,32 @@ test('CT15 - eventos são isolados por administrador', async () => {
   const operador = await loginOrThrow(USUARIOS['Operador A1'].email, USUARIOS['Operador A1'].senha)
   await delay(300)
 
-  const cliente = await criarCliente(admin.token, 345678901)
-  const falecido = await criarFalecido(admin.token, cliente.id, 456789012)
+  const cpf = gerarCpf('345678901')
+  const nomeCliente = 'Cliente Evento 345678901'
+
+  const cliente = await http()
+    .post('/clientes')
+    .set(authHeader(admin.token))
+    .send(payloadCliente(cpf, nomeCliente))
+  registrar('CT15 cadastro de cliente', cliente.status === 201, `status=${cliente.status}`)
+
+  const falecido = await http()
+    .post('/falecidos')
+    .set(authHeader(admin.token))
+    .send(payloadFalecido(cliente.body.id, 'Falecido Evento 456789012'))
+  registrar('CT15 cadastro de falecido', falecido.status === 201, `status=${falecido.status}`)
 
   const servico = await http()
     .post('/servicos')
     .set(authHeader(admin.token))
-    .send(payloadServico(cliente.id, falecido.id))
-  expect(servico.status).toBe(201)
+    .send(payloadServico(cliente.body.id, falecido.body.id))
+  registrar('CT15 criação de serviço', servico.status === 201, `status=${servico.status}`)
 
   const status = await http()
     .patch(`/servicos/${servico.body.id}/status`)
     .set(authHeader(admin.token))
     .send({ status: 'concluido' })
-  expect(status.status).toBe(200)
+  registrar('CT15 conclusão de serviço', status.status === 200, `status=${status.status}`)
 
   await delay(1500)
 
@@ -175,14 +191,43 @@ test('CT15 - eventos são isolados por administrador', async () => {
     'sepultamento:confirmado'
   ]
 
-  for (const evento of eventos) {
-    expect(socketsPorNome['Admin A'].recebidos(evento).length).toBeGreaterThan(0)
-    expect(socketsPorNome['Operador A1'].recebidos(evento).length).toBeGreaterThan(0)
-    expect(socketsPorNome['Admin B'].recebidos(evento).length).toBe(0)
-    expect(socketsPorNome['Operador B1'].recebidos(evento).length).toBe(0)
+  const verificarEvento = (nome, evento, deveReceber) => {
+    const quantidade = socketsPorNome[nome].recebidos(evento).length
+    registrar(
+      `CT15 ${nome} / ${evento}`,
+      deveReceber ? quantidade > 0 : quantidade === 0,
+      `recebidos=${quantidade}, esperado=${deveReceber ? '>0' : '0'}`
+    )
   }
 
-  const registrosB = await query('SELECT COUNT(*)::int AS total FROM clientes WHERE admin_id = $1', [(await loginOrThrow(USUARIOS['Admin B'].email, USUARIOS['Admin B'].senha)).usuario.id])
-  expect(registrosB.rows[0].total).toBe(2)
-  expect(operador.usuario.perfil).toBe('operador')
+  for (const evento of eventos) {
+    verificarEvento('Admin A', evento, true)
+    verificarEvento('Operador A1', evento, true)
+    verificarEvento('Admin B', evento, false)
+    verificarEvento('Operador B1', evento, false)
+  }
+
+  const dadosSensiveis = [
+    cpf.toLowerCase(),
+    nomeCliente.toLowerCase(),
+    operador.usuario.email.toLowerCase(),
+    operador.usuario.perfil.toLowerCase()
+  ]
+  const payloadsPorNome = {
+    'Admin B': socketsPorNome['Admin B'].eventos.map((item) => JSON.stringify(item.payload || {}).toLowerCase()),
+    'Operador B1': socketsPorNome['Operador B1'].eventos.map((item) => JSON.stringify(item.payload || {}).toLowerCase())
+  }
+
+  for (const [nome, payloads] of Object.entries(payloadsPorNome)) {
+    for (const dado of dadosSensiveis) {
+      registrar(`CT15 ${nome} não recebe ${dado}`, !payloads.some((payload) => payload.includes(dado)))
+    }
+  }
+
+  const adminB = await loginOrThrow(USUARIOS['Admin B'].email, USUARIOS['Admin B'].senha)
+  const registrosB = await query('SELECT COUNT(*)::int AS total FROM clientes WHERE admin_id = $1', [adminB.usuario.id])
+  registrar('CT15 clientes do Admin B', registrosB.rows[0].total === 2, `total=${registrosB.rows[0].total}`)
+  registrar('CT15 perfil do operador', operador.usuario.perfil === 'operador', `perfil=${operador.usuario.perfil}`)
+
+  expect(falhas).toEqual([])
 })
