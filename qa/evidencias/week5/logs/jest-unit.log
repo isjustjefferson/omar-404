@@ -8,7 +8,7 @@ Running one project: unit
 Banco e Redis de teste resetados.
 ◇ injected env (0) from .env.test
 Massa de dados de teste criada.
-PASS unit tests/unit/servico.atualizarStatus.test.js
+PASS unit tests/unit/getAdminId.test.js
   ● Console
 
     console.error
@@ -27,7 +27,7 @@ PASS unit tests/unit/servico.atualizarStatus.test.js
       at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
       at Object.<anonymous> (support/env.js:3:8)
 
-PASS unit tests/unit/getAdminId.test.js
+PASS unit tests/unit/servico.atualizarStatus.test.js
   ● Console
 
     console.error
@@ -50,5 +50,5 @@ PASS unit tests/unit/getAdminId.test.js
 Test Suites: 2 passed, 2 total
 Tests:       7 passed, 7 total
 Snapshots:   0 total
-Time:        0.193 s, estimated 1 s
+Time:        0.312 s
 Ran all test suites.

@@ -1,0 +1,354 @@
+◇ injected env (13) from .env.test
+◇ injected env (0) from .env.test
+Banco e Redis de teste resetados.
+◇ injected env (0) from .env.test
+Massa de dados de teste criada.
+FAIL events tests/events/ct26-ct27-servicos-eventos.test.js (12.511 s)
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 1 |[39m [36mconst[39m path [33m=[39m require([32m'path'[39m)
+     [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+    [31m[1m>[22m[39m[90m 3 |[39m
+     [90m   |[39m [31m[1m^[22m[39m
+     [90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.<anonymous> (support/env.js:3:8)
+
+  ● CT27 - PUT sem status preserva status e com status publica evento
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "em_andamento"
+    Received: null
+
+    [0m [90m 108 |[39m
+     [90m 109 |[39m   expect(semStatus[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)
+    [31m[1m>[22m[39m[90m 110 |[39m   expect(semStatus[33m.[39mbody[33m.[39mstatus)[33m.[39mtoBe([32m'em_andamento'[39m)
+     [90m     |[39m                                 [31m[1m^[22m[39m
+     [90m 111 |[39m   [36mawait[39m delay([35m300[39m)
+     [90m 112 |[39m   expect(observador[33m.[39mrecebidos([32m'contrato:atualizado'[39m)[33m.[39mlength)[33m.[39mtoBe([35m1[39m)
+     [90m 113 |[39m   expect(observador[33m.[39mrecebidos([32m'sepultamento:confirmado'[39m)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)[0m
+
+      at Object.toBe (tests/events/ct26-ct27-servicos-eventos.test.js:110:33)
+
+FAIL events tests/events/ct14-ct15-eventos.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+     [90m 3 |[39m
+    [31m[1m>[22m[39m[90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m   |[39m        [31m[1m^[22m[39m
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m
+     [90m 7 |[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m||[39m [32m'http://localhost:5173'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.config (support/env.js:4:8)
+
+  ● CT15 - eventos são isolados por administrador
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 2
+
+    [0m [90m 179 |[39m     expect(socketsPorNome[[32m'Admin A'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)
+     [90m 180 |[39m     expect(socketsPorNome[[32m'Operador A1'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)
+    [31m[1m>[22m[39m[90m 181 |[39m     expect(socketsPorNome[[32m'Admin B'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)
+     [90m     |[39m                                                                [31m[1m^[22m[39m
+     [90m 182 |[39m     expect(socketsPorNome[[32m'Operador B1'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)
+     [90m 183 |[39m   }
+     [90m 184 |[39m[0m
+
+      at Object.toBe (tests/events/ct14-ct15-eventos.test.js:181:64)
+
+FAIL api tests/api/ct11-ct13-multitenancy.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+     [90m 3 |[39m
+    [31m[1m>[22m[39m[90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m   |[39m        [31m[1m^[22m[39m
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m
+     [90m 7 |[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m||[39m [32m'http://localhost:5173'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.config (support/env.js:4:8)
+
+  ● CT13 - Criação com vínculo de outro administrador › não cria falecido nem serviço usando cliente de outro administrador
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 201
+    Received array: [400, 403]
+
+    [0m [90m 114 |[39m       [33m.[39msend(payloadServico(clienteId[33m,[39m falecidoId))
+     [90m 115 |[39m
+    [31m[1m>[22m[39m[90m 116 |[39m     expect([[35m400[39m[33m,[39m [35m403[39m])[33m.[39mtoContain(respostaFalecido[33m.[39mstatus)
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 117 |[39m     expect([[35m400[39m[33m,[39m [35m403[39m])[33m.[39mtoContain(respostaServico[33m.[39mstatus)
+     [90m 118 |[39m     expect([36mawait[39m totalTabela([32m'falecidos'[39m))[33m.[39mtoBe(totalFalecidosAntes)
+     [90m 119 |[39m     expect([36mawait[39m totalTabela([32m'servicos'[39m))[33m.[39mtoBe(totalServicosAntes)[0m
+
+      at Object.toContain (tests/api/ct11-ct13-multitenancy.test.js:116:24)
+
+FAIL api tests/api/ct08-ct10-usuarios.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+     [90m 3 |[39m
+    [31m[1m>[22m[39m[90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m   |[39m        [31m[1m^[22m[39m
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m
+     [90m 7 |[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m||[39m [32m'http://localhost:5173'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.config (support/env.js:4:8)
+
+  ● CT09 - Auto-registro de administrador › não permite criar administrador via /auth/register
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 201
+    Received array: [401, 403]
+
+    [0m [90m 63 |[39m     })
+     [90m 64 |[39m
+    [31m[1m>[22m[39m[90m 65 |[39m     expect([[35m401[39m[33m,[39m [35m403[39m])[33m.[39mtoContain(resposta[33m.[39mstatus)
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 66 |[39m     expect([36mawait[39m totalUsuarios())[33m.[39mtoBe(antes)
+     [90m 67 |[39m
+     [90m 68 |[39m     [36mconst[39m tentativaLogin [33m=[39m [36mawait[39m http()[33m.[39mpost([32m'/auth/login'[39m)[33m.[39msend({ email[33m,[39m senha[33m:[39m [32m'Senha@123'[39m })[0m
+
+      at Object.toContain (tests/api/ct08-ct10-usuarios.test.js:65:24)
+
+  ● CT10 - Remoção de operadores › (a) admin remove operador do próprio vínculo
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 500
+
+    [0m [90m 78 |[39m       [33m.[39m[36mset[39m(authHeader(adminA[33m.[39mtoken))
+     [90m 79 |[39m
+    [31m[1m>[22m[39m[90m 80 |[39m     expect(resposta[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)
+     [90m    |[39m                             [31m[1m^[22m[39m
+     [90m 81 |[39m     expect(resposta[33m.[39mbody[33m.[39mmensagem)[33m.[39mtoBe([32m'Usuário removido com sucesso.'[39m)
+     [90m 82 |[39m     expect([36mawait[39m totalUsuarios())[33m.[39mtoBe(antes [33m-[39m [35m1[39m)
+     [90m 83 |[39m   })[0m
+
+      at Object.toBe (tests/api/ct08-ct10-usuarios.test.js:80:29)
+
+  ● CT10 - Remoção de operadores › (b) não remove operador de outro administrador
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 500
+    Received array: [400, 403]
+
+    [0m [90m 89 |[39m       [33m.[39m[36mset[39m(authHeader(adminA[33m.[39mtoken))
+     [90m 90 |[39m
+    [31m[1m>[22m[39m[90m 91 |[39m     expect([[35m400[39m[33m,[39m [35m403[39m])[33m.[39mtoContain(resposta[33m.[39mstatus)
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 92 |[39m     expect([36mawait[39m totalUsuarios())[33m.[39mtoBe(antes)
+     [90m 93 |[39m   })
+     [90m 94 |[39m[0m
+
+      at Object.toContain (tests/api/ct08-ct10-usuarios.test.js:91:24)
+
+  ● CT10 - Remoção de operadores › (c) não remove outro administrador
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 500
+    Received array: [400, 403]
+
+    [0m [90m  99 |[39m       [33m.[39m[36mset[39m(authHeader(adminA[33m.[39mtoken))
+     [90m 100 |[39m
+    [31m[1m>[22m[39m[90m 101 |[39m     expect([[35m400[39m[33m,[39m [35m403[39m])[33m.[39mtoContain(resposta[33m.[39mstatus)
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 102 |[39m     expect([36mawait[39m totalUsuarios())[33m.[39mtoBe(antes)
+     [90m 103 |[39m   })
+     [90m 104 |[39m[0m
+
+      at Object.toContain (tests/api/ct08-ct10-usuarios.test.js:101:24)
+
+  ● CT10 - Remoção de operadores › (d) ID inexistente retorna 404
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 404
+    Received: 500
+
+    [0m [90m 109 |[39m       [33m.[39m[36mset[39m(authHeader(adminA[33m.[39mtoken))
+     [90m 110 |[39m
+    [31m[1m>[22m[39m[90m 111 |[39m     expect(resposta[33m.[39mstatus)[33m.[39mtoBe([35m404[39m)
+     [90m     |[39m                             [31m[1m^[22m[39m
+     [90m 112 |[39m     expect([36mawait[39m totalUsuarios())[33m.[39mtoBe(antes)
+     [90m 113 |[39m   })
+     [90m 114 |[39m })[0m
+
+      at Object.toBe (tests/api/ct08-ct10-usuarios.test.js:111:29)
+
+FAIL api tests/api/ct24-ct25-servicos.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+     [90m 3 |[39m
+    [31m[1m>[22m[39m[90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m   |[39m        [31m[1m^[22m[39m
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m
+     [90m 7 |[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m||[39m [32m'http://localhost:5173'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.config (support/env.js:4:8)
+
+  ● CT24 - Cadastro de serviço › (c) admin sem clientes recebe aviso
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 422
+    Received: 201
+
+    [0m [90m 60 |[39m       [33m.[39msend(payloadServico(clienteAId[33m,[39m falecidoAId))
+     [90m 61 |[39m
+    [31m[1m>[22m[39m[90m 62 |[39m     expect(resposta[33m.[39mstatus)[33m.[39mtoBe([35m422[39m)
+     [90m    |[39m                             [31m[1m^[22m[39m
+     [90m 63 |[39m     expect(resposta[33m.[39mbody[33m.[39merro)[33m.[39mtoContain([32m'você não tem clientes cadastrados'[39m)
+     [90m 64 |[39m   })
+     [90m 65 |[39m[0m
+
+      at Object.toBe (tests/api/ct24-ct25-servicos.test.js:62:29)
+
+  ● CT24 - Cadastro de serviço › (d) admin sem falecidos recebe aviso
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 422
+    Received: 201
+
+    [0m [90m 70 |[39m       [33m.[39msend(payloadServico(clienteAId[33m,[39m falecidoAId))
+     [90m 71 |[39m
+    [31m[1m>[22m[39m[90m 72 |[39m     expect(resposta[33m.[39mstatus)[33m.[39mtoBe([35m422[39m)
+     [90m    |[39m                             [31m[1m^[22m[39m
+     [90m 73 |[39m     expect(resposta[33m.[39mbody[33m.[39merro)[33m.[39mtoContain([32m'você não tem falecidos cadastrados'[39m)
+     [90m 74 |[39m   })
+     [90m 75 |[39m })[0m
+
+      at Object.toBe (tests/api/ct24-ct25-servicos.test.js:72:29)
+
+  ● CT25 - Validação de valor do serviço › valor 0 deve retornar 201
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 201
+    Received: 400
+
+    [0m [90m 88 |[39m       [33m.[39msend(payloadServico(clienteAId[33m,[39m falecidoAId[33m,[39m valor))
+     [90m 89 |[39m
+    [31m[1m>[22m[39m[90m 90 |[39m     expect(resposta[33m.[39mstatus)[33m.[39mtoBe(statusEsperado)
+     [90m    |[39m                             [31m[1m^[22m[39m
+     [90m 91 |[39m   })
+     [90m 92 |[39m })
+     [90m 93 |[39m[0m
+
+      at toBe (tests/api/ct24-ct25-servicos.test.js:90:29)
+
+PASS api tests/api/ct03-token.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+     [90m 3 |[39m
+    [31m[1m>[22m[39m[90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m   |[39m        [31m[1m^[22m[39m
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m
+     [90m 7 |[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m||[39m [32m'http://localhost:5173'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.config (support/env.js:4:8)
+
+PASS unit tests/unit/getAdminId.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+     [90m 3 |[39m
+    [31m[1m>[22m[39m[90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m   |[39m        [31m[1m^[22m[39m
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m
+     [90m 7 |[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m||[39m [32m'http://localhost:5173'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.config (support/env.js:4:8)
+
+PASS unit tests/unit/servico.atualizarStatus.test.js
+  ● Console
+
+    console.error
+      ◇ injected env (0) from .env.test
+
+    [0m [90m 2 |[39m [36mconst[39m dotenv [33m=[39m require([32m'dotenv'[39m)
+     [90m 3 |[39m
+    [31m[1m>[22m[39m[90m 4 |[39m dotenv[33m.[39mconfig({ path[33m:[39m path[33m.[39mjoin(__dirname[33m,[39m [32m'..'[39m[33m,[39m [32m'.env.test'[39m) })
+     [90m   |[39m        [31m[1m^[22m[39m
+     [90m 5 |[39m
+     [90m 6 |[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mBASE_URL[39m [33m||[39m [32m'http://localhost:3000'[39m
+     [90m 7 |[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m=[39m process[33m.[39menv[33m.[39m[33mFRONTEND_URL[39m [33m||[39m [32m'http://localhost:5173'[39m[0m
+
+      at W (node_modules/dotenv/dist/index.cjs:6:151)
+      at Object.M [as configDotenv] (node_modules/dotenv/dist/index.cjs:6:1119)
+      at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
+      at Object.config (support/env.js:4:8)
+
+
+Test Suites: 5 failed, 3 passed, 8 total
+Tests:       11 failed, 26 passed, 37 total
+Snapshots:   0 total
+Time:        19.658 s, estimated 21 s
+Ran all test suites in 3 projects.
+Test results written to: evidencias\week5\jest\resultado-completo.json
+Jest did not exit one second after the test run has completed.
+
+'This usually means that there are asynchronous operations that weren't stopped in your tests. Consider running Jest with `--detectOpenHandles` to troubleshoot this issue.

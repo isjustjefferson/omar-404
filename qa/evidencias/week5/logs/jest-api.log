@@ -241,7 +241,7 @@ PASS api tests/api/ct03-token.test.js
 Test Suites: 3 failed, 1 passed, 4 total
 Tests:       9 failed, 17 passed, 26 total
 Snapshots:   0 total
-Time:        1.941 s, estimated 2 s
+Time:        2.476 s
 Ran all test suites.
 Jest did not exit one second after the test run has completed.
 

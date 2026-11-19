@@ -1,7 +1,9 @@
+It looks like this is your first time using Cypress: 16.3.0
 
-> omar404-qa@1.0.0 test:e2e
-> cypress run --project cypress
+[33m❯[39m  Verifying Cypress can run C:\Users\Vinícius Castro\AppData\Local\Cypress\Cache\16.3.0\Cypress
+[32m✔[39m  Verified Cypress!       C:\Users\Vinícius Castro\AppData\Local\Cypress\Cache\16.3.0\Cypress
 
+Opening Cypress...
 
 
 ====================================================================================================
@@ -11,7 +13,7 @@
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
   │ Cypress:        16.3.0                                                                         │
   │ Browser:        Electron 150 (headless) (deprecated)                                           │
-  │ Node Version:   v26.13.1 (C:\Program Files\nodejs\node.exe)                                    │
+  │ Node Version:   v22.15.0 (C:\Program Files\nodejs\node.exe)                                    │
   │ Specs:          1 found (ct04-login.cy.js)                                                     │
   │ Searched:       e2e/**/*.cy.js                                                                 │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
@@ -29,11 +31,11 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
 
   CT04 - Login pela interface
-    √ (a) credenciais válidas autenticam e redirecionam (2277ms)
-    √ (b) senha incorreta mantém o usuário na tela de login (708ms)
+    √ (a) credenciais válidas autenticam e redirecionam (2694ms)
+    √ (b) senha incorreta mantém o usuário na tela de login (782ms)
 
 
-  2 passing (3s)
+  2 passing (4s)
 
 
   (Results)
@@ -53,7 +55,7 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
   (Video)
 
-  -  Video output: C:\Projetos\omar-404\qa\evidencias\week5\cypress\videos\ct04-login.cy.js.mp4
+  -  Video output: C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\evidencias\week5\cypress\videos\ct04-login.cy.js.mp4
 
 
 ====================================================================================================
@@ -63,7 +65,7 @@ Read more about supported browsers: https://on.cypress.io/launching-browsers
 
        Spec                                              Tests  Passing  Failing  Pending  Skipped  
   ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-  │ √  ct04-login.cy.js                         00:03        2        2        -        -        - │
+  │ ✔  ct04-login.cy.js                         00:03        2        2        -        -        - │
   └────────────────────────────────────────────────────────────────────────────────────────────────┘
-    √  All specs passed!                        00:03        2        2        -        -        -  
+    ✔  All specs passed!                        00:03        2        2        -        -        -  
 

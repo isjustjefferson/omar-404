@@ -1,0 +1,177 @@
+[
+  {
+    "ct": "CT09",
+    "desc": "POST /auth/register perfil=admin sem token",
+    "status": 201,
+    "body": {
+      "mensagem": "Usuário criado com sucesso",
+      "usuario": {
+        "id": 8,
+        "nome": "Intruso",
+        "email": "intruso@teste.com",
+        "perfil": "admin"
+      }
+    }
+  },
+  {
+    "ct": "CT09",
+    "desc": "login do admin criado",
+    "status": 200,
+    "body": {
+      "mensagem": "Login realizado com sucesso",
+      "token": "<omitido>",
+      "usuario": {
+        "id": 8,
+        "nome": "Intruso",
+        "email": "intruso@teste.com",
+        "perfil": "admin"
+      }
+    }
+  },
+  {
+    "ct": "CT10a",
+    "desc": "Admin A remove Operador A1 (id 3)",
+    "status": 500,
+    "body": {
+      "erro": "PublicKeyCredential is not defined"
+    }
+  },
+  {
+    "ct": "CT10a",
+    "banco": null
+  },
+  {
+    "ct": "CT10b",
+    "desc": "Admin A remove Operador B1 (id 4, de Admin B)",
+    "status": 500,
+    "body": {
+      "erro": "PublicKeyCredential is not defined"
+    }
+  },
+  {
+    "ct": "CT10b",
+    "banco": null
+  },
+  {
+    "ct": "CT10c",
+    "desc": "Admin A remove Admin B (id 2)",
+    "status": 500,
+    "body": {
+      "erro": "PublicKeyCredential is not defined"
+    }
+  },
+  {
+    "ct": "CT10c",
+    "banco": null
+  },
+  {
+    "ct": "CT10d",
+    "desc": "Admin A remove id inexistente 9999",
+    "status": 500,
+    "body": {
+      "erro": "Cannot read properties of undefined (reading 'id')"
+    }
+  },
+  {
+    "ct": "CT13",
+    "desc": "Admin B cria falecido com cliente 1 (de Admin A)",
+    "status": 201,
+    "body": {
+      "id": 5,
+      "nome": "Falecido Invadido",
+      "data_nascimento": "1950-01-01T02:00:00.000Z",
+      "data_falecimento": "2020-01-01T03:00:00.000Z",
+      "causa_morte": "Teste",
+      "cliente_id": 1,
+      "admin_id": 2,
+      "criado_em": "2026-11-18T23:20:47.763Z"
+    }
+  },
+  {
+    "ct": "CT13",
+    "desc": "Admin B cria serviço com cliente 1 / falecido 1 (de Admin A)",
+    "status": 201,
+    "body": {
+      "id": 5,
+      "tipo": "Velório",
+      "descricao": "Serviço de teste",
+      "valor": "1500.00",
+      "data_velorio": null,
+      "data_sepultamento": null,
+      "falecido_id": 1,
+      "cliente_id": 1,
+      "admin_id": 2,
+      "status": "pendente",
+      "criado_em": "2026-11-18T23:20:47.773Z"
+    }
+  },
+  {
+    "ct": "CT24c",
+    "desc": "Admin C (sem clientes) cria serviço",
+    "status": 201,
+    "body": {
+      "id": 5,
+      "tipo": "Velório",
+      "descricao": "Serviço de teste",
+      "valor": "1500.00",
+      "data_velorio": null,
+      "data_sepultamento": null,
+      "falecido_id": 1,
+      "cliente_id": 1,
+      "admin_id": 5,
+      "status": "pendente",
+      "criado_em": "2026-11-18T23:20:49.073Z"
+    }
+  },
+  {
+    "ct": "CT24d",
+    "desc": "Admin D (sem falecidos) cria serviço",
+    "status": 201,
+    "body": {
+      "id": 6,
+      "tipo": "Velório",
+      "descricao": "Serviço de teste",
+      "valor": "1500.00",
+      "data_velorio": null,
+      "data_sepultamento": null,
+      "falecido_id": 1,
+      "cliente_id": 5,
+      "admin_id": 6,
+      "status": "pendente",
+      "criado_em": "2026-11-18T23:20:49.083Z"
+    }
+  },
+  {
+    "ct": "CT25",
+    "desc": "Admin A cria serviço valor 0",
+    "status": 400,
+    "body": {
+      "erro": "Tipo, valor, falecido e cliente são obrigatórios."
+    }
+  },
+  {
+    "ct": "CT27",
+    "desc": "PUT /servicos/1 sem status (status anterior em_andamento)",
+    "status": 200,
+    "body": {
+      "id": 1,
+      "tipo": "Velório",
+      "descricao": "Serviço de teste",
+      "valor": "1500.00",
+      "data_velorio": null,
+      "data_sepultamento": null,
+      "falecido_id": 1,
+      "cliente_id": 1,
+      "admin_id": 1,
+      "status": null,
+      "criado_em": "2026-11-18T23:20:51.333Z"
+    }
+  },
+  {
+    "ct": "CT27",
+    "banco": {
+      "id": 1,
+      "status": null
+    }
+  }
+]

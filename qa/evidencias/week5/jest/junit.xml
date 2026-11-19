@@ -1,26 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuites name="Omar-404 Semana 5" tests="4" failures="2" errors="0" time="17.143">
-  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2026-11-17T18:09:01" time="12.385" tests="2">
+<testsuites name="Omar-404 Semana 5" tests="37" failures="11" errors="0" time="19.652">
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2026-11-18T20:09:26" time="12.511" tests="2">
     <testcase classname=" CT26 - transições de status publicam os eventos corretos" name=" CT26 - transições de status publicam os eventos corretos" time="11.753">
     </testcase>
-    <testcase classname=" CT27 - PUT sem status preserva status e com status publica evento" name=" CT27 - PUT sem status preserva status e com status publica evento" time="0.24">
+    <testcase classname=" CT27 - PUT sem status preserva status e com status publica evento" name=" CT27 - PUT sem status preserva status e com status publica evento" time="0.245">
       <failure>Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: &quot;em_andamento&quot;
 Received: null
-    at Object.toBe (C:\Projetos\omar-404\qa\tests\events\ct26-ct27-servicos-eventos.test.js:110:33)
-    at processTicksAndRejections (node:internal/process/task_queues:104:5)</failure>
+    at Object.toBe (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\events\ct26-ct27-servicos-eventos.test.js:110:33)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
     </testcase>
   </testsuite>
-  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2026-11-17T18:09:14" time="4.715" tests="2">
-    <testcase classname=" CT14 - todas as operações publicam evento" name=" CT14 - todas as operações publicam evento" time="2.621">
+  <testsuite name="undefined" errors="0" failures="1" skipped="0" timestamp="2026-11-18T20:09:39" time="4.836" tests="2">
+    <testcase classname=" CT14 - todas as operações publicam evento" name=" CT14 - todas as operações publicam evento" time="2.683">
     </testcase>
-    <testcase classname=" CT15 - eventos são isolados por administrador" name=" CT15 - eventos são isolados por administrador" time="1.956">
+    <testcase classname=" CT15 - eventos são isolados por administrador" name=" CT15 - eventos são isolados por administrador" time="2.013">
       <failure>Error: expect(received).toBe(expected) // Object.is equality
 
 Expected: 0
 Received: 2
-    at Object.toBe (C:\Projetos\omar-404\qa\tests\events\ct14-ct15-eventos.test.js:181:64)</failure>
+    at Object.toBe (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\events\ct14-ct15-eventos.test.js:181:64)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CT11 - Isolamento por administrador" errors="0" failures="1" skipped="0" timestamp="2026-11-18T20:09:44" time="0.878" tests="7">
+    <testcase classname="CT11 - Isolamento por administrador Admin A vê somente registros de Admin A" name="CT11 - Isolamento por administrador Admin A vê somente registros de Admin A" time="0.025">
+    </testcase>
+    <testcase classname="CT11 - Isolamento por administrador Operador A1 vê somente registros de Admin A" name="CT11 - Isolamento por administrador Operador A1 vê somente registros de Admin A" time="0.019">
+    </testcase>
+    <testcase classname="CT11 - Isolamento por administrador Admin B vê somente registros de Admin B" name="CT11 - Isolamento por administrador Admin B vê somente registros de Admin B" time="0.021">
+    </testcase>
+    <testcase classname="CT11 - Isolamento por administrador Operador B1 vê somente registros de Admin B" name="CT11 - Isolamento por administrador Operador B1 vê somente registros de Admin B" time="0.022">
+    </testcase>
+    <testcase classname="CT11 - Isolamento por administrador operador órfão recebe erro sem vínculo" name="CT11 - Isolamento por administrador operador órfão recebe erro sem vínculo" time="0.006">
+    </testcase>
+    <testcase classname="CT12 - Acesso a registros de outro administrador admin B não consulta, altera nem remove registros de A" name="CT12 - Acesso a registros de outro administrador admin B não consulta, altera nem remove registros de A" time="0.092">
+    </testcase>
+    <testcase classname="CT13 - Criação com vínculo de outro administrador não cria falecido nem serviço usando cliente de outro administrador" name="CT13 - Criação com vínculo de outro administrador não cria falecido nem serviço usando cliente de outro administrador" time="0.045">
+      <failure>Error: expect(received).toContain(expected) // indexOf
+
+Expected value: 201
+Received array: [400, 403]
+    at Object.toContain (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct11-ct13-multitenancy.test.js:116:24)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CT08 - Controle de acesso em usuários" errors="0" failures="5" skipped="0" timestamp="2026-11-18T20:09:45" time="0.558" tests="6">
+    <testcase classname="CT08 - Controle de acesso em usuários operador não consulta, edita nem remove usuários" name="CT08 - Controle de acesso em usuários operador não consulta, edita nem remove usuários" time="0.037">
+    </testcase>
+    <testcase classname="CT09 - Auto-registro de administrador não permite criar administrador via /auth/register" name="CT09 - Auto-registro de administrador não permite criar administrador via /auth/register" time="0.08">
+      <failure>Error: expect(received).toContain(expected) // indexOf
+
+Expected value: 201
+Received array: [401, 403]
+    at Object.toContain (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct08-ct10-usuarios.test.js:65:24)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+    <testcase classname="CT10 - Remoção de operadores (a) admin remove operador do próprio vínculo" name="CT10 - Remoção de operadores (a) admin remove operador do próprio vínculo" time="0.014">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 200
+Received: 500
+    at Object.toBe (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct08-ct10-usuarios.test.js:80:29)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+    <testcase classname="CT10 - Remoção de operadores (b) não remove operador de outro administrador" name="CT10 - Remoção de operadores (b) não remove operador de outro administrador" time="0.014">
+      <failure>Error: expect(received).toContain(expected) // indexOf
+
+Expected value: 500
+Received array: [400, 403]
+    at Object.toContain (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct08-ct10-usuarios.test.js:91:24)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+    <testcase classname="CT10 - Remoção de operadores (c) não remove outro administrador" name="CT10 - Remoção de operadores (c) não remove outro administrador" time="0.014">
+      <failure>Error: expect(received).toContain(expected) // indexOf
+
+Expected value: 500
+Received array: [400, 403]
+    at Object.toContain (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct08-ct10-usuarios.test.js:101:24)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+    <testcase classname="CT10 - Remoção de operadores (d) ID inexistente retorna 404" name="CT10 - Remoção de operadores (d) ID inexistente retorna 404" time="0.012">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 404
+Received: 500
+    at Object.toBe (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct08-ct10-usuarios.test.js:111:29)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="CT24 - Cadastro de serviço" errors="0" failures="3" skipped="0" timestamp="2026-11-18T20:09:45" time="0.487" tests="9">
+    <testcase classname="CT24 - Cadastro de serviço (a) cria serviço e exibe nomes na listagem" name="CT24 - Cadastro de serviço (a) cria serviço e exibe nomes na listagem" time="0.017">
+    </testcase>
+    <testcase classname="CT24 - Cadastro de serviço (b) campos obrigatórios ausentes" name="CT24 - Cadastro de serviço (b) campos obrigatórios ausentes" time="0.022">
+    </testcase>
+    <testcase classname="CT24 - Cadastro de serviço (c) admin sem clientes recebe aviso" name="CT24 - Cadastro de serviço (c) admin sem clientes recebe aviso" time="0.011">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 422
+Received: 201
+    at Object.toBe (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct24-ct25-servicos.test.js:62:29)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+    <testcase classname="CT24 - Cadastro de serviço (d) admin sem falecidos recebe aviso" name="CT24 - Cadastro de serviço (d) admin sem falecidos recebe aviso" time="0.012">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 422
+Received: 201
+    at Object.toBe (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct24-ct25-servicos.test.js:72:29)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+    <testcase classname="CT25 - Validação de valor do serviço valor -0.01 deve retornar 400" name="CT25 - Validação de valor do serviço valor -0.01 deve retornar 400" time="0.008">
+    </testcase>
+    <testcase classname="CT25 - Validação de valor do serviço valor 0 deve retornar 201" name="CT25 - Validação de valor do serviço valor 0 deve retornar 201" time="0.019">
+      <failure>Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: 201
+Received: 400
+    at toBe (C:\Users\Vinícius Castro\OneDrive\Área de Trabalho\omar-404\qa\tests\api\ct24-ct25-servicos.test.js:90:29)
+    at processTicksAndRejections (node:internal/process/task_queues:105:5)</failure>
+    </testcase>
+    <testcase classname="CT25 - Validação de valor do serviço valor 0.01 deve retornar 201" name="CT25 - Validação de valor do serviço valor 0.01 deve retornar 201" time="0.012">
+    </testcase>
+    <testcase classname="CT25 - Validação de valor do serviço valor 99999999.99 deve retornar 201" name="CT25 - Validação de valor do serviço valor 99999999.99 deve retornar 201" time="0.01">
+    </testcase>
+    <testcase classname="CT25 - Validação de valor do serviço valor 100000000 deve retornar 400" name="CT25 - Validação de valor do serviço valor 100000000 deve retornar 400" time="0.007">
+    </testcase>
+  </testsuite>
+  <testsuite name="CT03 - Token JWT" errors="0" failures="0" skipped="0" timestamp="2026-11-18T20:09:46" time="0.157" tests="4">
+    <testcase classname="CT03 - Token JWT (a) token dentro da validade é aceito" name="CT03 - Token JWT (a) token dentro da validade é aceito" time="0.01">
+    </testcase>
+    <testcase classname="CT03 - Token JWT (b) token expirado é recusado" name="CT03 - Token JWT (b) token expirado é recusado" time="0.004">
+    </testcase>
+    <testcase classname="CT03 - Token JWT (c) requisição sem token é recusada" name="CT03 - Token JWT (c) requisição sem token é recusada" time="0.002">
+    </testcase>
+    <testcase classname="CT03 - Token JWT (d) token com assinatura alterada é recusado" name="CT03 - Token JWT (d) token com assinatura alterada é recusado" time="0.004">
+    </testcase>
+  </testsuite>
+  <testsuite name="getAdminId" errors="0" failures="0" skipped="0" timestamp="2026-11-18T20:09:46" time="0.054" tests="4">
+    <testcase classname="getAdminId admin retorna o próprio id sem consultar cache ou banco" name="getAdminId admin retorna o próprio id sem consultar cache ou banco" time="0.001">
+    </testcase>
+    <testcase classname="getAdminId operador com cache retorna o admin_id em cache" name="getAdminId operador com cache retorna o admin_id em cache" time="0.001">
+    </testcase>
+    <testcase classname="getAdminId operador sem cache consulta o banco e preenche o cache" name="getAdminId operador sem cache consulta o banco e preenche o cache" time="0.001">
+    </testcase>
+    <testcase classname="getAdminId operador sem vínculo lança erro específico" name="getAdminId operador sem vínculo lança erro específico" time="0.002">
+    </testcase>
+  </testsuite>
+  <testsuite name="Servico.atualizarStatus" errors="0" failures="0" skipped="0" timestamp="2026-11-18T20:09:46" time="0.039" tests="3">
+    <testcase classname="Servico.atualizarStatus rejeita status fora da lista permitida sem consultar o banco" name="Servico.atualizarStatus rejeita status fora da lista permitida sem consultar o banco" time="0.004">
+    </testcase>
+    <testcase classname="Servico.atualizarStatus aceita status válido e atualiza apenas o serviço do administrador" name="Servico.atualizarStatus aceita status válido e atualiza apenas o serviço do administrador" time="0.001">
+    </testcase>
+    <testcase classname="Servico.atualizarStatus retorna undefined quando o serviço não pertence ao administrador" name="Servico.atualizarStatus retorna undefined quando o serviço não pertence ao administrador" time="0">
     </testcase>
   </testsuite>
 </testsuites>

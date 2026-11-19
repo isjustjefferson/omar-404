@@ -8,7 +8,7 @@ Running one project: events
 Banco e Redis de teste resetados.
 ◇ injected env (0) from .env.test
 Massa de dados de teste criada.
-FAIL events tests/events/ct26-ct27-servicos-eventos.test.js (12.385 s)
+FAIL events tests/events/ct14-ct15-eventos.test.js (5.188 s)
   ● Console
 
     console.error
@@ -27,24 +27,24 @@ FAIL events tests/events/ct26-ct27-servicos-eventos.test.js (12.385 s)
       at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
       at Object.<anonymous> (support/env.js:3:8)
 
-  ● CT27 - PUT sem status preserva status e com status publica evento
+  ● CT15 - eventos são isolados por administrador
 
     expect(received).toBe(expected) // Object.is equality
 
-    Expected: "em_andamento"
-    Received: null
+    Expected: 0
+    Received: 2
 
-    [0m [90m 108 |[39m
-     [90m 109 |[39m   expect(semStatus[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)
-    [31m[1m>[22m[39m[90m 110 |[39m   expect(semStatus[33m.[39mbody[33m.[39mstatus)[33m.[39mtoBe([32m'em_andamento'[39m)
-     [90m     |[39m                                 [31m[1m^[22m[39m
-     [90m 111 |[39m   [36mawait[39m delay([35m300[39m)
-     [90m 112 |[39m   expect(observador[33m.[39mrecebidos([32m'contrato:atualizado'[39m)[33m.[39mlength)[33m.[39mtoBe([35m1[39m)
-     [90m 113 |[39m   expect(observador[33m.[39mrecebidos([32m'sepultamento:confirmado'[39m)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)[0m
+    [0m [90m 179 |[39m     expect(socketsPorNome[[32m'Admin A'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)
+     [90m 180 |[39m     expect(socketsPorNome[[32m'Operador A1'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)
+    [31m[1m>[22m[39m[90m 181 |[39m     expect(socketsPorNome[[32m'Admin B'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)
+     [90m     |[39m                                                                [31m[1m^[22m[39m
+     [90m 182 |[39m     expect(socketsPorNome[[32m'Operador B1'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)
+     [90m 183 |[39m   }
+     [90m 184 |[39m[0m
 
-      at Object.toBe (tests/events/ct26-ct27-servicos-eventos.test.js:110:33)
+      at Object.toBe (tests/events/ct14-ct15-eventos.test.js:181:64)
 
-FAIL events tests/events/ct14-ct15-eventos.test.js
+FAIL events tests/events/ct26-ct27-servicos-eventos.test.js (12.228 s)
   ● Console
 
     console.error
@@ -63,25 +63,25 @@ FAIL events tests/events/ct14-ct15-eventos.test.js
       at Object.Y [as config] (node_modules/dotenv/dist/index.cjs:6:1226)
       at Object.config (support/env.js:4:8)
 
-  ● CT15 - eventos são isolados por administrador
+  ● CT27 - PUT sem status preserva status e com status publica evento
 
     expect(received).toBe(expected) // Object.is equality
 
-    Expected: 0
-    Received: 2
+    Expected: "em_andamento"
+    Received: null
 
-    [0m [90m 179 |[39m     expect(socketsPorNome[[32m'Admin A'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)
-     [90m 180 |[39m     expect(socketsPorNome[[32m'Operador A1'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBeGreaterThan([35m0[39m)
-    [31m[1m>[22m[39m[90m 181 |[39m     expect(socketsPorNome[[32m'Admin B'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)
-     [90m     |[39m                                                                [31m[1m^[22m[39m
-     [90m 182 |[39m     expect(socketsPorNome[[32m'Operador B1'[39m][33m.[39mrecebidos(evento)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)
-     [90m 183 |[39m   }
-     [90m 184 |[39m[0m
+    [0m [90m 108 |[39m
+     [90m 109 |[39m   expect(semStatus[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)
+    [31m[1m>[22m[39m[90m 110 |[39m   expect(semStatus[33m.[39mbody[33m.[39mstatus)[33m.[39mtoBe([32m'em_andamento'[39m)
+     [90m     |[39m                                 [31m[1m^[22m[39m
+     [90m 111 |[39m   [36mawait[39m delay([35m300[39m)
+     [90m 112 |[39m   expect(observador[33m.[39mrecebidos([32m'contrato:atualizado'[39m)[33m.[39mlength)[33m.[39mtoBe([35m1[39m)
+     [90m 113 |[39m   expect(observador[33m.[39mrecebidos([32m'sepultamento:confirmado'[39m)[33m.[39mlength)[33m.[39mtoBe([35m0[39m)[0m
 
-      at Object.toBe (tests/events/ct14-ct15-eventos.test.js:181:64)
+      at Object.toBe (tests/events/ct26-ct27-servicos-eventos.test.js:110:33)
 
 Test Suites: 2 failed, 2 total
 Tests:       2 failed, 2 passed, 4 total
 Snapshots:   0 total
-Time:        17.144 s, estimated 18 s
+Time:        17.5 s
 Ran all test suites.

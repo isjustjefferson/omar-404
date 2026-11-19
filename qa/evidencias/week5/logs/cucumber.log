@@ -2,6 +2,8 @@
 > omar404-qa@1.0.0 test:bdd
 > cucumber-js --config cucumber.js
 
+(node:31380) ExperimentalWarning: glob is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
 ◇ injected env (0) from .env.test
 ◇ injected env (0) from .env.test
 Banco e Redis de teste resetados.
@@ -12,4 +14,4 @@ Massa de dados de teste criada.
 2 hooks (2 passed)
 11 scenarios (11 passed)
 76 steps (76 passed)
-0m 2.224s (0m 2.199s executing your code)
+0m 2.711s (0m 2.663s executing your code)
